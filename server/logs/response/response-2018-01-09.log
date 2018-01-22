@@ -1,0 +1,312 @@
+[2018-01-09T20:06:08.204] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 27
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:06:56.435] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 32
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:09:51.215] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 860
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:10:57.495] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 887
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:11:57.676] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 18
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:12:17.513] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 18
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:44:30.477] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 19
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:45:29.842] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 17
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:45:51.180] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 18
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:47:54.668] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 15
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:48:22.021] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 18
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:48:38.552] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 21
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:49:35.324] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 3
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:50:14.471] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 752
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:51:57.578] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942"}
+response time: 140
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:52:23.702] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942"}
+response time: 123
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:52:45.899] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@123.com"}
+response time: 1689
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:53:06.667] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 631
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-09T20:55:19.809] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 27
+response status: 200
+response body: 
+{"code":-1,"msg":"send IdCode fail"}
+*************** response log end ***************
+
+[2018-01-09T20:56:03.702] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 28
+response status: 200
+response body: 
+{"code":-1,"msg":"send IdCode fail"}
+*************** response log end ***************
+
+[2018-01-09T20:56:31.141] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 23
+response status: 200
+response body: 
+{"code":-1,"msg":"send IdCode fail"}
+*************** response log end ***************
+
+[2018-01-09T20:56:44.583] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 26
+response status: 200
+response body: 
+{"code":-1,"msg":"send IdCode fail"}
+*************** response log end ***************
+
+[2018-01-09T20:57:02.851] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 24
+response status: 200
+response body: 
+{"code":-1,"msg":"send IdCode fail"}
+*************** response log end ***************
+
+[2018-01-09T20:57:25.460] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 709
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+

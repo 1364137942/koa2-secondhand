@@ -1,0 +1,335 @@
+[2018-01-11T19:42:28.644] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 6
+err name: TypeError
+err message: Cannot read property 'toUpperCase' of undefined
+err stack: TypeError: Cannot read property 'toUpperCase' of undefined
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:33:30)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at E:\nodejs\koa2\node_modules\koa-router\lib\router.js:345:16
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\lib\router.js:350:31)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at views (E:\nodejs\koa2\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at serve (E:\nodejs\koa2\node_modules\koa-static\index.js:47:14)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at parseBody.then.body (E:\nodejs\koa2\node_modules\koa-bodyparser\index.js:74:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:44:29.444] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 13
+err name: Error
+err message: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' FIdCode = undefined' at line 1
+err stack: Error: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' FIdCode = undefined' at line 1
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:46:38.456] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"------WebKitFormBoundaryh4Pnyru0pwHngIgO\r\nContent-Disposition: form-data; name":"\"email\"\r\n\r\n1364137942@qq.com\r\n------WebKitFormBoundaryh4Pnyru0pwHngIgO\r\nContent-Disposition: form-data; name=\"studentId\"\r\n\r\n20141002496\r\n------WebKitFormBoundaryh4Pnyru0pwHngIgO\r\nContent-Disposition: form-data; name=\"studentPass\"\r\n\r\n230639\r\n------WebKitFormBoundaryh4Pnyru0pwHngIgO\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\n123456\r\n------WebKitFormBoundaryh4Pnyru0pwHngIgO\r\nContent-Disposition: form-data; name=\"idCode\"\r\n\r\nCDV1\r\n------WebKitFormBoundaryh4Pnyru0pwHngIgO\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\nalizjli\r\n------WebKitFormBoundaryh4Pnyru0pwHngIgO--\r\n"}
+response time: 25
+err name: Error
+err message: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' FIdCode = undefined' at line 1
+err stack: Error: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' FIdCode = undefined' at line 1
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:49:39.509] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"CDV1","username":"alizjli"}
+response time: 23
+err name: Error
+err message: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@qq.com, FIdCode = CDV1' at line 1
+err stack: Error: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@qq.com, FIdCode = CDV1' at line 1
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:69:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:50:06.841] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"CDV1","username":"alizjli"}
+response time: 20
+err name: Error
+err message: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@qq.com and FIdCode = CDV1' at line 1
+err stack: Error: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@qq.com and FIdCode = CDV1' at line 1
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:69:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:50:29.999] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"CDV1","username":"alizjli"}
+response time: 20
+err name: Error
+err message: Error: 请选择发送邮箱验证码
+err stack: Error: Error: 请选择发送邮箱验证码
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:69:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:52:48.030] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 8
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:69:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:53:17.294] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 25
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:54:08.404] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 20
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:54:21.025] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 27
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:55:27.001] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 22
+err name: Error
+err message: Error: [object Object]
+err stack: Error: Error: [object Object]
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:55:48.657] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 23
+err name: Error
+err message: Error: [object Object]
+err stack: Error: Error: [object Object]
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:57:12.886] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 29
+err name: Error
+err message: Error: [object Object]
+err stack: Error: Error: [object Object]
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:57:27.483] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 26
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T19:58:20.661] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 24
+err name: Error
+err message: 验证码已过期
+err stack: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T20:00:06.913] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 29
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T20:00:29.657] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 4
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T20:00:38.564] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 26
+err name: Error
+err message: Error: [object Object]
+err stack: Error: Error: [object Object]
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T20:00:47.406] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 27
+err name: Error
+err message: Error: [object Object]
+err stack: Error: Error: [object Object]
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-11T20:01:05.344] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"418R","username":"alizjli"}
+response time: 21
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+

@@ -1,0 +1,156 @@
+[2018-01-11T19:40:26.351] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 807
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+
+[2018-01-11T19:43:30.372] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 12
+response status: 200
+response body: 
+{"code":-1,"msg":"系统错误"}
+*************** response log end ***************
+
+[2018-01-11T19:43:51.006] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 17
+response status: 200
+response body: 
+{"code":-1,"msg":"系统错误"}
+*************** response log end ***************
+
+[2018-01-11T19:45:27.978] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 6
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2018-01-11T19:45:40.755] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 5
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2018-01-11T19:46:23.702] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"------WebKitFormBoundarynAEhANpH4BH0Vzmk\r\nContent-Disposition: form-data; name":"\"email\"\r\n\r\n1364137942@qq.com\r\n------WebKitFormBoundarynAEhANpH4BH0Vzmk\r\nContent-Disposition: form-data; name=\"studentId\"\r\n\r\n20141002496\r\n------WebKitFormBoundarynAEhANpH4BH0Vzmk\r\nContent-Disposition: form-data; name=\"studentPass\"\r\n\r\n230639\r\n------WebKitFormBoundarynAEhANpH4BH0Vzmk\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\n123456\r\n------WebKitFormBoundarynAEhANpH4BH0Vzmk\r\nContent-Disposition: form-data; name=\"idCode\"\r\n\r\nCDV1\r\n------WebKitFormBoundarynAEhANpH4BH0Vzmk\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\nalizjli\r\n------WebKitFormBoundarynAEhANpH4BH0Vzmk--\r\n"}
+response time: 17
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2018-01-11T19:47:22.317] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"------WebKitFormBoundarybGGPy2G3rpsZbVUD\r\nContent-Disposition: form-data; name":"\"email\"\r\n\r\n1364137942@qq.com\r\n------WebKitFormBoundarybGGPy2G3rpsZbVUD\r\nContent-Disposition: form-data; name=\"studentId\"\r\n\r\n20141002496\r\n------WebKitFormBoundarybGGPy2G3rpsZbVUD\r\nContent-Disposition: form-data; name=\"studentPass\"\r\n\r\n230639\r\n------WebKitFormBoundarybGGPy2G3rpsZbVUD\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\n123456\r\n------WebKitFormBoundarybGGPy2G3rpsZbVUD\r\nContent-Disposition: form-data; name=\"idCode\"\r\n\r\nCDV1\r\n------WebKitFormBoundarybGGPy2G3rpsZbVUD\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\nalizjli\r\n------WebKitFormBoundarybGGPy2G3rpsZbVUD--\r\n"}
+response time: 34
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2018-01-11T19:47:28.610] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"------WebKitFormBoundaryYJeXHvF4MRoxhEwx\r\nContent-Disposition: form-data; name":"\"email\"\r\n\r\n1364137942@qq.com\r\n------WebKitFormBoundaryYJeXHvF4MRoxhEwx\r\nContent-Disposition: form-data; name=\"studentId\"\r\n\r\n20141002496\r\n------WebKitFormBoundaryYJeXHvF4MRoxhEwx\r\nContent-Disposition: form-data; name=\"studentPass\"\r\n\r\n230639\r\n------WebKitFormBoundaryYJeXHvF4MRoxhEwx\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\n123456\r\n------WebKitFormBoundaryYJeXHvF4MRoxhEwx\r\nContent-Disposition: form-data; name=\"idCode\"\r\n\r\nCDV1\r\n------WebKitFormBoundaryYJeXHvF4MRoxhEwx\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\nalizjli\r\n------WebKitFormBoundaryYJeXHvF4MRoxhEwx--\r\n"}
+response time: 19
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2018-01-11T19:47:56.297] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"idCode":"12"}
+response time: 15
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2018-01-11T19:48:40.158] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"------WebKitFormBoundarypZFe9xOrQTfUQ12i\r\nContent-Disposition: form-data; name":"\"email\"\r\n\r\n1364137942@qq.com\r\n------WebKitFormBoundarypZFe9xOrQTfUQ12i\r\nContent-Disposition: form-data; name=\"studentId\"\r\n\r\n20141002496\r\n------WebKitFormBoundarypZFe9xOrQTfUQ12i\r\nContent-Disposition: form-data; name=\"studentPass\"\r\n\r\n230639\r\n------WebKitFormBoundarypZFe9xOrQTfUQ12i\r\nContent-Disposition: form-data; name=\"password\"\r\n\r\n123456\r\n------WebKitFormBoundarypZFe9xOrQTfUQ12i\r\nContent-Disposition: form-data; name=\"idCode\"\r\n\r\nCDV1\r\n------WebKitFormBoundarypZFe9xOrQTfUQ12i\r\nContent-Disposition: form-data; name=\"username\"\r\n\r\nalizjli\r\n------WebKitFormBoundarypZFe9xOrQTfUQ12i--\r\n"}
+response time: 5
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2018-01-11T19:49:32.895] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"CDV1","username":"alizjli"}
+response time: 1
+response status: 404
+response body: 
+undefined
+*************** response log end ***************
+
+[2018-01-11T19:52:18.213] [INFO] resLogger - 
+*************** response log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 642
+response status: 200
+response body: 
+{"code":0,"msg":"send IdCode success"}
+*************** response log end ***************
+

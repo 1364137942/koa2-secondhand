@@ -1,0 +1,173 @@
+[2018-01-08T19:55:06.032] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /test/uploadFile
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 6
+err name: ReferenceError
+err message: path is not defined
+err stack: ReferenceError: path is not defined
+    at uploadFile (E:\nodejs\koa2\server\controllers\admin\testController.js:12:26)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at checkLogin (E:\nodejs\koa2\server\controllers\admin\common.js:20:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at E:\nodejs\koa2\node_modules\koa-router\lib\router.js:345:16
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\lib\router.js:350:31)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at views (E:\nodejs\koa2\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at serve (E:\nodejs\koa2\node_modules\koa-static\index.js:47:14)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at parseBody.then.body (E:\nodejs\koa2\node_modules\koa-bodyparser\index.js:74:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-08T19:55:34.045] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /test/uploadFile
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 6
+err name: ReferenceError
+err message: path is not defined
+err stack: ReferenceError: path is not defined
+    at uploadFile (E:\nodejs\koa2\server\controllers\admin\testController.js:12:26)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at checkLogin (E:\nodejs\koa2\server\controllers\admin\common.js:20:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at E:\nodejs\koa2\node_modules\koa-router\lib\router.js:345:16
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\lib\router.js:350:31)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at views (E:\nodejs\koa2\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at serve (E:\nodejs\koa2\node_modules\koa-static\index.js:47:14)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at parseBody.then.body (E:\nodejs\koa2\node_modules\koa-bodyparser\index.js:74:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-08T19:56:36.575] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /test/uploadFile
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 6
+err name: ReferenceError
+err message: Busboy is not defined
+err stack: ReferenceError: Busboy is not defined
+    at uploadFile (E:\nodejs\koa2\server\controllers\admin\testController.js:27:16)
+    at uploadFile (E:\nodejs\koa2\server\controllers\admin\testController.js:15:20)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at checkLogin (E:\nodejs\koa2\server\controllers\admin\common.js:20:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at E:\nodejs\koa2\node_modules\koa-router\lib\router.js:345:16
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\lib\router.js:350:31)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at views (E:\nodejs\koa2\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at serve (E:\nodejs\koa2\node_modules\koa-static\index.js:47:14)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at parseBody.then.body (E:\nodejs\koa2\node_modules\koa-bodyparser\index.js:74:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-08T19:57:46.363] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /test/uploadFile
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 7
+err name: ReferenceError
+err message: mkdirsSync is not defined
+err stack: ReferenceError: mkdirsSync is not defined
+    at uploadFile (E:\nodejs\koa2\server\controllers\admin\testController.js:36:21)
+    at uploadFile (E:\nodejs\koa2\server\controllers\admin\testController.js:19:20)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at checkLogin (E:\nodejs\koa2\server\controllers\admin\common.js:20:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at E:\nodejs\koa2\node_modules\koa-router\lib\router.js:345:16
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\lib\router.js:350:31)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at views (E:\nodejs\koa2\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at serve (E:\nodejs\koa2\node_modules\koa-static\index.js:47:14)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at parseBody.then.body (E:\nodejs\koa2\node_modules\koa-bodyparser\index.js:74:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-08T19:58:33.250] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /test/uploadFile
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{}
+response time: 8
+err name: TypeError
+err message: mkdirsSync is not a function
+err stack: TypeError: mkdirsSync is not a function
+    at uploadFile (E:\nodejs\koa2\server\controllers\admin\testController.js:36:21)
+    at uploadFile (E:\nodejs\koa2\server\controllers\admin\testController.js:19:20)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at checkLogin (E:\nodejs\koa2\server\controllers\admin\common.js:20:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at E:\nodejs\koa2\node_modules\koa-router\lib\router.js:345:16
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\lib\router.js:350:31)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at views (E:\nodejs\koa2\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at serve (E:\nodejs\koa2\node_modules\koa-static\index.js:47:14)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at parseBody.then.body (E:\nodejs\koa2\node_modules\koa-bodyparser\index.js:74:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+

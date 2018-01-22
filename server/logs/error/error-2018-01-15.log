@@ -1,0 +1,286 @@
+[2018-01-15T19:13:29.014] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"8I7Q","username":"alizjli"}
+response time: 5
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-15T19:14:56.505] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"8I7Q","username":"alizjli"}
+response time: 24
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-15T19:15:05.338] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"8I7Q","username":"alizjli"}
+response time: 23
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-15T19:15:19.300] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"8I7Q","username":"alizjli"}
+response time: 22
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-15T19:15:50.679] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/register
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"8I7Q","username":"alizjli"}
+response time: 26
+err name: Error
+err message: Error: 邮箱已存在
+err stack: Error: Error: 邮箱已存在
+    at register (E:\nodejs\koa2\server\controllers\index\userController.js:70:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-15T19:35:02.897] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/login
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"8I7Q","username":"alizjli"}
+response time: 19
+err name: Error
+err message: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@qq.com, FPassword = E10ADC3949BA59ABBE56E057F20F883E' at line 1
+err stack: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '@qq.com, FPassword = E10ADC3949BA59ABBE56E057F20F883E' at line 1
+    at Query.Sequence._packetToError (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:279:23)
+    at Parser.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (E:\nodejs\koa2\node_modules\mysql\lib\Connection.js:103:28)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+    --------------------
+    at Protocol._enqueue (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:145:48)
+    at PoolConnection.query (E:\nodejs\koa2\node_modules\mysql\lib\Connection.js:208:25)
+    at E:\nodejs\koa2\server\utils\db-util.js:19:20
+    at Handshake.onConnect [as _callback] (E:\nodejs\koa2\node_modules\mysql\lib\Pool.js:64:7)
+    at Handshake.Sequence.end (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Sequence.js:88:24)
+    at Handshake.Sequence.OkPacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Sequence.js:97:8)
+    at Protocol._parsePacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:279:23)
+    at Parser.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (E:\nodejs\koa2\node_modules\mysql\lib\Connection.js:103:28)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+*************** error log end ***************
+
+[2018-01-15T19:35:54.704] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/login
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","studentId":"20141002496","studentPass":"230639","password":"123456","idCode":"8I7Q","username":"alizjli"}
+response time: 21
+err name: Error
+err message: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' FPassword = 'E10ADC3949BA59ABBE56E057F20F883E'' at line 1
+err stack: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' FPassword = 'E10ADC3949BA59ABBE56E057F20F883E'' at line 1
+    at Query.Sequence._packetToError (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:279:23)
+    at Parser.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (E:\nodejs\koa2\node_modules\mysql\lib\Connection.js:103:28)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+    --------------------
+    at Protocol._enqueue (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:145:48)
+    at PoolConnection.query (E:\nodejs\koa2\node_modules\mysql\lib\Connection.js:208:25)
+    at E:\nodejs\koa2\server\utils\db-util.js:19:20
+    at Handshake.onConnect [as _callback] (E:\nodejs\koa2\node_modules\mysql\lib\Pool.js:64:7)
+    at Handshake.Sequence.end (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Sequence.js:88:24)
+    at Handshake.Sequence.OkPacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Sequence.js:97:8)
+    at Protocol._parsePacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:279:23)
+    at Parser.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (E:\nodejs\koa2\node_modules\mysql\lib\Connection.js:103:28)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+*************** error log end ***************
+
+[2018-01-15T19:36:06.992] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/login
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","password":"123456"}
+response time: 4
+err name: Error
+err message: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' FPassword = 'E10ADC3949BA59ABBE56E057F20F883E'' at line 1
+err stack: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ' FPassword = 'E10ADC3949BA59ABBE56E057F20F883E'' at line 1
+    at Query.Sequence._packetToError (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Sequence.js:52:14)
+    at Query.ErrorPacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Query.js:77:18)
+    at Protocol._parsePacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:279:23)
+    at Parser.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (E:\nodejs\koa2\node_modules\mysql\lib\Connection.js:103:28)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+    --------------------
+    at Protocol._enqueue (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:145:48)
+    at PoolConnection.query (E:\nodejs\koa2\node_modules\mysql\lib\Connection.js:208:25)
+    at E:\nodejs\koa2\server\utils\db-util.js:19:20
+    at Ping.onOperationComplete [as _callback] (E:\nodejs\koa2\node_modules\mysql\lib\Pool.js:110:5)
+    at Ping.Sequence.end (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Sequence.js:88:24)
+    at Ping.Sequence.OkPacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\sequences\Sequence.js:97:8)
+    at Protocol._parsePacket (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:279:23)
+    at Parser.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Parser.js:76:12)
+    at Protocol.write (E:\nodejs\koa2\node_modules\mysql\lib\protocol\Protocol.js:39:16)
+    at Socket.<anonymous> (E:\nodejs\koa2\node_modules\mysql\lib\Connection.js:103:28)
+    at emitOne (events.js:116:13)
+    at Socket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at Socket.Readable.push (_stream_readable.js:208:10)
+    at TCP.onread (net.js:594:20)
+*************** error log end ***************
+
+[2018-01-15T20:10:56.229] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/forgetPass
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","password":"111111","idCode":"71QS"}
+response time: 26
+err name: Error
+err message: Error: ER_BAD_FIELD_ERROR: Unknown column 'FExpireDate' in 'field list'
+err stack: Error: Error: ER_BAD_FIELD_ERROR: Unknown column 'FExpireDate' in 'field list'
+    at forgetPass (E:\nodejs\koa2\server\controllers\index\userController.js:138:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-15T20:11:28.649] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/forgetPass
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","password":"111111","idCode":"71QS"}
+response time: 34
+err name: Error
+err message: ReferenceError: psssword is not defined
+err stack: Error: ReferenceError: psssword is not defined
+    at forgetPass (E:\nodejs\koa2\server\controllers\index\userController.js:138:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-15T20:12:24.783] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/forgetPass
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","password":"111111","idCode":"71QS"}
+response time: 28
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at forgetPass (E:\nodejs\koa2\server\controllers\index\userController.js:139:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-15T20:13:09.891] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/forgetPass
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","password":"111111","idCode":"71QS"}
+response time: 32
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at forgetPass (E:\nodejs\koa2\server\controllers\index\userController.js:138:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-15T20:13:30.498] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/forgetPass
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com","password":"111111","idCode":"71QS"}
+response time: 25
+err name: Error
+err message: Error: 验证码已过期
+err stack: Error: Error: 验证码已过期
+    at forgetPass (E:\nodejs\koa2\server\controllers\index\userController.js:137:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+

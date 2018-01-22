@@ -1,0 +1,233 @@
+[2018-01-09T20:04:02.340] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 93
+err name: ReferenceError
+err message: indexService is not defined
+err stack: ReferenceError: indexService is not defined
+    at sendIdCode (E:\nodejs\koa2\server\controllers\index\userController.js:15:24)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at E:\nodejs\koa2\node_modules\koa-router\lib\router.js:345:16
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\lib\router.js:350:31)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at views (E:\nodejs\koa2\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at serve (E:\nodejs\koa2\node_modules\koa-static\index.js:47:14)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at parseBody.then.body (E:\nodejs\koa2\node_modules\koa-bodyparser\index.js:74:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-09T20:04:31.636] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 2
+err name: ReferenceError
+err message: indexService is not defined
+err stack: ReferenceError: indexService is not defined
+    at sendIdCode (E:\nodejs\koa2\server\controllers\index\userController.js:15:24)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at E:\nodejs\koa2\node_modules\koa-router\lib\router.js:345:16
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\lib\router.js:350:31)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at views (E:\nodejs\koa2\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at serve (E:\nodejs\koa2\node_modules\koa-static\index.js:47:14)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at parseBody.then.body (E:\nodejs\koa2\node_modules\koa-bodyparser\index.js:74:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-09T20:05:35.335] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 18
+err name: ReferenceError
+err message: indexService is not defined
+err stack: ReferenceError: indexService is not defined
+    at sendIdCode (E:\nodejs\koa2\server\controllers\index\userController.js:15:24)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at next (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:45:18)
+    at E:\nodejs\koa2\node_modules\koa-router\lib\router.js:345:16
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:44:32)
+    at E:\nodejs\koa2\node_modules\koa-router\node_modules\koa-compose\index.js:36:12
+    at dispatch (E:\nodejs\koa2\node_modules\koa-router\lib\router.js:350:31)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at views (E:\nodejs\koa2\node_modules\koa-views\lib\index.js:61:12)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at serve (E:\nodejs\koa2\node_modules\koa-static\index.js:47:14)
+    at dispatch (E:\nodejs\koa2\node_modules\koa-compose\index.js:42:32)
+    at next (E:\nodejs\koa2\node_modules\koa-compose\index.js:43:18)
+    at parseBody.then.body (E:\nodejs\koa2\node_modules\koa-bodyparser\index.js:74:14)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-09T20:08:20.850] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 168
+err name: Error
+err message: Mail command failed: 501 mail from address must be same as authorization user
+err stack: Error: Mail command failed: 501 mail from address must be same as authorization user
+    at SMTPConnection._formatError (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:591:19)
+    at SMTPConnection._actionMAIL (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:1350:34)
+    at SMTPConnection._responseActions.push.str (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:840:18)
+    at SMTPConnection._processResponse (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:747:20)
+    at SMTPConnection._onData (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:543:14)
+    at TLSSocket._socket.on.chunk (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:495:47)
+    at emitOne (events.js:116:13)
+    at TLSSocket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at TLSSocket.Readable.push (_stream_readable.js:208:10)
+    at TLSWrap.onread (net.js:594:20)
+*************** error log end ***************
+
+[2018-01-09T20:09:15.482] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 153
+err name: Error
+err message: Mail command failed: 501 mail from address must be same as authorization user
+err stack: Error: Mail command failed: 501 mail from address must be same as authorization user
+    at SMTPConnection._formatError (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:591:19)
+    at SMTPConnection._actionMAIL (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:1350:34)
+    at SMTPConnection._responseActions.push.str (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:840:18)
+    at SMTPConnection._processResponse (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:747:20)
+    at SMTPConnection._onData (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:543:14)
+    at TLSSocket._socket.on.chunk (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:495:47)
+    at emitOne (events.js:116:13)
+    at TLSSocket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at TLSSocket.Readable.push (_stream_readable.js:208:10)
+    at TLSWrap.onread (net.js:594:20)
+*************** error log end ***************
+
+[2018-01-09T20:11:27.051] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 30
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at sendIdCode (E:\nodejs\koa2\server\controllers\index\userController.js:14:5)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-09T20:11:38.778] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 18
+err name: TypeError
+err message: console is not a function
+err stack: TypeError: console is not a function
+    at sendIdCode (E:\nodejs\koa2\server\controllers\index\userController.js:14:5)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:188:7)
+*************** error log end ***************
+
+[2018-01-09T20:50:28.169] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942"}
+response time: 90
+err name: Error
+err message: No recipients defined
+err stack: Error: No recipients defined
+    at SMTPConnection._formatError (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:591:19)
+    at SMTPConnection._setEnvelope (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:800:34)
+    at SMTPConnection.send (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:416:14)
+    at sendMessage (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-transport\index.js:226:28)
+    at connection.login.err (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-transport\index.js:284:25)
+    at SMTPConnection._actionAUTHComplete (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:1334:9)
+    at SMTPConnection._responseActions.push.str (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:356:26)
+    at SMTPConnection._processResponse (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:747:20)
+    at SMTPConnection._onData (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:543:14)
+    at TLSSocket._socket.on.chunk (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:495:47)
+    at emitOne (events.js:116:13)
+    at TLSSocket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at TLSSocket.Readable.push (_stream_readable.js:208:10)
+    at TLSWrap.onread (net.js:594:20)
+*************** error log end ***************
+
+[2018-01-09T20:51:12.037] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /user/sendIdCode
+request client ip:  ::ffff:127.0.0.1
+request body: 
+{"email":"1364137942"}
+response time: 152
+err name: Error
+err message: No recipients defined
+err stack: Error: No recipients defined
+    at SMTPConnection._formatError (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:591:19)
+    at SMTPConnection._setEnvelope (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:800:34)
+    at SMTPConnection.send (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:416:14)
+    at sendMessage (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-transport\index.js:226:28)
+    at connection.login.err (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-transport\index.js:284:25)
+    at SMTPConnection._actionAUTHComplete (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:1334:9)
+    at SMTPConnection._responseActions.push.str (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:356:26)
+    at SMTPConnection._processResponse (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:747:20)
+    at SMTPConnection._onData (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:543:14)
+    at TLSSocket._socket.on.chunk (E:\nodejs\koa2\node_modules\nodemailer\lib\smtp-connection\index.js:495:47)
+    at emitOne (events.js:116:13)
+    at TLSSocket.emit (events.js:211:7)
+    at addChunk (_stream_readable.js:263:12)
+    at readableAddChunk (_stream_readable.js:250:11)
+    at TLSSocket.Readable.push (_stream_readable.js:208:10)
+    at TLSWrap.onread (net.js:594:20)
+*************** error log end ***************
+

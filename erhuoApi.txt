@@ -1,0 +1,142 @@
+管理台
+1、localhost:3001/admin/login
+post 
+user
+password
+{
+    "code": 0,
+    "msg": "admin login success"
+}
+
+2、localhost:3001/admin/logOut
+redirect loginpage
+
+用户管理
+3、localhost:3001/userManage/getUser
+post
+type:white/black
+page:1
+eachpageNum：10
+{
+    "code": 0,
+    "data": [
+        {
+            "FUserID": 1,
+            "FEmail": "1364137942@qq.com",
+            "FUserName": "alizjli",
+            "FPassword": "123456",
+            "FStudentID": "20141002496",
+            "FStudentName": "???",
+            "FAcademy": "??",
+            "FPhone": "18826103989",
+            "FQQ": "1364137942",
+            "FIsBlack": 1
+        }
+    ],
+    "count": 1
+}
+
+4、localhost:3001/userManage/blackUser
+post
+userID 1,2
+{
+    "code": 0,
+    "msg": "black user success"
+}
+
+5、localhost:3001/userManage/whiteUser
+post
+userID 1,2
+{
+    "code": 0,
+    "msg": "black user success"
+}
+
+//商品管理
+6、localhost:3001/goodsManage/getUserGoods
+post
+userID 1
+page 1
+eachPageNum 10
+{
+    "code": 0,
+    "data": [
+        {
+            "FGoodID": 1,
+            "FEmail": "123",
+            "FGoodName": "123",
+            "FGoodImg": "123",
+            "FPrice": "123",
+            "FType": "1",
+            "FOld": "2",
+            "FDesc": "",
+            "FStatus": 1,
+            "FSaleDate": "0000-00-00",
+            "FOutDate": "0000-00-00",
+            "FCreateTime": "2018-01-06T07:04:44.000Z",
+            "FUpdateTime": "2018-01-06T07:04:44.000Z",
+            "FClick": null
+        }
+    ],
+    "count": 1
+}
+
+7、localhost:3001/goodsManage/offGoods?goodID=1
+localhost:3001/goodsManage/disabledGoods?goodID=1
+get
+{
+    "code": 0,
+    "msg": "off goods success"
+}
+
+8、localhost:3001/goodsManage/onGoods?goodID=1
+localhost:3001/goodsManage/enabledGoods?goodID=1
+get
+{
+    "code": 0,
+    "msg": "on goods success"
+}
+
+求购管理
+9、localhost:3001/wantsManage/getUserWants
+post 
+userID
+page
+eachPageNum
+{
+    "code": 0,
+    "data": [
+        {
+            "FWantID": 1,
+            "FEmail": "123",
+            "FGoodName": "123",
+            "FType": "1",
+            "FDesc": "",
+            "FStatus": 1,
+            "FSaleDate": "0000-00-00",
+            "FOutDate": "0000-00-00",
+            "FCreateTime": "2018-01-06T07:13:03.000Z",
+            "FUpdateTime": "2018-01-06T07:13:03.000Z"
+        }
+    ],
+    "count": 1
+}
+
+10、localhost:3001/wantsManage/disabledWants?wantID=1
+get
+{
+    "code": 0,
+    "msg": "disable wants success"
+}
+11、localhost:3001/wantsManage/enabledWants?wantID=1
+get
+{
+    "code": 0,
+    "msg": "enable wants success"
+}
+
+12、localhost:3001/noticeManage/sendNotice
+email
+title
+content
+
