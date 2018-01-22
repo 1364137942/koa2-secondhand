@@ -6,9 +6,6 @@ const globalConfig = require('../common/globalConfig');
 const nodeMailer = require('nodemailer');
 const rp = require('request-promise');
 
-
-
-
 module.exports = {
   async md5(str){
     var md5=crypto.createHash("md5");

@@ -5,8 +5,8 @@
 const idCodeModel = require('../models/index/idCodeModel');
 const userModel = require('../models/index/userModel');
 const goodsModel = require('../models/index/goodsModel');
+const wantsModel = require('../models/index/wantsModel');
 
-const {getNowFormatDate} = require('../common/commonFunction');
 
 const indexService = {
   async insertOrUpdateIdCode(FEmail, FIdCode, FExpireTime){
@@ -72,7 +72,50 @@ const indexService = {
   },
   async getGoodInfo(FGoodID, FEmail){
     return await goodsModel.getGoodInfo(FGoodID, FEmail);
-  }
+  },
+
+  async updateGoodStatus(FGoodID, FEmail, FStatus){
+    let re = await goodsModel.updateGoodStatus(FGoodID, FEmail, FStatus);
+    if(re.affectedRows == 1){
+      return true;
+    }else{
+      return false;
+    }
+
+  },
+
+  async getHotsGoods(){
+    return await goodsModel.getHotsGoods();
+  },
+
+  //用户求购管理
+  async getUserWantsList(FEmail, FStatus, page, eachPageNum){
+    return await wantsModel.getUserWantsList(FEmail, FStatus, page, eachPageNum);
+  },
+  async getUserWantsListCount(FEmail, FStatus){
+    let re = await wantsModel.getUserWantsList(FEmail, FStatus);
+    return re[0].count;
+  },
+  async deleteWant(FWantID, FEmail){
+    let re = await wantsModel.deleteWant(FWantID, FEmail);
+    if(parseInt(re.affectedRows) === 1){
+      return true;
+    }else{
+      return false;
+    }
+  },
+  async getWantInfo(FWantID, FEmail){
+    return await wantsModel.getWantInfo(FWantID, FEmail);
+  },
+  async updateGoodStatus(FWantID, FEmail, FStatus){
+    let re = await wantsModel.updateWantStatus(FWantID, FEmail, FStatus);
+    if(parseInt(re.affectedRows) === 1){
+      return true;
+    }else{
+      return false;
+    }
+
+  },
 
 
 

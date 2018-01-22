@@ -2,7 +2,7 @@ const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
 const {CustomError} = require('../../utils/Error');
 module.exports = {
-  async getUserGoods(ctx){
+  async getUserWants(ctx){
     let result = {
       code: 0,
       data: [],
@@ -15,23 +15,23 @@ module.exports = {
     page = (page - 1) * eachPageNum;
     let email = ctx.session.email;
 
-    result.data = await indexService.getUserGoodsList(email, status, page, eachPageNum);
-    result.count = await indexService.getUserGoodsListCount(email, status);
+    result.data = await indexService.getUserWantsList(email, status, page, eachPageNum);
+    result.count = await indexService.getUserWantsListCount(email, status);
     ctx.body = result;
   },
 
-  async deleteGood(ctx){
+  async deleteWant(ctx){
     let result = {
       code: 0,
-      msg: '删除商品成功'
+      msg: '删除求购商品成功'
     };
     let data = ctx.query,
-        goodID = data.goodID;
+      wantID = data.wantID;
     let email = ctx.session.email;
-    let re = await indexService.deleteGood(goodID, email);
+    let re = await indexService.deleteWant(wantID, email);
     if(re === false){
       result.code = -1;
-      result.msg = '删除商品失败'
+      result.msg = '删除求购商品失败'
     }
     ctx.body = result;
   },
@@ -39,23 +39,24 @@ module.exports = {
   async updateUserGoodStatus(ctx){
     let result = {
       code: 0,
-      msg: '商品下架成功'
+      msg: '信息下架成功'
     };
     try{
       let data = ctx.query,
-        goodID = data.goodID;
+        wantID = data.wantID;
         status = data.status;
+
       if(parseInt(status) === 1){
-        result.msg = '商品上架成功'
+        result.msg = '信息上架成功'
       }
       let email = ctx.session.email;
-      let re = await indexService.getGoodInfo(goodID, email);
+      let re = await indexService.getWantInfo(wantID, email);
       if(!(Array.isArray(re) && re.length > 0)){
-        throw new CustomError('商品信息不存在');
+        throw new CustomError('信息不存在');
       }
-      let updateRe = await indexService.updateGoodStatus(goodID, email, status);
+      let updateRe = await indexService.updateWantStatus(wantID, email, status);
       if(updateRe === false){
-        throw new CustomError('商品信息状态更新失败');
+        throw new CustomError('信息状态更新失败');
       }
     }catch(e){
       result.code = -1;
@@ -66,18 +67,8 @@ module.exports = {
         throw Error(e);
       }
     }
-    ctx.body = result;
-  },
-  async getHotsGoods(){
-    let result = {
-      code: 0,
-      msg: '获取热门商品成功',
-      data: []
-    }
-    let re = await indexService.getHotGoods();
-    if(Array.isArray(re)){
-      result.data = re;
-    }
+
+
     ctx.body = result;
   }
 

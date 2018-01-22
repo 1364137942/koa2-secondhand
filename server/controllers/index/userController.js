@@ -1,5 +1,6 @@
 const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
+const {CustomError} = require('../../utils/Error');
 module.exports = {
   async sendIdCode(ctx){
     let result = {
@@ -36,10 +37,10 @@ module.exports = {
     try{
       let checkIdCode = await indexService.checkIdCode(email, idCode);
       if(checkIdCode == -2){
-        throw new Error('请选择发送邮箱验证码', 1);
+        throw new CustomError('请选择发送邮箱验证码');
       }
       if(checkIdCode == -1){
-        throw new Error('验证码已过期', 1000);
+        throw new CustomError('验证码已过期');
       }
       await indexService.setIdCodeOutDate(email, await commonFunction.getNowFormatDate(1000));
 
@@ -47,23 +48,23 @@ module.exports = {
       let checkEmailExist = await indexService.checkEmailExist(email);
 
       if(checkEmailExist == true){
-        throw new Error('邮箱已存在', 1);
+        throw new CustomError('邮箱已存在');
       }
       //校验学生身份证信息
       let studentInfo = await commonFunction.gdufsLogin(studentId, studentPass);
       if(studentInfo == false) {
-        throw new Error('学生信息实名认证失败', 1);
+        throw new CustomError('学生信息实名认证失败');
       }
       console.log(studentInfo);
       let studentName = studentInfo.name,
         academy = studentInfo.academy;
       let addUserInfo = await indexService.addUserInfo(email, username, password, studentId, studentName, academy);
       if(addUserInfo == false){
-        throw new Error('用户注册失败，请稍后再试', 1);
+        throw new CustomError('用户注册失败，请稍后再试');
       }
     }catch(e){
       result.code = -1;
-      if(e.code == 1){
+      if(e.name == 'CustomError'){
         result.msg = e.message;
       }else{
         result.msg = '系统错误';
@@ -117,22 +118,21 @@ module.exports = {
           email = data.email,
           idCode = data.idCode,
           password = await commonFunction.md5(data.password);
-
       let checkIdCode = await indexService.checkIdCode(email, idCode);
       if(checkIdCode == -2){
-        throw new Error('请选择发送邮箱验证码', 1);
+        throw new CustomError('请选择发送邮箱验证码');
       }
       if(checkIdCode == -1){
-        throw new Error('验证码已过期', 1000);
+        throw new CustomError('验证码已过期');
       }
       await indexService.setIdCodeOutDate(email, await commonFunction.getNowFormatDate(1000));
       let resetRe = await indexService.forgetPassword(email, password);
       if(resetRe.affectedRows < 0){
-        throw new Error('修改密码失败', 1000);
+        throw new CustomError('修改密码失败');
       }
     }catch(e){
       result.code = -1;
-      if(e.code == 1){
+      if(e.name == 'CustomError'){
         result.msg = e.message;
       }else{
         result.msg = '系统错误';

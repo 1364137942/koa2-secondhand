@@ -26,12 +26,20 @@ const goodsModel = {
     }
   },
   async deleteGood(FGoodID, FEmail){
-    let _sql = `update ${table} set FEnable = 0 where FGoodID = '${FGoodID}' and FEmail = '${FEmail}' limit 1`;
+    let _sql = `update ${table} set FEnable = 0 where FGoodID = '${FGoodID}' and FEmail = '${FEmail}' and FEnable = '1' limit 1`;
     return dbUtils.query(_sql);
   },
   async getGoodInfo(FGoodID, FEmail){
-    let _sql = `select * from ${table} where FGoodID = '${FGoodID}' and FEmail = '${FEmail}' limit 1`;
-    
+    let _sql = `select * from ${table} where FGoodID = '${FGoodID}' and FEmail = '${FEmail}' and FEnable = '1' limit 1`;
+    return dbUtils.query(_sql);
+  },
+  async updateGoodStatus(FGoodID, FEmail, FStatus){
+    let _sql = `update ${table} set FStatus = '${FStatus}' where FGoodID = '${FGoodID}' and FEmail = '${FEmail}' limit 1`;
+    return dbUtils.query(_sql);
+  },
+  async getHotsGoods(){
+    let _sql = `select * from ${table} where FEnable = 1 and FStatus = 1 order by FClick,FUpdateTime desc limit 3`;
+    return dbUtils.query(_sql);
   }
 
 };
