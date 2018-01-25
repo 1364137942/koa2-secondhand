@@ -6,6 +6,7 @@ const idCodeModel = require('../models/index/idCodeModel');
 const userModel = require('../models/index/userModel');
 const goodsModel = require('../models/index/goodsModel');
 const wantsModel = require('../models/index/wantsModel');
+const readNoticeModel = require('../models/index/readNoticeModel');
 
 
 const indexService = {
@@ -116,6 +117,27 @@ const indexService = {
     }
 
   },
+
+  //通知管理
+  async getNoticeList(FEmail, page, eachPageNum){
+    return await readNoticeModel.getNoticeList(FEmail, page, eachPageNum);
+  },
+  async getNoticeList(FEmail){
+    let re = await readNoticeModel.getNoticeList(FEmail);
+    return re[0].count;
+  },
+  async getNewNotice(FEmail){
+    let re = await readNoticeModel.getNewNotice(FEmail);
+    let num = 0;
+    if(Array.isArray(re) && re.length > 0){
+      num = re[0].num;
+    }
+    return num;
+  },
+  async readNotice(FEmail){
+    let re = await readNoticeModel.readNotice(FEmail);
+    return re;
+  }
 
 
 

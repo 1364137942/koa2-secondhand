@@ -67,8 +67,25 @@ module.exports = {
         throw Error(e);
       }
     }
+    ctx.body = result;
+  },
 
-
+  async getUserWantsInfo(ctx){
+    let result = {
+      code: 0,
+      msg: '获取求购信息成功',
+      data: ''
+    };
+    let data = ctx.query,
+        wantID = data.wantID;
+    let email = ctx.session.email;
+    let data = await indexService.getWantInfo(wantID, email);
+    if(Array.isArray(data) && data.length > 0){
+      result.data = data[0];
+    }else{
+      result.code = -1;
+      result.msg = '获取求购信息失败';
+    }
     ctx.body = result;
   }
 

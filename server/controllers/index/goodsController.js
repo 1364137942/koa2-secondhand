@@ -79,6 +79,24 @@ module.exports = {
       result.data = re;
     }
     ctx.body = result;
+  },
+  async getUserGoodsInfo(ctx){
+    let result = {
+      code: 0,
+      msg: '获取商品信息成功',
+      data: ''
+    };
+    let data = ctx.query,
+        goodID = data.goodID;
+    let email = ctx.session.email;
+    let data = await indexService.getGoodInfo(goodID, email);
+    if(Array.isArray(data) && data.length > 0){
+      result.data = data[0];
+    }else{
+      result.code = -1;
+      result.msg = '获取商品信息失败';
+    }
+    ctx.body = result;
   }
 
 

@@ -16,8 +16,8 @@ module.exports = {
   },
 
   async loginPage ( ctx ) {
-    const title = 'admin login page';
-    await ctx.render('adminLogin', {
+    const title = '管理员登录';
+    await ctx.render('admin/adminLogin.ejs', {
       title,
     })
   },

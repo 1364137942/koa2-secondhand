@@ -5,8 +5,9 @@ const sourcePath = path.join(__dirname, './static/src');
 const outputPath = path.join(__dirname, './../output/dist/');
 
 module.exports = {
+  
   entry: {
-    'adminLoginPage' : './static/src/pages/admin/adminLoginPage.js',
+    'adminLoginPage' : './static/src/pages/admin/adminLoginPage.jsx',
     'work' : './static/src/pages/work.js',
     'index' : './static/src/pages/index.js',
     'error' : './static/src/pages/error.js',
@@ -14,11 +15,11 @@ module.exports = {
   },
   output: {
     path: outputPath,
-    // publicPath: '/static/output/dist/',
-
+    publicPath: '/static/output/dist/',
     filename: 'js/[name].js',
   },
   module: {
+
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -70,6 +71,5 @@ module.exports = {
       minChunks: Infinity,
       filename: 'js/[name].js'
     }),
-  ],
-
+  ]
 };

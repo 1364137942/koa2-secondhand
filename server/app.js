@@ -8,13 +8,31 @@ const koaLogger = require('koa-logger');
 const session = require('koa-session-minimal');
 const MysqlStore = require('koa-mysql-session');
 const logUtil = require('./utils/logUtil');
+const fs = require('fs');
+
+const serve = require('koa-static');
 
 
 const config = require('./../config');
 const routers = require('./routers/index');
+const mount = require('koa-mount')
+const nunjucks = require('nunjucks')
 
 const app = new Koa();
+app.use(mount('/static', serve(__dirname + '/output')));
+app.use(views(__dirname + '/views', {
+  map: {
+    njk: 'nunjucks'
+  }
+}));
 
+app.use(async (ctx, next) => {
+  let manifest = await fs.readFileSync(path.resolve(__dirname, '../static/output/dist/manifest.json'))
+  ctx.state = {
+    static: JSON.parse(manifest.toString())
+  }
+  await next()
+});
 // logger
 app.use(async (ctx, next) => {
   //响应开始时间
