@@ -3,12 +3,13 @@ import { Form, Icon, Input, Button, Checkbox, message } from 'antd'
 import Request from './../utils/request'
 import { signInApi, signInForm } from './../api/sign-in'
 
+
 const FormItem = Form.Item;
 
 const SignInForm = Form.create()(React.createClass({
   
   async handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     let values = await this.getFormValues()
     if ( values ) {

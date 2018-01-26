@@ -91,6 +91,17 @@ app.use(views(path.join(__dirname, './views'), {
 // 初始化路由中间件
 app.use(routers.routes()).use(routers.allowedMethods())
 
+//处理404错误
+app.use(async (ctx, next) => {
+  await next();
+  if(parseInt(ctx.response.status) === 404){
+    if(ctx.request.method === 'GET'){
+      ctx.redirect('/error');
+    }else{
+      ctx.body = {'code': -1, msg: '请求路径不存在'};
+    }
+  }
+});
 // 监听启动端口
 app.listen( config.port )
 console.log(`the server is start at port ${config.port}`)

@@ -4,12 +4,7 @@
 
 const router = require('koa-router')()
 
-// const home = require('./home')
-// const api = require('./api')
-//
-// const work = require('./work')
-const error = require('./error')
-// const user = require('./user')
+const error = require('./error');
 
 //后台管理
 const admin = require('./admin/admin');
@@ -34,12 +29,8 @@ const user = require('./index/user');
 router.use('/user', user.routes(), user.allowedMethods());
 
 
-// router.use('/home', home.routes(), home.allowedMethods())
-// router.use('/api', api.routes(), api.allowedMethods())
-
-// router.use('/work', work.routes(), work.allowedMethods())
 router.use('/error', error.routes(), error.allowedMethods())
-// router.use('/user', user.routes(), user.allowedMethods())
+
 
 
 module.exports = router

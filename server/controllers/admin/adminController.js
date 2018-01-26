@@ -14,7 +14,7 @@ module.exports = {
       title,
     });
   },
-
+  //后台管理员登录界面
   async loginPage ( ctx ) {
     const title = '管理员登录';
     await ctx.render('admin/adminLogin.ejs', {

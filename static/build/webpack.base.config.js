@@ -4,9 +4,11 @@ const path = require('path');
 const sourcePath = path.join(__dirname, './static/src');
 const outputPath = path.join(__dirname, './../output/dist/');
 
+
 module.exports = {
   entry: {
     'adminLoginPage' : './static/src/pages/admin/adminLoginPage.js',
+    'userManagePage' : './static/src/pages/admin/userManagePage.js',
     'work' : './static/src/pages/work.js',
     'index' : './static/src/pages/index.js',
     'error' : './static/src/pages/error.js',
@@ -15,7 +17,6 @@ module.exports = {
   output: {
     path: outputPath,
     // publicPath: '/static/output/dist/',
-
     filename: 'js/[name].js',
   },
   module: {
@@ -23,36 +24,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'babel-loader',
-            query: {
-              // presets: ['es2015', 'react'],
-              cacheDirectory: true
-            }
-          }
-        ]
-      },
-      {
-        test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ['css-loader']
-        }),
-      },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ['css-loader', 'sass-loader']
-        })
-      },
-      {
-        test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ['css-loader', 'less-loader']
-        })
+        loaders: ['react-hot-loader/webpack', 'babel-loader']
       },
     ]
   },

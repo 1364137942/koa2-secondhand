@@ -1,7 +1,14 @@
-var merge = require('webpack-merge')
-var webpack = require('webpack')
-var baseWebpackConfig = require('./webpack.base.config');
+const merge = require('webpack-merge')
+const webpack = require('webpack')
+const baseWebpackConfig = require('./webpack.base.config');
 const ManifestPlugin = require('webpack-manifest-plugin');
+
+
+const cssModulesQuery = {
+  modules: true,
+  importLoaders: 1,
+  localIdentName: '[local]-[hash:base64:5]'
+};
 module.exports = merge(baseWebpackConfig, {
 
   devtool: 'source-map',
@@ -25,6 +32,25 @@ module.exports = merge(baseWebpackConfig, {
       }
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        loader: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /^.((?!cssmodule).*\.less)/,
+        loaders: [
+          {loader: "style-loader"},
+          {
+            loader: 'css-loader',
+            query: cssModulesQuery
+          },
+          {loader: "less-loader"}
+        ]
+      }
+    ]
+  },
   devServer: {
     publicPath: '/output/',
     host: '0.0.0.0',

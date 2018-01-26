@@ -7,6 +7,7 @@ const userManage = require('../../controllers/admin/userManageController');
 const common = require('../../controllers/admin/common');
 
 module.exports = router
-  .post( '/getUser',common.checkLogin, userManage.getUser )
+  .get('/getUser',common.checkLogin, userManage.getUser)
+  .post( '/getUserList',common.checkLogin, userManage.getUserList )
   .post( '/whiteUser',common.checkLogin, userManage.whiteUser )
   .post( '/blackUser',common.checkLogin, userManage.blackUser );

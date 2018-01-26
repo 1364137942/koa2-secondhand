@@ -1,7 +1,16 @@
 const adminService = require('./../../services/adminService');
 
 module.exports = {
-  async getUser ( ctx ) {
+
+  async getUser(ctx){
+    const title = '用户管理';
+    const user = ctx.session.username;
+    await ctx.render('admin/userManage.ejs', {
+      title,
+      user
+    })
+  },
+  async getUserList ( ctx ) {
     let result = {
       code: 0,
       data: [],

@@ -3,7 +3,7 @@ const table = 't_user';
 
 const userModel = {
   async getAllUser(type, page = "", eachPageNum = ""){
-    let _sql = `SELECT * from ${table}`;
+    let _sql = `SELECT FEmail,FAcademy,FAvatar,FIsBlack,FPhone,FQQ,FStudentID,FStudentName,FUserID,FUserName from ${table}`;
     if(type === 'white'){
       _sql += ` where FIsBlack = "0"`;
     }else{
