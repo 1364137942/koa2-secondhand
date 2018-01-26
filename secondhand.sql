@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2018-01-26 09:43:14
+Date: 2018-01-26 17:15:28
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -177,6 +177,7 @@ CREATE TABLE `t_user` (
   `FAcademy` varchar(64) NOT NULL COMMENT '用户所在学院',
   `FPhone` varchar(32) NOT NULL COMMENT '用户手机号',
   `FQQ` varchar(32) NOT NULL COMMENT '用户qq号',
+  `FAvatar` varchar(255) NOT NULL,
   `FIsBlack` tinyint(1) DEFAULT '0' COMMENT '用户是否被拉黑',
   PRIMARY KEY (`FUserID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
@@ -184,9 +185,9 @@ CREATE TABLE `t_user` (
 -- ----------------------------
 -- Records of t_user
 -- ----------------------------
-INSERT INTO `t_user` VALUES ('1', '123', '123', '123', '123', '123', '123', '123', '123', '1');
-INSERT INTO `t_user` VALUES ('2', '136', '123', '123', '123', '123', '123', '123', '123', '0');
-INSERT INTO `t_user` VALUES ('6', '1364137942@qq.com', 'alizjli', '96E79218965EB72C92A549DD5A330112', '20141002496', '黎子健', '信息科学与技术学院、网络空间安全学院', '', '', '0');
+INSERT INTO `t_user` VALUES ('1', '123', '123', '123', '123', '123', '123', '123', '123', '/image/defaultAvatar.jpg', '0');
+INSERT INTO `t_user` VALUES ('2', '136', '123', '123', '123', '123', '123', '123', '123', '/image/defaultAvatar.jpg', '1');
+INSERT INTO `t_user` VALUES ('6', '1364137942@qq.com', 'alizjli', '96E79218965EB72C92A549DD5A330112', '20141002496', '黎子健', '信息科学与技术学院、网络空间安全学院', '', '', '/image/defaultAvatar.jpg', '0');
 
 -- ----------------------------
 -- Table structure for t_wants
@@ -227,4 +228,4 @@ CREATE TABLE `_mysql_session_store` (
 -- Records of _mysql_session_store
 -- ----------------------------
 INSERT INTO `_mysql_session_store` VALUES ('USER_SID:B7m8DldVYD93-HV6lu8joV1EDLp5k9fj', '1516102786426', '{\"isLogin\":true,\"username\":\"admin\"}');
-INSERT INTO `_mysql_session_store` VALUES ('USER_SID:xolZevK3cRz3akV5iMHDIMRhr7m7u-gV', '1516958973695', '{\"isLogin\":true,\"username\":\"admin\"}');
+INSERT INTO `_mysql_session_store` VALUES ('USER_SID:Vjqiidj8IciStb0KH7mZWxq1NVa5zJ4B', '1517023789822', '{\"isLogin\":true,\"username\":\"admin\"}');
