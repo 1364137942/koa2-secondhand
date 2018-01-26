@@ -6,3 +6,4 @@ static/output/upload/
 server/logs/*/
 npm-debug.log
 npm-debug.log.*
+config.js
