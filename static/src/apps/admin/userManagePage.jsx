@@ -107,11 +107,12 @@ class App extends React.Component {
   }
   //分页回调
   onPageChange(pagination) {
-    let currentPage = pagination.current;
     this.setState({
-      page: currentPage
+      page: pagination
+    }, function(){
+      this.getUserList();
     });
-    this.getUserList();
+
   }
   //批量操作
   onSelectChange(selectedRowKeys){

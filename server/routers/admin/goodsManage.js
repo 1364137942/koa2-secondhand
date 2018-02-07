@@ -7,8 +7,9 @@ const goodsManage = require('../../controllers/admin/goodsManageController');
 const common = require('../../controllers/admin/common');
 
 module.exports = router
-  .post( '/getUserGoods',common.checkLogin, goodsManage.getUserGoods )
-  .get( '/disabledGoods',common.checkLogin, goodsManage.disabledGoods )
-  .get( '/enabledGoods',common.checkLogin, goodsManage.enabledGoods )
-  .get( '/offGoods',common.checkLogin, goodsManage.offGoods )
-  .get( '/onGoods',common.checkLogin, goodsManage.onGoods );
+  .get( '/getGoods',common.checkLogin, goodsManage.getGoods )
+  .post( '/getGoodsList',common.checkLogin, goodsManage.getGoodsList )
+  .post( '/disabledGoods',common.checkLogin, goodsManage.disabledGoods )
+  .post( '/enabledGoods',common.checkLogin, goodsManage.enabledGoods )
+  .post( '/offGoods',common.checkLogin, goodsManage.offGoods )
+  .post( '/onGoods',common.checkLogin, goodsManage.onGoods );

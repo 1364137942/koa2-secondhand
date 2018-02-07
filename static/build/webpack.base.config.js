@@ -9,6 +9,8 @@ module.exports = {
   entry: {
     'adminLoginPage' : './static/src/pages/admin/adminLoginPage.js',
     'userManagePage' : './static/src/pages/admin/userManagePage.js',
+    'goodsManagePage' : './static/src/pages/admin/goodsManagePage.js',
+    'wantsManagePage' : './static/src/pages/admin/wantsManagePage.js',
     'work' : './static/src/pages/work.js',
     'index' : './static/src/pages/index.js',
     'error' : './static/src/pages/error.js',

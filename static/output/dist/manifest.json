@@ -5,6 +5,8 @@
   "devServerClient.js.map": "http://localhost:5000/output/js/devServerClient.js.map",
   "error.js": "http://localhost:5000/output/js/error.js",
   "error.js.map": "http://localhost:5000/output/js/error.js.map",
+  "goodsManagePage.js": "http://localhost:5000/output/js/goodsManagePage.js",
+  "goodsManagePage.js.map": "http://localhost:5000/output/js/goodsManagePage.js.map",
   "hot.js": "http://localhost:5000/output/js/hot.js",
   "hot.js.map": "http://localhost:5000/output/js/hot.js.map",
   "index.js": "http://localhost:5000/output/js/index.js",
@@ -13,6 +15,8 @@
   "userManagePage.js.map": "http://localhost:5000/output/js/userManagePage.js.map",
   "vendor.js": "http://localhost:5000/output/js/vendor.js",
   "vendor.js.map": "http://localhost:5000/output/js/vendor.js.map",
+  "wantsManagePage.js": "http://localhost:5000/output/js/wantsManagePage.js",
+  "wantsManagePage.js.map": "http://localhost:5000/output/js/wantsManagePage.js.map",
   "work.js": "http://localhost:5000/output/js/work.js",
   "work.js.map": "http://localhost:5000/output/js/work.js.map"
 }

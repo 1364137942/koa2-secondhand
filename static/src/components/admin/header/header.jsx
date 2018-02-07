@@ -36,9 +36,9 @@ class HeaderComponent extends React.Component {
           defaultSelectedKeys={[selectTab]}
           style={{ lineHeight: '52px' }}
         >
-          <Menu.Item key="userManage"><a href="/admin/loginPage">用户管理</a></Menu.Item>
-          <Menu.Item key="2"><a href="/userManage/getUser">用户管理</a></Menu.Item>
-          <Menu.Item key="3"><a href="/work">Work</a></Menu.Item>
+          <Menu.Item key="userManage"><a href="/userManage/getUser">用户管理</a></Menu.Item>
+          <Menu.Item key="goodsManage"><a href="/goodsManage/getGoods">商品管理</a></Menu.Item>
+          <Menu.Item key="wantsManage"><a href="/wantsManage/getWants">求购管理</a></Menu.Item>
         </Menu>
 
         <div className={ this.state.isShowUser === true ? styles.admin : styles.hidden}>

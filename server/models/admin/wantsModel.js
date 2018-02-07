@@ -2,7 +2,7 @@ const dbUtils = require('../../utils/db-util')
 const table = 't_wants';
 
 const wantsModel = {
-  async getUserWants(FUserID, page = "", eachPageNum = ""){
+  async getWants(FUserID, page = "", eachPageNum = ""){
     let _sql = `SELECT ${table}.* from ${table} 
       join t_user on ${table}.FEmail = t_user.FEmail
        where t_user.FUserID = ${FUserID}`;
@@ -18,7 +18,7 @@ const wantsModel = {
     }
   },
 
-  async getUserWantsCount(FUserID){
+  async getWantsCount(FUserID){
     let _sql = `SELECT count(*) as num from ${table} 
       join t_user on ${table}.FEmail = t_user.FEmail
        where t_user.FUserID = ${FUserID}`;

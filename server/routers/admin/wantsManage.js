@@ -7,6 +7,7 @@ const wantsManage = require('../../controllers/admin/wantsManageController');
 const common = require('../../controllers/admin/common');
 
 module.exports = router
-  .post( '/getUserWants',common.checkLogin, wantsManage.getUserWants )
+  .get( '/getWants',common.checkLogin, wantsManage.getWants )
+  .post( '/getWantsList',common.checkLogin, wantsManage.getWantsList )
   .get( '/enabledWants',common.checkLogin, wantsManage.enabledWants )
   .get( '/disabledWants',common.checkLogin, wantsManage.disabledWants );

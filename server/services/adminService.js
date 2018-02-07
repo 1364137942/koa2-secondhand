@@ -7,6 +7,7 @@ const userModel = require('../models/admin/userModel');
 const wantsModel = require('../models/admin/wantsModel');
 const goodsModel = require('../models/admin/goodsModel');
 const noticeModel = require('../models/admin/noticeModel');
+const goodTypeModel = require('../models/admin/goodTypeModel');
 const adminCode = require('./../codes/admin');
 const {getNowFormatDate} = require('../common/commonFunction');
 
@@ -34,62 +35,44 @@ const adminService = {
     return re;
   },
   async blackUser(userID){
-    let re = await userModel.blackUser(userID);
-    return re;
+    return await userModel.blackUser(userID);
   },
   async whiteUser(userID){
-    let re = await userModel.whiteUser(userID);
+    return await userModel.whiteUser(userID);
+  },
+  async getAllType(){
+    return await goodTypeModel.getAllType();
+  },
+  async getGoodsList(userName, goodName, type, status, page, eachPageNum){
+    let re = await goodsModel.getGoodsList(userName, goodName, type, status, page, eachPageNum);
     return re;
   },
-
-  async getUserGoods(userID, page, eachPageNum){
-    let re = await goodsModel.getUserGoods(userID, page, eachPageNum);
-    return re;
-  },
-  async getUserGoodsCount(userID){
-    let re = await goodsModel.getUserGoodsCount(userID);
+  async getGoodsListCount(userName, title, type, status){
+    let re = await goodsModel.getGoodsListCount(userName, title, type, status);
     return re;
   },
   async offGoods(goodID){
     let re = await goodsModel.offGoods(goodID);
-    if(re.changedRows && re.changedRows == 1){
-      return true
-    }else{
-      return false;
-    }
+    return true;
   },
   async onGoods(goodID){
     let re = await goodsModel.onGoods(goodID);
-    if(re.changedRows && re.changedRows == 1){
-      return true
-    }else{
-      return false;
-    }
+    return true;
   },
   async disabledGoods(goodID){
     let re = await goodsModel.disabledGoods(goodID);
-    if(re.changedRows && re.changedRows == 1){
-      return true
-    }else{
-      return false;
-    }
+    return true;
   },
   async enabledGoods(goodID){
     let re = await goodsModel.enabledGoods(goodID);
-    if(re.changedRows && re.changedRows == 1){
-      return true
-    }else{
-      return false;
-    }
+    return true;
   },
   //求购管理
-  async getUserWants(userID, page, eachPageNum){
-    let re = await wantsModel.getUserWants(userID, page, eachPageNum);
-    return re;
+  async getWants(userID, page, eachPageNum){
+    return await wantsModel.getWants(userID, page, eachPageNum);
   },
-  async getUserWantsCount(userID){
-    let re = await wantsModel.getUserWantsCount(userID);
-    return re;
+  async getWantsCount(userID){
+    return await wantsModel.getWantsCount(userID);
   },
   async enabledWants(wantID){
     let re = await wantsModel.enabledWants(wantID);

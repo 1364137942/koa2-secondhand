@@ -1,26 +1,46 @@
 const adminService = require('./../../services/adminService');
 
 module.exports = {
-  //得到用户所有商品
-  async getUserGoods(ctx){
+  //商品管理
+  async getGoods(ctx){
+    const title = '商品管理';
+    const user = ctx.session.username;
+    const goodType = JSON.stringify([{
+      'FKey': 'all',
+      'FShowName': '全部',
+      'FStatus': 1
+    }].concat(
+      await adminService.getAllType())
+    );
+    await ctx.render('admin/goodsManage.ejs', {
+      title,
+      user,
+      goodType
+    })
+  },
+  //得到商品
+  async getGoodsList(ctx){
     let result = {
       code: 0,
       data: [],
       count: 0
     };
-    let data = ctx.request.body,
-      userID = data.userID,
-      page = data.page !== '' ? parseInt(data.page) - 1 : 0,
-      eachPageNum = data.eachPageNum || 10;
-
-    page = parseInt(page)*parseInt(eachPageNum);
-
-    let dataPromise = adminService.getUserGoods(userID, page, eachPageNum);
-    let countPromise = adminService.getUserGoodsCount(userID);
-
-    let promiseData = await Promise.all([dataPromise, countPromise]);
-    result.data = promiseData[0];
-    result.count = promiseData[1];
+    // let data = ctx.request.body,
+    //   username = data.username ? data.username : '',
+    //   goodName = data.goodName ? data.goodName : '',
+    //   type = data.type ? data.type : '',
+    //   status = data.status ? data.status : '',
+    //   page = data.page !== '' ? parseInt(data.page) - 1 : 0,
+    //   eachPageNum = data.eachPageNum || 10;
+    //
+    // page = parseInt(page)*parseInt(eachPageNum);
+    //
+    // let dataPromise = adminService.getGoodsList(username, goodName, type, status, page, eachPageNum);
+    // let countPromise = adminService.getGoodsListCount(username, goodName, type, status);
+    //
+    // let promiseData = await Promise.all([dataPromise, countPromise]);
+    // result.data = promiseData[0];
+    // result.count = promiseData[1];
 
     ctx.body = result;
   },
@@ -28,60 +48,48 @@ module.exports = {
   async disabledGoods(ctx){
     let result = {
       code: 0,
-      msg: 'disable goods success'
+      msg: '商品删除成功'
     };
-    let data = ctx.query,
+    let data = ctx.request.body,
       goodID = data.goodID;
+    goodID = "'" + goodID.join("','") + "'";
     let re = await adminService.disabledGoods(goodID);
-    if(re == false){
-      result.code = -1;
-      result.msg = 'disable goods fail';
-    }
     ctx.body = result;
   },
   //商品置为有效
   async enabledGoods(ctx){
     let result = {
       code: 0,
-      msg: 'enable goods success'
+      msg: '商品撤销成功'
     };
-    let data = ctx.query,
+    let data = ctx.request.body,
       goodID = data.goodID;
+    goodID = "'" + goodID.join("','") + "'";
     let re = await adminService.enabledGoods(goodID);
-    if(re == false){
-      result.code = -1;
-      result.msg = 'enable goods fail';
-    }
     ctx.body = result;
   },
   //下架商品
   async offGoods(ctx){
     let result = {
       code: 0,
-      msg: 'off goods success'
+      msg: '下架商品成功'
     };
-    let data = ctx.query,
+    let data = ctx.request.body,
       goodID = data.goodID;
+    goodID = "'" + goodID.join("','") + "'";
     let re = await adminService.offGoods(goodID);
-    if(re == false){
-      result.code = -1;
-      result.msg = 'off goods fail';
-    }
     ctx.body = result;
   },
   //上架商品
   async onGoods(ctx){
     let result = {
       code: 0,
-      msg: 'on goods success'
+      msg: '上架商品成功'
     };
-    let data = ctx.query,
+    let data = ctx.request.body,
       goodID = data.goodID;
+    goodID = "'" + goodID.join("','") + "'";
     let re = await adminService.onGoods(goodID);
-    if(re == false){
-      result.code = -1;
-      result.msg = 'on goods fail';
-    }
     ctx.body = result;
   },
   async getUser ( ctx ) {
