@@ -55,7 +55,6 @@ const goodsModel = {
   },
   async offGoods(FGoodsID){
     let _sql = `update ${table} set FStatus = 0 where FGoodID in (${FGoodsID})`;
-    console.log(_sql);
     return await dbUtils.query( _sql );
   },
   async onGoods(FGoodsID){

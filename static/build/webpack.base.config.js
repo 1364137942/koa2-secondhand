@@ -11,6 +11,7 @@ module.exports = {
     'userManagePage' : './static/src/pages/admin/userManagePage.js',
     'goodsManagePage' : './static/src/pages/admin/goodsManagePage.js',
     'wantsManagePage' : './static/src/pages/admin/wantsManagePage.js',
+    'test' : './static/src/pages/admin/test.js',
     'work' : './static/src/pages/work.js',
     'index' : './static/src/pages/index.js',
     'error' : './static/src/pages/error.js',
@@ -28,6 +29,10 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['react-hot-loader/webpack', 'babel-loader']
       },
+      {
+        test: /\.(svg|png|jpeg)$/,
+        loaders: ['url-loader?limit=10000&mimetype=image/svg+xml']
+      }
     ]
   },
   resolve: {

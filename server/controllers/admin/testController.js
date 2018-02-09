@@ -10,7 +10,7 @@ module.exports = {
   async uploadPage(ctx){
     const title = '文件上传测试';
     console.log();
-    await ctx.render('uploadPage', {
+    await ctx.render('uploadPage.ejs', {
       title,
     })
   },

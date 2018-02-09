@@ -287,7 +287,7 @@ class App extends React.Component {
             </div>
             <Pagination style={{float: 'right'}} current={this.state.page} defaultCurrent={this.state.page} total={this.state.count} pageSize={this.state.eachPageNum} onChange={this.onPageChange.bind(this)}/>
           </div>
-          {/*<LoadingCommon coverIsShow={this.state.coverIsShow} coverHeight={this.state.coverHeight}/>*/}
+          <LoadingCommon coverIsShow={this.state.coverIsShow} coverHeight={this.state.coverHeight}/>
         </Content>
         <FooterCommon />
       </Layout>

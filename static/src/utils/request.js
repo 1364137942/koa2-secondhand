@@ -35,7 +35,7 @@ function fetchEvent( options ) {
         headers: new Headers()
       }
     }
-  } else {
+  } else if( _type === 'POST') {
     fetchParams = {
       credentials: 'include',
       method: _type,
@@ -48,6 +48,14 @@ function fetchEvent( options ) {
         method: _type,
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(_data)
+      }
+    }
+  } else if( _type === 'FILE'){
+    fetchParams = {
+      ...fetchParams,
+      ...{
+        method: 'POST',
+        body: _data
       }
     }
   }
@@ -125,7 +133,10 @@ const request = {
     }
     document.body.appendChild(_form);
     _form.submit();
-
+  },
+  file(options){
+    options.type = 'FILE';
+    return fetchEvent( options );
   }
 
 };

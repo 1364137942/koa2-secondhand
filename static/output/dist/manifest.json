@@ -11,6 +11,8 @@
   "hot.js.map": "http://localhost:5000/output/js/hot.js.map",
   "index.js": "http://localhost:5000/output/js/index.js",
   "index.js.map": "http://localhost:5000/output/js/index.js.map",
+  "test.js": "http://localhost:5000/output/js/test.js",
+  "test.js.map": "http://localhost:5000/output/js/test.js.map",
   "userManagePage.js": "http://localhost:5000/output/js/userManagePage.js",
   "userManagePage.js.map": "http://localhost:5000/output/js/userManagePage.js.map",
   "vendor.js": "http://localhost:5000/output/js/vendor.js",

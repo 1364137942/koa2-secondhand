@@ -11,4 +11,6 @@ module.exports = router
   .get( '/indexPage',common.checkLogin, admin.indexPage )
   .get('/loginPage', admin.loginPage)
   .get('/logOut', admin.logOut)
+  .get('/test', admin.test)
+  .post('/uploadFile', admin.uploadFile)
   .post('/login', admin.login);

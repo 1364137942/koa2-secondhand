@@ -45,7 +45,7 @@ class App extends React.Component {
   async getGoodList(){
     try{
       let re = await Request.post({
-        url: '/goodsManage/getGoodsList',
+        url: '/wantsManage/getWantsList',
         data: {
           page: this.state.page,
           eachPageNum: this.state.eachPageNum,
@@ -111,7 +111,7 @@ class App extends React.Component {
     const children = [];
     goodList.forEach((item, key) => {
       let icon = 'plus-circle';
-      if(this.state.selectedGoods.indexOf(item.FGoodID) > -1){
+      if(this.state.selectedGoods.indexOf(item.FWantID) > -1){
         icon = 'minus-circle';
       }
       item.status = '未知';
@@ -126,14 +126,12 @@ class App extends React.Component {
         <Col span={4} key={key} style={{marginBottom: '24px'}}>
           <Card
             hoverable
-            cover={<img alt="example" style={{verticalAlign: 'middle', display: 'inline-block'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-            actions={[<Icon onClick={this.selected.bind(this, item.FGoodID)} type={icon}/>]}
-            style={this.state.selectedGoods.indexOf(item.FGoodID) > -1 ? {border: '1px solid #1890ff'} : {}}
+            actions={[<Icon onClick={this.selected.bind(this, item.FWantID)} type={icon}/>]}
+            title={item.FGoodName}
+            style={this.state.selectedGoods.indexOf(item.FWantID) > -1 ? {border: '1px solid #1890ff'} : {}}
           >
-            <h3>{item.FGoodName}</h3>
             <ul className={styles.detailBox}>
               <li>用户：{item.FEmail}</li>
-              <li>价格：{item.FPrice}</li>
               <li>类型：{item.FTypeName}</li>
               <li>状态：{item.status}</li>
             </ul>
@@ -143,14 +141,14 @@ class App extends React.Component {
     });
     return children;
   }
-  selected(FGoodID){
+  selected(FWantID){
     let selectedGoods = this.state.selectedGoods;
-    let index = selectedGoods.indexOf(FGoodID);
+    let index = selectedGoods.indexOf(FWantID);
     if(index === -1){
       this.setState({
         selectedGoods: [
           ...this.state.selectedGoods,
-          FGoodID
+          FWantID
         ]
       })
     }else{
@@ -173,17 +171,17 @@ class App extends React.Component {
   async oper(operType){
     let operUrl = '';
     switch (operType){
-      case 'onGoods':
-        operUrl = '/goodsManage/onGoods';
+      case 'onWants':
+        operUrl = '/wantsManage/onWants';
         break;
-      case 'offGoods':
-        operUrl = '/goodsManage/offGoods';
+      case 'offWants':
+        operUrl = '/wantsManage/offWants';
         break;
-      case 'enabledGoods':
-        operUrl = '/goodsManage/enabledGoods';
+      case 'enabledWants':
+        operUrl = '/wantsManage/enabledWants';
         break;
-      case 'disabledGoods':
-        operUrl = '/goodsManage/disabledGoods';
+      case 'disabledWants':
+        operUrl = '/wantsManage/disabledWants';
         break;
       default:
         break;
@@ -192,7 +190,7 @@ class App extends React.Component {
       let re = await Request.post({
         url: operUrl,
         data: {
-          goodID: this.state.selectedGoods
+          wantID: this.state.selectedGoods
         },
       });
       if(re.code === 0){
@@ -217,7 +215,7 @@ class App extends React.Component {
 
         <Content style={{ padding: '0 50px' }}>
           <Breadcrumb style={{ margin: '12px 0' }}>
-            <Breadcrumb.Item>商品管理</Breadcrumb.Item>
+            <Breadcrumb.Item>求购管理</Breadcrumb.Item>
           </Breadcrumb>
           <div style={{ background: '#fff', padding: 24, minHeight: 280}} className={styles.clearfix}>
             <Form
@@ -276,10 +274,10 @@ class App extends React.Component {
               </Row>
             </Form>
             <div className={styles.oper}>
-              <Button type="primary" style={(this.state.status === 'all' || this.state.status === '1') ? {display: 'inline-block'} : {display: 'none'}} onClick={this.oper.bind(this, 'offGoods')}>批量下架</Button>
-              <Button type="primary" style={(this.state.status === 'all' || this.state.status === '0') ? {display: 'inline-block'} : {display: 'none'}} onClick={this.oper.bind(this, 'onGoods')}>批量上架</Button>
-              <Button type="primary" style={(this.state.status === 'all' || this.state.status === '0' || this.state.status === '1') ? {display: 'inline-block'} : {display: 'none'}} onClick={this.oper.bind(this, 'disabledGoods')}>批量删除</Button>
-              <Button type="primary" style={(this.state.status === 'all' || this.state.status === '-1') ? {display: 'inline-block'} : {display: 'none'}} onClick={this.oper.bind(this, 'enabledGoods')}>批量撤销删除</Button>
+              <Button type="primary" style={(this.state.status === 'all' || this.state.status === '1') ? {display: 'inline-block'} : {display: 'none'}} onClick={this.oper.bind(this, 'offWants')}>批量下架</Button>
+              <Button type="primary" style={(this.state.status === 'all' || this.state.status === '0') ? {display: 'inline-block'} : {display: 'none'}} onClick={this.oper.bind(this, 'onWants')}>批量上架</Button>
+              <Button type="primary" style={(this.state.status === 'all' || this.state.status === '0' || this.state.status === '1') ? {display: 'inline-block'} : {display: 'none'}} onClick={this.oper.bind(this, 'disabledWants')}>批量删除</Button>
+              <Button type="primary" style={(this.state.status === 'all' || this.state.status === '-1') ? {display: 'inline-block'} : {display: 'none'}} onClick={this.oper.bind(this, 'enabledWants')}>批量撤销删除</Button>
             </div>
             <div>
               <Row gutter={25}>
@@ -288,7 +286,7 @@ class App extends React.Component {
             </div>
             <Pagination style={{float: 'right'}} current={this.state.page} defaultCurrent={this.state.page} total={this.state.count} pageSize={this.state.eachPageNum} onChange={this.onPageChange.bind(this)}/>
           </div>
-          {/*<LoadingCommon coverIsShow={this.state.coverIsShow} coverHeight={this.state.coverHeight}/>*/}
+          <LoadingCommon coverIsShow={this.state.coverIsShow} coverHeight={this.state.coverHeight}/>
         </Content>
         <FooterCommon />
       </Layout>

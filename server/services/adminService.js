@@ -68,11 +68,11 @@ const adminService = {
     return true;
   },
   //求购管理
-  async getWants(userID, page, eachPageNum){
-    return await wantsModel.getWants(userID, page, eachPageNum);
+  async getWantsList(userName, goodName, type, status, page, eachPageNum){
+    return await wantsModel.getWantsList(userName, goodName, type, status, page, eachPageNum)
   },
-  async getWantsCount(userID){
-    return await wantsModel.getWantsCount(userID);
+  async getWantsListCount(userName, title, type, status){
+    return await wantsModel.getWantsListCount(userName, title, type, status);
   },
   async enabledWants(wantID){
     let re = await wantsModel.enabledWants(wantID);
@@ -89,6 +89,14 @@ const adminService = {
     }else{
       return false;
     }
+  },
+  async offWants(wantID){
+    let re = await wantsModel.offWants(wantID);
+    return true;
+  },
+  async onWants(wantID){
+    let re = await wantsModel.onWants(wantID);
+    return true;
   },
   async sendNotice(email, title, content){
     let now = await getNowFormatDate();
