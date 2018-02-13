@@ -2,6 +2,34 @@ const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
 const {CustomError} = require('../../utils/Error');
 module.exports = {
+  async editGood(ctx){
+    const title = '编辑商品';
+    await ctx.render('index/editGood.ejs', {
+      title
+    })
+  },
+  async getGoodsList(ctx){
+    let result = {
+      code: 0,
+      data: [],
+      count: 0
+    };
+    let data = ctx.request.body,
+      goodName = data.goodName ? data.goodName : '',
+      type = data.type ? data.type : '',
+      page = data.page !== '' ? parseInt(data.page) - 1 : 0,
+      eachPageNum = data.eachPageNum || 10;
+
+    page = parseInt(page)*parseInt(eachPageNum);
+
+    let dataPromise = indexService.getGoodsList(goodName, type, page, eachPageNum);
+    let countPromise = indexService.getGoodsListCount(goodName, type);
+
+    let promiseData = await Promise.all([dataPromise, countPromise]);
+    result.data = promiseData[0];
+    result.count = promiseData[1];
+    ctx.body = result;
+  },
   async getUserGoods(ctx){
     let result = {
       code: 0,
@@ -11,7 +39,7 @@ module.exports = {
     let data = ctx.query,
         eachPageNum = data.eachPageNum !== '' ? data.eachPageNum : 20,
         page = data.page !== '' ? data.page : 1,
-        status = data.status;
+        status = data.status ? data.status : 1;
     page = (page - 1) * eachPageNum;
     let email = ctx.session.email;
 

@@ -26,7 +26,9 @@ router.use('/test', test.routes(), test.allowedMethods());
 
 //用户前台
 const user = require('./index/user');
+const goodsController = require('./index/goodsController');
 router.use('/user', user.routes(), user.allowedMethods());
+router.use('/goodsController', goodsController.routes(), goodsController.allowedMethods());
 
 
 router.use('/error', error.routes(), error.allowedMethods())

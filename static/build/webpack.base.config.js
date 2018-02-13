@@ -5,12 +5,16 @@ const sourcePath = path.join(__dirname, './static/src');
 const outputPath = path.join(__dirname, './../output/dist/');
 
 
+
+
+
 module.exports = {
   entry: {
     'adminLoginPage' : './static/src/pages/admin/adminLoginPage.js',
     'userManagePage' : './static/src/pages/admin/userManagePage.js',
     'goodsManagePage' : './static/src/pages/admin/goodsManagePage.js',
     'wantsManagePage' : './static/src/pages/admin/wantsManagePage.js',
+    'editGoodPage' : './static/src/pages/index/editGoodPage.js',
     'test' : './static/src/pages/admin/test.js',
     'work' : './static/src/pages/work.js',
     'index' : './static/src/pages/index.js',
@@ -30,8 +34,13 @@ module.exports = {
         loaders: ['react-hot-loader/webpack', 'babel-loader']
       },
       {
-        test: /\.(svg|png|jpeg)$/,
-        loaders: ['url-loader?limit=10000&mimetype=image/svg+xml']
+        test: /\.(svg|png|jpeg|jpg)$/,
+        loaders: ['url-loader?limit=10000']
+      },
+      {
+        test: /\.(eot|woff|woff2|ttf)$/,
+        exclude: /node_modules/,
+        loader: "file-loader"
       }
     ]
   },
@@ -46,8 +55,9 @@ module.exports = {
     new ExtractTextPlugin('css/[name].css'),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor'],
-      minChunks: Infinity,
-      filename: 'js/[name].js'
+      filename: 'js/[name].js',
+      children:true,
+      minChunks: 2
     }),
   ],
 

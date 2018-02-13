@@ -1,0 +1,441 @@
+/*
+LESS Keyframes 兼容性代码简化自定义函数，自定义动画
+*/
+
+/*在你的less库中加入以下代码*/
+
+.common-ellipsis {
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  margin: 0;
+  overflow: hidden;
+}
+
+header .top-nav {
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.header-top {
+  position: relative;
+  width: 1080px;
+  margin: 6px auto 0;
+  height: 90px;
+}
+
+header .top-nav a {
+  position: relative;
+  float: left;
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 14px;
+  -webkit-transition: all ease .3s;
+  transition: all ease .3s;
+}
+
+header .top-nav a.on {
+  background-color: #fff;
+  color: #f12f4a;
+  font-weight: bold;
+}
+
+header .top-nav a.hot::after {
+  position: absolute;
+  top: 7px;
+  right: 2px;
+  content: "";
+  width: 22px;
+  height: 12px;
+  /*background: url("../img/spritesheet.png");*/
+  background-position: -0px -18px;
+  background-size: 100% 100%;
+}
+
+header .top-nav a:hover {
+  color: #f12f4a;
+  background-color: #fff;
+}
+
+.sub-nav ul {
+  width: 1080px;
+  margin: 0 auto;
+  float: none;
+}
+
+.sub-nav ul li {
+  display: block;
+  float: left;
+  height: 36px;
+  line-height: 36px;
+  padding-top: 0;
+}
+
+.left-wrap-top {
+  position: relative;
+}
+
+.tap-content {
+  position: absolute;
+  top: 32px;
+  width: 788px;
+  height: 218px;
+  border: 1px solid #ddd;
+}
+
+.tap-content-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 788px;
+  height: 218px;
+  background: #fff;
+}
+
+.tap-content-item.show {
+  z-index: 2;
+}
+
+.tap-content-item .slider-wrap {
+  width: 710px;
+  margin-left: 40px;
+  margin-top: 16px;
+  overflow: hidden;
+}
+
+.tap-content-item .slider li {
+  display: block;
+  float: left;
+  width: 125px;
+}
+
+.tap-content-item .slider li img {
+  width: 118px;
+  height: 118px;
+}
+
+.tap-content-item .slider li span {
+  display: block;
+  font-weight: bold;
+  color: #f22f4a;
+}
+
+.tap-content-item .slider li p {
+  height: 36px;
+  line-height: 1.5em;
+  overflow: hidden;
+}
+
+.bx-wrapper .bx-prev {
+  position: absolute;
+  left: 13px;
+  top: 90px;
+  width: 9px;
+  height: 15px;
+  /*background-image: url("../img/spritesheet.png");*/
+  background-position: -36px -0px;
+  background-size: 100% 100%;
+  text-indent: -999999px;
+}
+
+.bx-wrapper .bx-next {
+  position: absolute;
+  right: 13px;
+  top: 90px;
+  width: 9px;
+  height: 15px;
+  /*background-image: url("../img/spritesheet.png");*/
+  background-position: -36px -15px;
+  background-size: 100% 100%;
+  text-indent: -999999px;
+}
+
+.bx-wrapper .bx-prev:hover {
+  /*background-image: url("../img/spritesheet.png");*/
+  background-position: -0px -30px;
+}
+
+.bx-wrapper .bx-next:hover {
+  /*background-image: url("../img/spritesheet.png");*/
+  background-position: -9px -30px;
+}
+
+.bx-wrapper .bx-pager {
+  position: absolute;
+  top: -21px;
+  right: 0;
+}
+
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a {
+  display: block;
+  width: 6px;
+  height: 6px;
+  margin: 0 4px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background: #d7d7d7;
+  text-indent: -9999px;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background: #f22f4a;
+}
+
+.top-message {
+  position: relative;
+  padding: 12px 12px 12px 55px;
+  margin-bottom: 16px;
+  background: #f4f4f4;
+  line-height: 1.5;
+}
+
+.top-message .set-top {
+  position: absolute;
+  top: 15px;
+  left: 12px;
+  display: inline-block;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #fff;
+  background: #f22f4a;
+}
+
+.top-message a {
+  font-size: 18px;
+}
+
+.top-message a:hover {
+  color: #5188a6;
+}
+
+.top-message a:hover .red {
+  color: #f78b8b;
+}
+
+.update-message {
+  position: relative;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  background: #fff8d9;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #ffe46c;
+}
+
+.update-message a:hover {
+  color: #f22f4a;
+}
+
+.update-message .icon-close {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 11px;
+  height: 11px;
+  /*background-image: url("../img/spritesheet.png");*/
+  background-position: -22px -18px;
+  background-size: 100% 100%;
+  margin-top: -5px;
+  color: #c5bc92;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.update-message .icon-close:hover {
+  /*background-image: url("../img/spritesheet.png");*/
+  background-position: -18px -30px;
+}
+
+/*left-wrap 中的优惠券直播start*/
+
+.my-title {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.more {
+  float: right;
+  position: relative;
+  top: 8px;
+  font-size: 12px;
+  color: #808080;
+  font-weight: 400;
+}
+
+.more:hover {
+  color: #f22f4a;
+}
+
+#quanContain {
+  overflow: hidden;
+  width: 100%;
+  height: 270px;
+  margin-bottom: 32px;
+}
+
+#quanContain > li {
+  float: left;
+  width: 172px;
+  height: 268px;
+  border: 1px solid #e8e8e8;
+}
+
+#quanContain > li:not(:last-child) {
+  margin-right: 18px;
+}
+
+#quanContain dt {
+  position: relative;
+  font-size: 0;
+}
+
+#quanContain .quan-img {
+  position: relative;
+  display: inline-block;
+  width: 172px;
+  height: 172px;
+  line-height: 172px;
+  margin-bottom: 12px;
+}
+
+#quanContain .quan-img > img {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#quanContain .quan-price {
+  display: inline-block;
+  position: absolute;
+  bottom: 12px;
+  right: 0;
+  width: 84px;
+  height: 24px;
+  line-height: 24px;
+  color: #f22f4a;
+  font-weight: 700;
+  font-size: 12px;
+  /* for IE9 IE8 IE7 not sure about IE6*/
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#ccffffff', endColorstr='#ccffffff');
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+}
+
+:root #quanContain .quan-price {
+  /*
+     * IE9 由于rgba和filter都支持，会导致两个颜色叠加，使用hack去除
+     * \9 代表 IE9 以下浏览器支持
+     * :root 只有 IE9+ 以及其他现代浏览器支持
+     * IE10 以上不再支持 filter
+    */
+  -webkit-filter: none;
+  filter: none;
+}
+
+#quanContain .quan-title {
+  display: inline-block;
+  cursor: pointer;
+  line-height: 20px;
+  height: 40px;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+#quanContain .quan-title > a:hover {
+  color: #f22f4a;
+}
+
+#quanContain .quan-title:hover {
+  color: #f22f4a;
+}
+
+#quanContain p {
+  padding: 0 8px;
+}
+
+#quanContain .quan-detail {
+  margin-top: 10px;
+}
+
+#quanContain .quan-tips {
+  float: left;
+  display: inline-block;
+  height: 17px;
+  line-height: 17px;
+  border: 1px dotted #f22f4a;
+  color: #f22f4a;
+  vertical-align: middle;
+}
+
+#quanContain .quan-tips > span:first-child {
+  border-right: 1px dotted #f22f4a;
+  padding: 0 4px;
+}
+
+#quanContain .quan-tips > span:last-child {
+  display: inline-block;
+  text-align: center;
+  padding: 0 4px;
+}
+
+#quanContain .quan-link {
+  float: right;
+  display: inline-block;
+  width: 68px;
+  height: 18px;
+  line-height: 18px;
+  color: #fff;
+  text-align: center;
+  background: #f22f4a;
+  vertical-align: middle;
+}
+
+/*left-wrap 中的优惠券直播end*/
+
+/*leff-wrap 中每日推荐精选商品start*/
+
+/*两个置顶项start*/
+
+.tips > li {
+  width: 100%;
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+  background: #f5f5f6;
+  margin-bottom: 24px;
+}
+
+.tips .set-top {
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  margin: 0 17px;
+  background: #f22f4a;
+  color: #fff;
+  text-align: center;
+}
+
+.tips a:hover {
+  color: #f22f4a;
+}
+
+/*两个置顶项end*/
+
+/*leff-wrap 中每日推荐精选商品end*/

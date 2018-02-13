@@ -137,7 +137,14 @@ const indexService = {
   async readNotice(FEmail){
     let re = await readNoticeModel.readNotice(FEmail);
     return re;
-  }
+  },
+
+  async getGoodsList(goodName, type, page, eachPageNum){
+    return await goodsModel.getGoodsList(goodName, type, page, eachPageNum);
+  },
+  async getGoodsListCount(goodName, type){
+    return await goodsModel.getGoodsListCount(goodName, type);
+  },
 
 
 

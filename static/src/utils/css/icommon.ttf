@@ -1,0 +1,90 @@
+.main-list {
+	float: left;
+}
+
+.main-list li {
+	padding: 20px 0;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.main-list li:first-child {
+	padding-top: 0;
+}
+
+.main-list li img {
+	height: 100%;
+	display: inline;
+}
+
+.main-list .item-detail {
+	margin-left: 220px;
+	margin-right: 10px;
+}
+
+.main-list .item-detail .item-title {
+	display: block;
+	font-size: 18px;
+	font-weight: bolder;
+	line-height: 1.6;
+	min-height: 40px;
+	padding-top: 10px;
+}
+
+.main-list .item-title a:hover .red {
+	color: #f78b8b;
+}
+
+.main-list .tag a {
+	margin-right: 15px;
+	color: #1263a4;
+}
+
+.main-list .tag a:hover {
+	text-decoration: underline;
+}
+
+.main-list .item-info {
+	margin-bottom: 8px;
+	font-size: 14px;
+	line-height: 1.6;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+.main-list .item-btm {
+	font-size: 14px;
+	line-height: 16px;
+}
+
+.main-list .item-btm a {
+	color: #999;
+	margin-right: 15px;
+	vertical-align: baseline;
+}
+
+.main-list .item-btm a.tag-danping {
+	color: #8a8a8a;
+	border: 1px solid #8a8a8a;
+	padding: 2px 5px;
+	font-size: 12px;
+}
+
+.main-list .item-btm a.tag-zhuanti {
+	color: #f12f4a;
+	border: 1px solid #f12f4a;
+	padding: 2px 5px;
+	font-size: 12px;
+}
+
+.main-list .item-btm i {
+	margin-right: 5px;
+	color: #999;
+}
+
+.main-list .item-btm .icon-user {
+	font-size: 14px;
+}
+
+.main-list .item-btm a:hover i {
+	color: #f22f4a;
+}
