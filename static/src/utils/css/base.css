@@ -8,12 +8,6 @@ body {
 }
 
 div,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 span,
 a,
 form,
@@ -57,19 +51,6 @@ select {
   font-size: 1em;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
-  font-size: 1em;
-  font-weight: normal;
-  overflow: hidden;
-}
-
 * {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -83,7 +64,7 @@ a {
   color: #333;
 }
 
-.clearfix:after {
+.clearfix::after {
   visibility: hidden;
   display: block;
   font-size: 0;
@@ -141,19 +122,6 @@ a {
   max-width: 86%;
 }
 
-header.main-header {
-  /*border-bottom: 1px solid #eee; */
-}
-
-.header-top {
-  position: relative;
-  width: 1080px;
-  margin: 20px auto 25px;
-}
-
-.logo {
-  float: left;
-}
 
 .sort-title  img {
   vertical-align: middle;
@@ -172,16 +140,7 @@ header.main-header {
   margin-left: 28px;
 }
 
-.search-box {
-  position: relative;
-  width: 418px;
-  height: 34px;
-  border: 2px solid #f22f4a;
-  float: left;
-  margin-top: 26px;
-  margin-left: 68px;
-  overflow: hidden;
-}
+
 
 .search-select {
   position: relative;
@@ -227,55 +186,9 @@ header.main-header {
   border-bottom: none;
 }
 
-.search-input {
-  width: 220px;
-  height: 36px;
-  padding-left: 10px;
-  line-height: 38px;
-  color: #333;
-  border: none;
-  outline: none;
-}
 
-.search-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0;
-  border: none;
-  vertical-align: middle;
-  font-size: 18px;
-  color: #999;
-  cursor: pointer;
-  transition: color ease-in-out .3s;
-  background: #f22f4a url(../img/search.png) no-repeat center center;
-  width: 48px;
-  height: 34px;
-}
-.select-room{
-  display: inline-block;
-  width: 120px;
-  border-right: 2px solid rgb(242, 47, 74);
-}
-.select-type{
-  padding: 10px 10px;
-  width: 100%;
-  font-weight: normal;
-  border: none;
-  color: #848484;
-  outline: none;
-  margin-bottom: 0;
-  background: url(../img/arrow.png) no-repeat 92% center #ffffff;
-  background-size: 5% !important;
-  -webkit-appearance: none;
-}
-.select-type > option:hover{
-  background: #ccc;
-}
 
-.search-btn:hover {
-  color: #f22f4a;
-}
+
 
 .header-r {
   float: right;
@@ -310,112 +223,9 @@ header.main-header {
   vertical-align: baseline;
 }
 
-.header-top.fixed {
-  position: fixed;
-  top: 0;
-  right: 0;
-}
 
-header .nav-wrap {
-  width: 1080px;
-  margin: 0 auto;
-}
 
-header nav {
-  display: inline-block;
-  vertical-align: bottom;
-}
 
-header nav a {
-  position: relative;
-  float: left;
-  display: inline-block;
-  padding: 9px 25px;
-  font-size: 14px;
-  transition: all ease .3s;
-}
-
-header nav a.on {
-  background-color: #24292f;
-  color: #fff;
-}
-
-header nav a.hot::after {
-  position: absolute;
-  top: 7px;
-  right: 2px;
-  content: "";
-  width: 22px;
-  height: 12px;
-  /*background: url("../img/spritesheet.png");*/
-  background-size: 100% 100%;
-}
-
-header nav a:hover {
-  color: #8b8f91;
-}
-
-header .nav .header-r {
-  margin-top: 12px;
-  margin-right: 0;
-  display: none;
-}
-
-header .nav.fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-  background-color: #333e44;
-}
-
-header .nav.fixed nav a {
-  font-size: 14px;
-  padding: 9px 25px;
-  color: #fff;
-}
-
-header .nav.fixed nav a:hover {
-  color: #d6d6d6;
-}
-
-header .nav.fixed .nav-r {
-  display: none;
-}
-
-header .nav.fixed .header-r {
-  display: block;
-}
-
-.sub-nav {
-  height: 36px;
-  background: #333e44;
-}
-
-.sub-nav ul {
-  width: 920px;
-  height: 100%;
-  float: left;
-}
-
-.sub-nav ul li {
-  display: block;
-  float: left;
-  height: 100%;
-  line-height: 36px;
-  padding: 0 14px;
-}
-.sub-nav ul li a {
-  display: block;
-  padding: 0 18px;
-  color: #fff;
-  font-size: 14px;
-}
-
-.sub-nav ul li a:hover {
-  color: #8b8f91;
-}
 
 .my-icon-left {
   position: relative;
@@ -431,25 +241,14 @@ header .nav.fixed .header-r {
   vertical-align: middle;
 }
 
-.sub-nav ul li.active {
-  background-color: #24292f;
-  font-weight: bold;
-}
 
-.sub-nav ul li:last-child {
-  border-right: none;
-}
 
-/*.sub-nav ul li a:hover,.sub-nav ul li a.active{
-	color: #f22f4a;
-}*/
-
-#subnav {
-  width: 1080px;
-  margin: 0 auto;
-  height: 68px;
-  margin-top: 36px;
-}
+/*#subnav {*/
+  /*width: 1080px;*/
+  /*margin: 0 auto;*/
+  /*height: 68px;*/
+  /*margin-top: 36px;*/
+/*}*/
 
 .wrap {
   width: 1080px;
@@ -1185,4 +984,17 @@ footer.main-footer a:hover {
   font-weight: 700;
   font-size: 14px;
 }
+.avatar-uploader > .ant-upload {
+  width: 200px;
+  height: 200px;
+}
 
+.ant-select-dropdown{
+  z-index: 99999;
+}
+#editor{
+  height: 500px;
+}
+.w-e-text-container{
+  height: 450px !important;
+}

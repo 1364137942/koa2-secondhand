@@ -2,11 +2,14 @@ const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
 const {CustomError} = require('../../utils/Error');
 module.exports = {
-  async editGood(ctx){
-    const title = '编辑商品';
-    await ctx.render('index/editGood.ejs', {
-      title
-    })
+  async test(ctx){
+    let result = {
+      code: 0,
+      data: [],
+      count: 0
+    };
+    await indexService.test();
+    ctx.body = result;
   },
   async getGoodsList(ctx){
     let result = {
@@ -15,8 +18,8 @@ module.exports = {
       count: 0
     };
     let data = ctx.request.body,
-      goodName = data.goodName ? data.goodName : '',
-      type = data.type ? data.type : '',
+      goodName = data.searchGoodName ? data.searchGoodName : '',
+      type = data.searchType ? data.searchType : '',
       page = data.page !== '' ? parseInt(data.page) - 1 : 0,
       eachPageNum = data.eachPageNum || 10;
 
@@ -96,7 +99,7 @@ module.exports = {
     }
     ctx.body = result;
   },
-  async getHotsGoods(){
+  async getHotGoods(ctx){
     let result = {
       code: 0,
       msg: '获取热门商品成功',
@@ -125,7 +128,94 @@ module.exports = {
       result.msg = '获取商品信息失败';
     }
     ctx.body = result;
+  },
+  async editGood(ctx){
+    const title = '编辑商品';
+    const goodID = ctx.query.goodID ? ctx.query.goodID : '';
+    const goodType = JSON.stringify(await indexService.getGoodType());
+    await ctx.render('index/editGood.ejs', {
+      title,
+      goodType,
+      goodID
+    })
+  },
+  async addGood(ctx){
+    let result = {
+      code: 0,
+      msg: '发布商品成功'
+    };
+    let data = ctx.request.body,
+        goodName = data.goodName,
+        goodTpe = data.goodType,
+        saleDate = data.saleDate,
+        price = data.price,
+        imageUrl = data.imageUrl,
+        desc = data.desc,
+        old = data.old;
+    //todo
+    // let email = ctx.session.email;
+    let email = '136123@qq.com';
+    let now = await commonFunction.getNowFormatDate();
+    //封面可选择不传，默认显示网站套图
+    //todo
+    if(imageUrl === ''){
+      imageUrl = '';
+    }
+
+    let addRe = await indexService.addGood(email, goodName, goodTpe, saleDate, price, imageUrl, desc, now, old);
+    ctx.body = result;
+  },
+  async modifyGood(ctx){
+    let result = {
+      code: 0,
+      msg: '修改商品成功'
+    };
+    let data = ctx.request.body,
+      goodID = data.goodID,
+      goodName = data.goodName,
+      goodTpe = data.goodType,
+      saleDate = data.saleDate,
+      price = data.price,
+      imageUrl = data.imageUrl,
+      desc = data.desc,
+      old = data.old;
+    //todo
+    // let email = ctx.session.email;
+    let email = '136123@qq.com';
+    let now = await commonFunction.getNowFormatDate();
+    //封面可选择不传，默认显示网站套图
+    //todo
+    if(imageUrl === ''){
+      imageUrl = '';
+    }
+
+    let addRe = await indexService.modifyGood(goodID, email, goodName, goodTpe, saleDate, price, imageUrl, desc, now, old);
+    ctx.body = result;
+  },
+  async goodDetail(ctx){
+    const title = '商品详情';
+    let goodID = ctx.query.goodID;
+    await ctx.render('index/goodDetail.ejs', {
+      title,
+      goodID
+    })
+  },
+  async getGoodDetail(ctx){
+    let result = {
+      code: 0,
+      data: {}
+    };
+    let goodID = ctx.request.body.goodID;
+    let detail = await indexService.getGoodDetail(goodID);
+    if(Array.isArray(detail) && detail.length > 0){
+      result.data = detail[0];
+    }else{
+      result.code = -1;
+    }
+    ctx.body = result;
   }
+
+
 
 
 };

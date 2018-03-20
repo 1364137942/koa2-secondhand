@@ -38,12 +38,6 @@ function fnCall(fn, obj, args){
     for(var i = 0; i<self.lis.length; i++){
       self.lis[i].style.width = self.banner.clientWidth + 'px';
     }
-    // self.align();
-    //    },
-    //    error:function () {
-    //        alert('获取数据失败，请重试');
-    //    }
-    //});
 
     //初始化导航小点
     var documentFragment = document.createDocumentFragment();
@@ -128,22 +122,6 @@ function fnCall(fn, obj, args){
       return json[key];
     });
   };
-  // Slide.prototype.align = function(){
-  //   $('.slider').each(function (index,value) {
-  //     var oimg=$(this).find('img');
-  //     $("<img/>").attr("src", oimg.attr("src")).load(function() {
-  //       var imgWidth = this.width;
-  //       var imgHeight = this.height;
-  //       if(imgWidth > imgHeight){
-  //         oimg.css({'width': '100%', 'height': 'auto'});
-  //       }else{
-  //         oimg.css({'height': '100%', 'width': 'auto'});
-  //       }
-  //       $(this).remove();
-  //     });
-  //   });
-  //   return this;
-  // };
   window.fn = function(){
     return new Slide();
   }

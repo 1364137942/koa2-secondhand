@@ -2,21 +2,50 @@ const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
 const {CustomError} = require('../../utils/Error');
 module.exports = {
-  async getUserWants(ctx){
+  async index(ctx){
+    const title = '求购商品页';
+    await ctx.render('index/wantsList.ejs', {
+      title,
+    });
+  },
+  async wantDetail(ctx){
+    const title = 'SecondHand';
+    let wantID = ctx.query.wantID;
+    await ctx.render('index/wantDetail.ejs', {
+      title,
+      wantID
+    })
+  },
+  async getWantDetail(ctx){
+    let result = {
+      code: 0,
+      data: {}
+    };
+    let wantID = ctx.request.body.wantID;
+    let detail = await indexService.getWantDetail(wantID);
+    if(Array.isArray(detail) && detail.length > 0){
+      result.data = detail[0];
+    }else{
+      result.code = -1;
+    }
+    ctx.body = result;
+
+  },
+  async getWantsList(ctx){
     let result = {
       code: 0,
       data: [],
       count: 0
     };
-    let data = ctx.query,
-        eachPageNum = data.eachPageNum !== '' ? data.eachPageNum : 20,
-        page = data.page !== '' ? data.page : 1,
-        status = data.status;
-    page = (page - 1) * eachPageNum;
-    let email = ctx.session.email;
+    let data = ctx.request.body,
+      goodName = data.searchGoodName ? data.searchGoodName : '',
+      type = data.searchType ? data.searchType : '',
+      page = data.page !== '' ? parseInt(data.page) - 1 : 0,
+      eachPageNum = data.eachPageNum || 10;
 
-    result.data = await indexService.getUserWantsList(email, status, page, eachPageNum);
-    result.count = await indexService.getUserWantsListCount(email, status);
+    page = parseInt(page)*parseInt(eachPageNum);
+    result.data = await indexService.getWantsList(goodName, type, page, eachPageNum);
+    result.count = await indexService.getWantsListCount(goodName, type);
     ctx.body = result;
   },
 
@@ -87,7 +116,56 @@ module.exports = {
       result.msg = '获取求购信息失败';
     }
     ctx.body = result;
-  }
+  },
+  async editWant(ctx){
+    const title = 'SecondHand';
+    const wantID = ctx.query.wantID ? ctx.query.wantID : '';
+    const goodType = JSON.stringify(await indexService.getGoodType());
+    await ctx.render('index/editWant.ejs', {
+      title,
+      goodType,
+      wantID
+    })
+  },
+  async addWant(ctx){
+    let result = {
+      code: 0,
+      msg: '发布商品成功'
+    };
+    let data = ctx.request.body,
+      goodName = data.goodName,
+      goodTpe = data.goodType,
+      saleDate = data.saleDate,
+      desc = data.desc,
+      old = data.old;
+    //todo
+    // let email = ctx.session.email;
+    let email = '136123@qq.com';
+    let now = await commonFunction.getNowFormatDate();
+
+    let addRe = await indexService.addWant(email, goodName, goodTpe, saleDate, desc, now, old);
+    ctx.body = result;
+  },
+  async modifyWant(ctx){
+    let result = {
+      code: 0,
+      msg: '修改商品成功'
+    };
+    let data = ctx.request.body,
+      wantID = data.wantID,
+      goodName = data.goodName,
+      goodType = data.goodType,
+      saleDate = data.saleDate,
+      desc = data.desc,
+      old = data.old;
+    //todo
+    // let email = ctx.session.email;
+    let email = '136123@qq.com';
+    let now = await commonFunction.getNowFormatDate();
+
+    let addRe = await indexService.modifyWant(wantID, email, goodName, goodType, saleDate, desc, now, old);
+    ctx.body = result;
+  },
 
 
 };

@@ -8,4 +8,5 @@ const common = require('../../controllers/admin/common');
 
 module.exports = router
   .get( '/uploadPage',common.checkLogin, testManage.uploadPage )
+  .get( '/test', testManage.test )
   .post( '/uploadFile',common.checkLogin, testManage.uploadFile );

@@ -5,11 +5,31 @@
 const idCodeModel = require('../models/index/idCodeModel');
 const userModel = require('../models/index/userModel');
 const goodsModel = require('../models/index/goodsModel');
+const goodTypeModel = require('../models/index/goodTypeModel');
 const wantsModel = require('../models/index/wantsModel');
 const readNoticeModel = require('../models/index/readNoticeModel');
 
 
 const indexService = {
+  async test(){
+    return await goodsModel.test();
+  },
+  async getUserInfoByGoodID(FGoodID){
+    let re = await userModel.getUserInfoByGoodID(FGoodID);
+    if(Array.isArray(re) && re.length > 0){
+      return re[0];
+    }else{
+      return false;
+    }
+  },
+  async getUserInfoByWantID(FWantID){
+    let re = await userModel.getUserInfoByWantID(FWantID);
+    if(Array.isArray(re) && re.length > 0){
+      return re[0];
+    }else{
+      return false;
+    }
+  },
   async insertOrUpdateIdCode(FEmail, FIdCode, FExpireTime){
     return await idCodeModel.insertOrUpdateIdCode(FEmail, FIdCode, FExpireTime);
   },
@@ -85,10 +105,15 @@ const indexService = {
 
   },
 
-  async getHotsGoods(){
-    return await goodsModel.getHotsGoods();
+  async getHotGoods(){
+    return await goodsModel.getHotGoods();
   },
-
+  async getWantsList(FGoodName, FType, page, eachPageNum){
+    return await wantsModel.getWantsList(FGoodName, FType, page, eachPageNum);
+  },
+  async getWantsListCount(FGoodName, FType){
+    return await wantsModel.getWantsListCount(FGoodName, FType);
+  },
   //用户求购管理
   async getUserWantsList(FEmail, FStatus, page, eachPageNum){
     return await wantsModel.getUserWantsList(FEmail, FStatus, page, eachPageNum);
@@ -145,9 +170,27 @@ const indexService = {
   async getGoodsListCount(goodName, type){
     return await goodsModel.getGoodsListCount(goodName, type);
   },
-
-
-
+  async getGoodType(){
+    return await goodTypeModel.getGoodType();
+  },
+  async addGood(email, goodName, goodType, saleDate, price, imageUrl, desc, now, old){
+    return await goodsModel.addGood(email, goodName, goodType, saleDate, price, imageUrl, desc, now, old);
+  },
+  async modifyGood(goodID, email, goodName, goodType, saleDate, price, imageUrl, desc, now, old){
+    return await goodsModel.modifyGood(goodID, email, goodName, goodType, saleDate, price, imageUrl, desc, now, old);
+  },
+  async getGoodDetail(goodID){
+    return await goodsModel.getGoodDetail(goodID);
+  },
+  async getWantDetail(FWantID){
+    return await wantsModel.getWantDetail(FWantID);
+  },
+  async addWant(email, goodName, goodTpe, saleDate, desc, now, old){
+    return await wantsModel.addWant(email, goodName, goodTpe, saleDate, desc, now, old);
+  },
+  async modifyWant(wantID, email, goodName, goodType, saleDate, desc, now, old){
+    return await wantsModel.modifyWant(wantID, email, goodName, goodType, saleDate, desc, now, old);
+  },
 
 };
 

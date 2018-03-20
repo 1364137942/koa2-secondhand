@@ -40,6 +40,7 @@
   height: 206px;
   line-height: 206px;
   margin-bottom: 16px;
+  overflow: hidden;
 }
 
 #content .quan-img > img {
@@ -82,6 +83,7 @@
   cursor: pointer;
   line-height: 20px;
   height: 40px;
+  font-size: 16px;
   -webkit-line-clamp: 2;
   line-clamp: 2;
 }

@@ -4,6 +4,7 @@ const config = {
 
   database: {
     DATABASE: 'secondhand',
+    // DATABASE: 'workflow',
     USERNAME: 'root',
     PASSWORD: '',
     PORT: '3306',

@@ -2,6 +2,36 @@ const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
 const {CustomError} = require('../../utils/Error');
 module.exports = {
+  async getUserInfoByGoodID(ctx){
+    let result = {
+      code: 0,
+      data: {}
+    };
+    let data = ctx.request.body,
+      goodID = data.goodID;
+    let re = await indexService.getUserInfoByGoodID(goodID);
+    if(re === false){
+      result.code = -1;
+    }else{
+      result.data = re;
+    }
+    ctx.body = result;
+  },
+  async getUserInfoByWantID(ctx){
+    let result = {
+      code: 0,
+      data: {}
+    };
+    let data = ctx.request.body,
+      wantID = data.wantID;
+    let re = await indexService.getUserInfoByWantID(wantID);
+    if(re === false){
+      result.code = -1;
+    }else{
+      result.data = re;
+    }
+    ctx.body = result;
+  },
   async sendIdCode(ctx){
     let result = {
       code: 0,

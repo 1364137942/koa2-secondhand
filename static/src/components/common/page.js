@@ -49,13 +49,15 @@ class PageComponent extends React.Component {
   }
   componentDidMount(){
     let that = this;
-    window.addEventListener('scroll', function(){
-      if(getScrollTop() + getWindowHeight() === getScrollHeight() && that.props.duration === false && that.props.leftTime > 0){
-          if (that.state.page <= parseInt(that.state.count/that.state.eachPageNum)) {
-              that.props.callback.bind(that, that.state.page + 1)();
-          }
-        }
-    }, false);
+    // window.addEventListener('scroll', function(){
+    //   if(getScrollTop() + getWindowHeight() === getScrollHeight() && that.props.duration === false && that.props.leftTime > 0){
+    //     window.setTimeout(function(){
+    //       if (that.state.page <= parseInt(that.state.count/that.state.eachPageNum)) {
+    //         that.props.callback.bind(that, that.state.page + 1)();
+    //       }
+    //     },1000)
+    //     }
+    // }, false);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
@@ -65,37 +67,73 @@ class PageComponent extends React.Component {
     })
   }
   renderPage(){
-    let activeI = parseInt((this.state.page)/3),
-      pageIndex = this.state.page,
-      allPage = Math.ceil(this.state.count/this.state.eachPageNum),
-      lastPage = Math.ceil(allPage / 3),
-      pageHtml = [];
-      if (allPage === 0 ) {
-        pageHtml.push('');
-        return pageHtml
+    // let activeI = parseInt((this.state.page)/3),
+    //   pageIndex = this.state.page,
+    //   allPage = Math.ceil(this.state.count/this.state.eachPageNum),
+    //   lastPage = Math.ceil(allPage / 3),
+    //   pageHtml = [];
+    //   if (allPage === 0 ) {
+    //     pageHtml.push('');
+    //     return pageHtml
+    //   }
+    //   else if(allPage === 1){
+    //     pageHtml.push(<div key={0} style="text-align: center; font-size: 16px; color: #999;">---------------- 已经到底了 ----------------</div>);
+    //     return pageHtml;
+    //   }
+    //   let prev = Math.ceil(this.state.page / 3) * 3 - 5;
+    //   pageHtml.push(<a key={'up'} href="javascript:void(0);" onClick={this.props.callback.bind(this, prev > 0 ? prev : 1)}>上一页</a>);
+    //   if(activeI > 3) {
+    //     pageHtml.push(<a key={1} href="javascript:void(0);" onClick={this.props.callback.bind(this, 1)}>1</a>);
+    //     pageHtml.push(<span key="..." className="shenglue-page">...</span>);
+    //   }
+    //   for (let i = (activeI - 3) > 0 ? (activeI - 3) : 0, len = (activeI + 3) < lastPage ? (activeI + 3) : lastPage; i < len; i++) {
+    //     if (i === parseInt((pageIndex -1)/3)) {
+    //       pageHtml.push(<a key={(i + 1)} href="javascript:void(0);" className="active" onClick={this.props.callback.bind(this, (1+(i*3)))}>{(i + 1)}</a>);
+    //     } else {
+    //       pageHtml.push(<a key={(i + 1)} href="javascript:void(0);" onClick={this.props.callback.bind(this, (i*3) + 1)}>{(i + 1)}</a>);
+    //     }
+    //   }
+    //   if(lastPage - activeI > 3){
+    //     pageHtml.push(<span key=".." className="shenglue-page">...</span>);
+    //     pageHtml.push(<a key={lastPage} href="javascript:void(0);" onClick={this.props.callback.bind(this, 1 + (lastPage-1) * 3)}>{lastPage}</a>);
+    //   }
+    //   pageHtml.push(<a key="next" href="javascript:void(0);" onClick={this.props.callback.bind(this, this.state.page + 1 <= (1 + (lastPage-1) * 3) ? this.state.page + 1 : (1 + (lastPage-1) * 3))}>下一页</a>);
+
+    let activeI = parseInt(this.state.page),
+      pageIndex = activeI,
+        allPage = Math.ceil(this.state.count/this.state.eachPageNum),
+        lastPage = allPage,
+        pageHtml = [];
+    if (allPage === 0 ) {
+      pageHtml.push('');
+      return pageHtml
+    }
+    else if(allPage === 1){
+      pageHtml.push('');
+      return pageHtml;
+    }
+
+    if(activeI > 3) {
+      pageHtml.push(<a key={1} href="javascript:void(0);" onClick={this.props.callback.bind(this, 1)}>1</a>);
+      pageHtml.push(<span key="..." className="shenglue-page">...</span>);
+    }
+    for (let i = (activeI - 3) > 0 ? (activeI - 3) : 0, len = (activeI + 3) < lastPage ? (activeI + 3) : lastPage; i < len; i++) {
+      if (i === parseInt((pageIndex -1))) {
+        pageHtml.push(<a key={(i + 1)} href="javascript:void(0);" className="active" onClick={this.props.callback.bind(this, i+1)}>{(i+1)}</a>);
+      } else {
+        pageHtml.push(<a key={(i + 1)} href="javascript:void(0);" onClick={this.props.callback.bind(this, i+1)}>{(i+1 )}</a>);
       }
-      else if(allPage === 1){
-        pageHtml.push(<div key={0} style="text-align: center; font-size: 16px; color: #999;">---------------- 已经到底了 ----------------</div>);
-        return pageHtml;
-      }
-      let prev = Math.ceil(this.state.page / 3) * 3 - 5;
-      pageHtml.push(<a key={'up'} href="javascript:void(0);" onClick={this.props.callback.bind(this, prev > 0 ? prev : 1)}>上一页</a>);
-      if(activeI > 3) {
-        pageHtml.push(<a key={1} href="javascript:void(0);" onClick={this.props.callback.bind(this, 1)}>1</a>);
-        pageHtml.push(<span key="..." className="shenglue-page">...</span>);
-      }
-      for (let i = (activeI - 3) > 0 ? (activeI - 3) : 0, len = (activeI + 3) < lastPage ? (activeI + 3) : lastPage; i < len; i++) {
-        if (i === parseInt((pageIndex -1)/3)) {
-          pageHtml.push(<a key={(i + 1)} href="javascript:void(0);" className="active" onClick={this.props.callback.bind(this, (1+(i*3)))}>{(i + 1)}</a>);
-        } else {
-          pageHtml.push(<a key={(i + 1)} href="javascript:void(0);" onClick={this.props.callback.bind(this, (i*3) + 1)}>{(i + 1)}</a>);
-        }
-      }
-      if(lastPage - activeI > 3){
-        pageHtml.push(<span key=".." className="shenglue-page">...</span>);
-        pageHtml.push(<a key={lastPage} href="javascript:void(0);" onClick={this.props.callback.bind(this, 1 + (lastPage-1) * 3)}>{lastPage}</a>);
-      }
-      pageHtml.push(<a key="next" href="javascript:void(0);" onClick={this.props.callback.bind(this, this.state.page + 1 <= (1 + (lastPage-1) * 3) ? this.state.page + 1 : (1 + (lastPage-1) * 3))}>下一页</a>);
+    }
+    if(lastPage - activeI >= 3){
+      pageHtml.push(<span key=".." className="shenglue-page">...</span>);
+      pageHtml.push(<a key={lastPage} href="javascript:void(0);" onClick={this.props.callback.bind(this, lastPage)}>{lastPage}</a>);
+    }
+    pageHtml.push(<a key="next" href="javascript:void(0);" onClick={this.props.callback.bind(this, this.state.page + 1 <= lastPage ? this.state.page + 1 : lastPage)}>下一页</a>);
+
+
+
+
+
       return pageHtml;
 
   }

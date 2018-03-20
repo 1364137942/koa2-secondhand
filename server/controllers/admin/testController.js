@@ -4,6 +4,7 @@ const path = require('path');
 const os = require('os');
 const fs = require('fs');
 const Busboy = require('busboy');
+const dbUnit = require('../../utils/db-util');
 //定时任务
 module.exports = {
   //定时下架商品
@@ -24,9 +25,66 @@ module.exports = {
     });
     console.log(123);
     ctx.body = result
+  },
+  async test(ctx){
+    let _sql = `select wf_workflow.* ,
+     wf_arc.transition_id,wf_arc.place_id,wf_arc.direction,wf_arc.arc_type,
+     wf_place.place_type,wf_place.place_name
+     from wf_workflow 
+      join wf_place on wf_workflow.workflow_id = wf_place.workflow_id
+      join wf_transition on wf_workflow.workflow_id = wf_transition.workflow_id 
+      join wf_arc on wf_transition.workflow_id = wf_arc.workflow_id and wf_transition.transition_id = wf_arc.transition_id and wf_place.place_id = wf_arc.place_id
+      where wf_workflow.workflow_id = '3' `
+    let re = await dbUnit.query(_sql);
+
+    let placeNum = 6;
+    let arr = [];
+    for(let i = 0; i<placeNum; i++) {
+      arr[i] = [];
+      for(let j = 0; j<placeNum; j++) {
+        arr[i][j] = 0;
+      }
+    }
+    let placeAcr = {};
+    let transitionArcType = {};
+
+    re.forEach(function(item){
+      if(!placeAcr[item.transition_id]){
+        placeAcr[item.transition_id] = {
+          IN: [],
+          OUT: [],
+        };
+        transitionArcType[item.transition_id] = 'SEQ';
+      }
+      placeAcr[item.transition_id][item.direction].push(item.place_id);
+      if(item.arc_type !== 'SEQ'){
+        transitionArcType[item.transition_id] = item.arc_type;
+      }
+    });
+    for(let key in placeAcr){
+      let transitionId = key;
+      let val = placeAcr[key];
+      val.IN.forEach(function(i){
+        val.OUT.forEach(function(j){
+          arr[i-1][j-1] = transitionId;
+        })
+      })
+    }
+    for(let i = 0; i<placeNum; i++) {
+      str = '';
+      for(let j = 0; j<placeNum; j++) {
+        str += arr[i][j] + ' ';
+      }
+      console.log(str);
+    }
+    console.log(transitionArcType);
+
+
+    ctx.body = re;
+    }
   }
 
-};
+
 function uploadFile( ctx, options) {
   let req = ctx.req
   let res = ctx.res
@@ -107,3 +165,4 @@ function getSuffixName( fileName ) {
   let nameList = fileName.split('.')
   return nameList[nameList.length - 1]
 }
+

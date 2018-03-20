@@ -45,6 +45,14 @@ const userModel = {
   async updateUserInfo(FEmail, FUsername, FPhone, FQQ){
     let _sql = `update ${table} set FUsername = '${FUsername}', FPhone = '${FPhone}', FQQ = '${FQQ}' where FEmail = '${FEmail}' limit 1`;
     return await dbUtils.query(_sql);
+  },
+  async getUserInfoByGoodID(FGoodID){
+    let _sql = `select ${table}.FEmail,FPhone,FQQ from ${table} join t_goods on t_goods.FEmail = ${table}.FEmail where FGoodID = '${FGoodID}' and FStatus = 1 and FEnable = 1`;
+    return await dbUtils.query(_sql);
+  },
+  async getUserInfoByWantID(FWantID){
+    let _sql = `select ${table}.FEmail,FPhone,FQQ from ${table} join t_wants on t_wants.FEmail = ${table}.FEmail where FWantID = '${FWantID}' and FStatus = 1 and FEnable = 1`;
+    return await dbUtils.query(_sql);
   }
 };
 

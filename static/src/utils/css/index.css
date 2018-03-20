@@ -14,64 +14,6 @@ LESS Keyframes 兼容性代码简化自定义函数，自定义动画
   overflow: hidden;
 }
 
-header .top-nav {
-  display: inline-block;
-  vertical-align: bottom;
-}
-
-.header-top {
-  position: relative;
-  width: 1080px;
-  margin: 6px auto 0;
-  height: 90px;
-}
-
-header .top-nav a {
-  position: relative;
-  float: left;
-  display: inline-block;
-  padding: 0 20px;
-  font-size: 14px;
-  -webkit-transition: all ease .3s;
-  transition: all ease .3s;
-}
-
-header .top-nav a.on {
-  background-color: #fff;
-  color: #f12f4a;
-  font-weight: bold;
-}
-
-header .top-nav a.hot::after {
-  position: absolute;
-  top: 7px;
-  right: 2px;
-  content: "";
-  width: 22px;
-  height: 12px;
-  /*background: url("../img/spritesheet.png");*/
-  background-position: -0px -18px;
-  background-size: 100% 100%;
-}
-
-header .top-nav a:hover {
-  color: #f12f4a;
-  background-color: #fff;
-}
-
-.sub-nav ul {
-  width: 1080px;
-  margin: 0 auto;
-  float: none;
-}
-
-.sub-nav ul li {
-  display: block;
-  float: left;
-  height: 36px;
-  line-height: 36px;
-  padding-top: 0;
-}
 
 .left-wrap-top {
   position: relative;

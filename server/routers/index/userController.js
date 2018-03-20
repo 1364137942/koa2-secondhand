@@ -7,4 +7,6 @@ module.exports = router
   .post( '/login', user.login)
   .post( '/forgetPass', user.forgetPass)
   .get( '/login', user.logOut)
-  .get( '/login', user.loginPage);
+  .get( '/login', user.loginPage)
+  .post( '/getUserInfoByGoodID', user.getUserInfoByGoodID)
+  .post( '/getUserInfoByWantID', user.getUserInfoByWantID);

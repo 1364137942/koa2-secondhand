@@ -1,14 +1,12 @@
 import React from 'react'
-import '../../utils/css/base.css'
-import '../../utils/css/icon.css'
 import '../../utils/css/index.css'
 import '../../utils/css/slider.css'
 import '../../utils/css/main-list.css'
 import '../../utils/css/quanzhibo.css'
 import '../../utils/slider'
-import Page from '../../utils/Page'
 import Request from '../../utils/request'
 import PageComponent from '../../components/common/page'
+import HeaderComponent from '../../components/index/header/header'
 class App extends React.Component {
   constructor(props, context){
     super(props, context);
@@ -64,7 +62,7 @@ class App extends React.Component {
           <dl>
             <dt>
               <a className="quan-img" rel="nofollow" target="_blank" href="http://uland.taobao.com/coupon/edetail?activityId=78eb3ff06ab441ee85f2de2ca7ebba2f&amp;pid=mm_33147135_20914365_78904298&amp;itemId=520435460246&amp;dx=1"><img src="/image/img/6bea46b53c85f.jpg" alt=""/></a>
-              <span className="quan-price">券后15元</span>
+              <span className="quan-price">券后1元</span>
             </dt>
             <dd>
               <p className="quan-title common-ellipsis"><a rel="nofollow" target="_blank" href="http://uland.taobao.com/coupon/edetail?activityId=78eb3ff06ab441ee85f2de2ca7ebba2f&amp;pid=mm_33147135_20914365_78904298&amp;itemId=520435460246&amp;dx=1">【买2送1】天然野生桃胶食用桃花泪搭配雪莲子皂角米雪燕银耳伴侣</a></p>
@@ -105,47 +103,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <header className="main-header" style={{position: 'fixed', top: 0, left: 0, zIndex: 99999, width: '100%', }}>
-          <div className="header-top clearfix" style={{background: '#fff', marginTop: 0}}>
-            <div className="logo">
-              <h1>
-                <a href=".">
-                  <img src="/img/logo.jpg" alt="海纳百物•只有精选"/>
-                </a>
-              </h1>
-            </div>
-
-            <div className="search-box">
-              <form>
-                <div className="select-room">
-                  <select name="" id="type" className="select-type">
-                    <option value="1">全部</option>
-                    <option value="2">其他</option>
-                    <option value="3">數據</option>
-                    <option value="4">撒</option>
-                  </select>
-                </div>
-                <input type="text" className="search-input" id="js-keyword" placeholder="搜索好物"/>
-                <button type="submit" className="search-btn" id="js-search-btn"/>
-              </form>
-            </div>
-          </div>
-          <div className="nav" id="js-nav">
-
-            <div className="sub-nav">
-              <ul>
-                <li className="active"><a href="/">首页</a></li>
-                <li><a href="/bao">爆优惠</a></li>
-                <li><a href="/inside">国内精选</a></li>
-                <li><a href="/haiwai">海淘商城</a></li>
-              </ul>
-            </div>
-          </div>
-        </header>
+        <HeaderComponent isShowSearch={true}/>
         <section className="wrap clearfix" style={{position: 'relative', top: '90px'}}>
             <div id="slider">
               <div className="slider-header">
-
                 <div id="sliderContent">
                   <div className="slider-nav">
                     <div className="nav-dot">

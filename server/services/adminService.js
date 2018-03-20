@@ -41,7 +41,7 @@ const adminService = {
     return await userModel.whiteUser(userID);
   },
   async getAllType(){
-    return await goodTypeModel.getAllType();
+    return await goodTypeModel.getGoodType();
   },
   async getGoodsList(userName, goodName, type, status, page, eachPageNum){
     let re = await goodsModel.getGoodsList(userName, goodName, type, status, page, eachPageNum);
