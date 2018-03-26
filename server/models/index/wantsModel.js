@@ -56,7 +56,7 @@ const wantsModel = {
     }else{
       _fields = ` count(FWantID) as count`;
     }
-    let _sql = `SELECT ${_fields} from ${table} where FEmail = ${FEmail} and FEnable = '1' and FStatus = '${FStatus}'`;
+    let _sql = `SELECT ${_fields} from ${table} where FEmail = '${FEmail}' and FEnable = '1' and FStatus = '${FStatus}'`;
 
     if(page !== "" && eachPageNum !== ""){
       _sql += _limit;

@@ -44,12 +44,12 @@ class App extends React.Component {
     this.setState({
       active: tab
     })
-    if(status === 'goodsInfo'){
-      this.getGoodsList();
-    }else if(status === 'userInfo'){
+    if(tab === 'goodsInfo'){
+      this.getGoodsList(1);
+    }else if(tab === 'userInfo'){
       this.getUserInfo();
-    }else if(status === 'wantsInfo'){
-      this.getWantsList();
+    }else if(tab === 'wantsInfo'){
+      this.getWantsList(1);
     }
   }
   switchGoodStatus(status){
