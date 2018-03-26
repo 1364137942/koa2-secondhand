@@ -13,7 +13,8 @@ module.exports = {
     }
   },
   gdufsLogin: {
-    loginUrl: 'http://xg.gdufs.edu.cn/pkmslogin.form',
-    redirectUrl: 'http://auth.gdufs.edu.cn/wps/myportal'
+    loginUrl: 'https://authserver.gdufs.edu.cn/authserver/login',
+    // redirectUrl: 'http://auth.gdufs.edu.cn/wps/myportal'
+    redirectUrl: 'http://cashall.gdufs.edu.cn/new/index.html'
   }
 };

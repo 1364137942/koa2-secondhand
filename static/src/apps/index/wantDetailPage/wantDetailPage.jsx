@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props, context){
     super(props, context);
     this.state = {
-      detail: {},
+      detail: '',
       activeTab: 'desc', //desc, security
       contactInfo: ''
     }
@@ -46,7 +46,7 @@ class App extends React.Component {
     });
     if(tab === 'contact'){
       let re = await Request.post({
-        url: '/usersController/getUserInfoByWantID',
+        url: '/userController/getUserInfoByWantID',
         data: {
           wantID: this.state.detail.FWantID
         },
@@ -64,7 +64,7 @@ class App extends React.Component {
     return (
       <div>
         <HeaderComponent isShowSearch={false}/>
-        <section className={"wrap clearfix " + styles.topSec}>
+        <section className={"wrap clearfix " + styles.topSec} style={this.state.detail === '' ? {display: 'none'} : {} }>
           <div className={styles.goodDetail}>
             <h1 className={styles.title}>{this.state.detail.FGoodName}</h1>
             <ul className={styles.idleInfo}>
@@ -83,7 +83,7 @@ class App extends React.Component {
             </ul>
           </div>
         </section>
-        <section className={"wrap clearfix " + styles.goodDescBlock}>
+        <section className={"wrap clearfix " + styles.goodDescBlock} style={this.state.detail === '' ? {display: 'none'} : {} }>
           <div className={styles.tabTitle}>
             <ul className={styles.listTabs}>
               <li className={this.state.activeTab === 'desc' ? styles.active : styles.normal}>
@@ -98,13 +98,13 @@ class App extends React.Component {
             </ul>
           </div>
           <div className={styles.tabContent}>
-            <div className={styles.goodDesc} style={this.state.activeTab === 'desc' ? {display: 'block'} : {display: 'none'}} dangerouslySetInnerHTML={{__html: this.state.detail.FDesc}}/>
+            <div className={styles.goodDesc} style={this.state.activeTab === 'desc' ? {display: 'block'} : {display: 'none'}} dangerouslySetInnerHTML={{__html: this.state.detail.FDesc ? this.state.detail.FDesc : '这个人很懒，什么都没留下！！！'}}/>
             <div style={this.state.activeTab === 'security' ? {display: 'block'} : {display: 'none'}}>
               安全保障
             </div>
             <div style={this.state.activeTab === 'contact' ? {display: 'block'} : {display: 'none'}}>
               <div  style={this.state.contactInfo === '' ? {display: 'block'} : {display: 'none'}}>
-                请先 <a href="">登录</a> 后查看
+                请先 <a href="/userController/login" style={{color: 'red'}}>登录</a> 后查看
               </div>
               <div  style={this.state.contactInfo !== '' ? {display: 'block', paddingLeft: "16px"} : {display: 'none'}}>
                 <p style={{color: "red"}}>请勿恶意骚扰！！！</p>
@@ -114,7 +114,9 @@ class App extends React.Component {
               </div>
             </div>
           </div>
-
+        </section>
+        <section className={"wrap clearfix " + styles.topSec} style={this.state.detail === '' ? {} : {display: 'none'} }>
+            <h1>该商品不存在，请返回首页查看更多商品！！！</h1>
         </section>
       </div>
     )

@@ -68,9 +68,18 @@ const sessionMysqlConfig= {
 
 // 配置session中间件
 app.use(session({
-  key: 'USER_SID',
-  store: new MysqlStore(sessionMysqlConfig)
+  // key: 'USER_SID',
+  // store: new MysqlStore(sessionMysqlConfig)
+  key: 'session-id',          // cookie 中存储 session-id 时的键名, 默认为 koa:sess
+  cookie: {                   // 与 cookie 相关的配置
+    domain: 'localhost',    // 写 cookie 所在的域名
+    path: '/',              // 写 cookie 所在的路径
+    maxAge: 18000000,      // cookie 有效时长
+    httpOnly: true,         // 是否只用于 http 请求中获取
+    overwrite: true        // 是否允许重写
+  }
 }))
+
 
 // 配置控制台日志中间件
 app.use(koaLogger())

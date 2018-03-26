@@ -25,11 +25,11 @@ router.use('/task', task.routes(), task.allowedMethods());
 router.use('/test', test.routes(), test.allowedMethods());
 
 //用户前台
-const usersController = require('./index/userController');
+const userController = require('./index/userController');
 const goodsController = require('./index/goodsController');
 const indexController = require('./index/indexController');
 const wantsController = require('./index/wantsController');
-router.use('/usersController', usersController.routes(), usersController.allowedMethods());
+router.use('/userController', userController.routes(), userController.allowedMethods());
 router.use('/goodsController', goodsController.routes(), goodsController.allowedMethods());
 router.use('/indexController', indexController.routes(), indexController.allowedMethods());
 router.use('/wantsController', wantsController.routes(), wantsController.allowedMethods());

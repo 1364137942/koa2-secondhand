@@ -1,0 +1,131 @@
+.mainList{
+  width: 760px;
+  float: left;
+}
+
+.sideBar{
+  float: left;
+  & > ul{
+    background: #fff;
+  }
+  & li{
+    width: 78px;
+    height: 29px;
+    line-height: 29px;
+    border: 1px solid #eaeaea;
+    text-align: center;
+  }
+  & .active{
+    background: #f22f4a;
+    height: 38px;
+    line-height: 38px;
+    color: #fff;
+    text-align: center;
+    font-weight: 700;
+    border-left: 1px solid #f22f4a;
+    border-right: 1px solid #f22f4a;
+  }
+}
+
+.infoBlock{
+  float: left;
+  display: block;
+  width: 660px;
+  margin-left: 12px;
+  border: 1px solid #eaeaea;
+}
+.userInfo{
+  padding-top: 16px;
+  & .baseUserInfo{
+    font-size: 14px;
+    padding-left: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eaeaea;
+    & li{
+      line-height: 26px;
+    }
+  }
+
+  & .extendUserInfo{
+    padding-left: 28px;
+    padding-top: 16px;
+  }
+}
+
+.goodsInfo{
+  padding: 16px;
+  font-size: 14px;
+
+  & .goodsStatus{
+    & li{
+      float: left;
+      margin-right: 8px;
+      line-height: 32px;
+      border: 1px solid #eaeaea;
+      padding: 0 8px;
+    }
+    & .activeGoodStatus{
+      background: #f22f4a;
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+
+  & .goodList{
+    margin-top: 16px;
+    & li{
+      border: 1px solid #eaeaea;
+      border-radius: 4px;
+      width: 100%;
+      line-height: 38px;
+      padding-left: 12px;
+      margin-bottom: 12px;
+    }
+    & .goodTitle{
+      font-size: 18px;
+      display: inline-block;
+      font-weight: 700;
+      width: 100%;
+    }
+    & .goodCreateTime, & .goodDownTime{
+      font-size: 12px;
+      display: inline-block;
+      color: grey;
+      width: 50%;
+    }
+    & .goodOper{
+      display: inline-block;
+      width: 100%;
+      text-align: right;
+      padding-right: 12px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.operBtn{
+  display: inline-block;
+  background: #f22f4a;
+  border: 1px solid #eaeaea;
+  line-height: 26px;
+  padding: 0 4px;
+  margin-left: 8px;
+  color: #fff;
+}
+
+.submitBtn{
+  background: #f22f4a;
+  border: 1px solid #eaeaea;
+  line-height: 32px;
+  padding: 0 8px;
+  margin-left: 8px;
+  color: #fff;
+  border-radius: 0;
+}
+.operBtn:hover, .submitBtn:hover{
+  color: #fff;
+  text-decoration: none;
+  background: #f22f4a;
+  opacity: 0.8;
+  border: 1px solid #eaeaea;
+}

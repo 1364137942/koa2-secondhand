@@ -95,8 +95,9 @@ const indexService = {
     return await goodsModel.getGoodInfo(FGoodID, FEmail);
   },
 
-  async updateGoodStatus(FGoodID, FEmail, FStatus){
-    let re = await goodsModel.updateGoodStatus(FGoodID, FEmail, FStatus);
+  async updateGoodStatus(FGoodID, FEmail, FStatus, now){
+
+    let re = await goodsModel.updateGoodStatus(FGoodID, FEmail, FStatus, now);
     if(re.affectedRows == 1){
       return true;
     }else{
@@ -133,8 +134,8 @@ const indexService = {
   async getWantInfo(FWantID, FEmail){
     return await wantsModel.getWantInfo(FWantID, FEmail);
   },
-  async updateGoodStatus(FWantID, FEmail, FStatus){
-    let re = await wantsModel.updateWantStatus(FWantID, FEmail, FStatus);
+  async updateWantStatus(FWantID, FEmail, FStatus, now){
+    let re = await wantsModel.updateWantStatus(FWantID, FEmail, FStatus, now);
     if(parseInt(re.affectedRows) === 1){
       return true;
     }else{
@@ -182,8 +183,8 @@ const indexService = {
   async getGoodDetail(goodID){
     return await goodsModel.getGoodDetail(goodID);
   },
-  async getWantDetail(FWantID){
-    return await wantsModel.getWantDetail(FWantID);
+  async getWantDetail(FWantID, userEmail){
+    return await wantsModel.getWantDetail(FWantID, userEmail);
   },
   async addWant(email, goodName, goodTpe, saleDate, desc, now, old){
     return await wantsModel.addWant(email, goodName, goodTpe, saleDate, desc, now, old);

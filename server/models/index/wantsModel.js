@@ -49,12 +49,12 @@ const wantsModel = {
 
   async getUserWantsList(FEmail, FStatus, page = '', eachPageNum = ''){
     let _limit = '',
-        _fields = '*';
-        _defaultRetrun = [];
+        _fields = `FWantID,DATE_FORMAT(FCreateTime, '%Y-%m-%d') as FCreateTime ,DATE_FORMAT(FOutDate, '%Y-%m-%d') as FOutDate,FGoodName,FStatus`;
     if(page !== "" && eachPageNum !== ''){
       _limit = ` order by ${table}.FWantID desc limit ${page}, ${eachPageNum} `;
-      _fields = 'count(FWantID) as count';
-      _defaultRetrun = 0;
+
+    }else{
+      _fields = ` count(FWantID) as count`;
     }
     let _sql = `SELECT ${_fields} from ${table} where FEmail = ${FEmail} and FEnable = '1' and FStatus = '${FStatus}'`;
 
@@ -65,7 +65,7 @@ const wantsModel = {
     if ( Array.isArray(result) && result.length > 0 ) {
       return result;
     } else {
-      return _defaultRetrun;
+      return [];
     }
   },
   async deleteWant(FWantID, FEmail){
@@ -77,11 +77,21 @@ const wantsModel = {
     return dbUtils.query(_sql);
   },
   async updateWantStatus(FWantID, FEmail, FStatus){
-    let _sql = `update ${table} set FStatus = '${FStatus}' where FWantID = '${FWantID}' and FEmail = '${FEmail}' limit 1`;
+    let _sql = '';
+    if(FStatus == 'down'){
+      _sql = `update ${table} set FStatus = 0 where FWantID = '${FWantID}' and FEmail = '${FEmail}' limit 1`;
+    }else{
+      _sql = `update ${table} set FStatus = 1,FSaleDate = '${now}',FOutDate = date_add('${now}',interval datediff(FOutDate, FSaleDate) day) where FGoodID = '${FWantID}' and FEmail = '${FEmail}' and FEnable = '1' limit 1`;
+    }
     return dbUtils.query(_sql);
   },
-  async getWantDetail(FWantID){
-    let _sql = `select FWantID,FGoodName,FType,FDesc,datediff(FOutDate, FSaleDate)  as FSaleDay ,DATE_FORMAT(FOutDate,'%Y-%m-%d') as FOutDate,FOld from ${table} where FWantID = ${FWantID} and FEnable = 1 and FStatus = 1 limit 1`;
+  async getWantDetail(FWantID, userEmail){
+    let where = ``;
+    if(userEmail === ''){
+      where = ` and FStatus = '1'`
+    }
+    let _sql = `select FWantID,FGoodName,FType,FDesc,datediff(FOutDate, FSaleDate)  as FSaleDay ,DATE_FORMAT(FOutDate,'%Y-%m-%d') as FOutDate,FOld from ${table} where FWantID = ${FWantID} and FEnable = 1 ${where} limit 1`;
+
     return await dbUtils.query(_sql);
   },
   async addWant(email, goodName, goodType, saleDate, desc, now, old){

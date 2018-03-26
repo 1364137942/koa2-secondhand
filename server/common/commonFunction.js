@@ -67,7 +67,6 @@ module.exports = {
       form: {
         "username": username,
         "password": password,
-        "login-form-type": 'pwd'
       },
       resolveWithFullResponse: true
     };
@@ -87,6 +86,7 @@ module.exports = {
     let response = rp(redirectOptions).then(response => {
       return response
     });
+    console.log(response);
     let body = await Promise.all([response]);
     let name = body[0].match(/([\u4e00-\u9fa5]{1,}),[\u4e00-\u9fa5]{1,},.*欢迎使用校园信息门户/);
     //\u3001 顿号

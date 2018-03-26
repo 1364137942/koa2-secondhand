@@ -1,6 +1,7 @@
 const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
 const {CustomError} = require('../../utils/Error');
+const common = require('../../controllers/index/common');
 module.exports = {
   async getUserInfoByGoodID(ctx){
     let result = {
@@ -51,6 +52,13 @@ module.exports = {
 
     ctx.body = result;
   },
+  async registerPage(ctx){
+    const title = 'SecondHand';
+    await ctx.render('index/registerPage.ejs', {
+      title,
+    })
+
+  },
   async register ( ctx ) {
     let result = {
       code: 0,
@@ -72,7 +80,7 @@ module.exports = {
       if(checkIdCode == -1){
         throw new CustomError('验证码已过期');
       }
-      await indexService.setIdCodeOutDate(email, await commonFunction.getNowFormatDate(1000));
+      // await indexService.setIdCodeOutDate(email, await commonFunction.getNowFormatDate(1000));
 
       //验证码通过，校验邮箱是否已注册
       let checkEmailExist = await indexService.checkEmailExist(email);
@@ -109,7 +117,6 @@ module.exports = {
       code: 0,
       msg: 'login success'
     };
-    console.log(ctx.session);
     let data = ctx.request.body,
         email = data.email,
         password = await commonFunction.md5(data.password);
@@ -119,7 +126,7 @@ module.exports = {
     if(Array.isArray(loginRe) && loginRe.length >0){
       let session = ctx.session;
       session.isLogin = true;
-      session.username = email;
+      session.email = email;
       session.userID = loginRe[0].FUserID;
       session.userName = loginRe[0].FUserName;
     }else{
@@ -130,11 +137,11 @@ module.exports = {
   },
   async logOut(ctx){
     ctx.session = null;
-    ctx.redirect('/user/loginPage');
+    ctx.redirect('/userController/login');
   },
   async loginPage(ctx){
-    const title = 'user login page';
-    await ctx.render('userLogin', {
+    const title = 'SecondHand';
+    await ctx.render('index/loginPage.ejs', {
       title,
     })
   },
@@ -175,8 +182,19 @@ module.exports = {
   },
 
   async getUserInfo(ctx){
-    let email = ctx.session.email;
-    let userInfo = await indexService.getUserInfo(email);
+    let result = {
+      code: 0,
+      data: {}
+    };
+    let session = common.getSession(ctx);
+    if(session !== false){
+      let userInfo = await indexService.getUserInfo(session.email);
+      result.data = userInfo[0];
+    }else{
+      result.code = -1;
+    }
+    ctx.body = result;
+
   },
 
   async modifyUserInfo(ctx){
@@ -189,15 +207,25 @@ module.exports = {
         username = data.username,
         phone = data.phone,
         qq = data.qq;
-    let email = ctx.session.email;
-
-    let updateRe = await indexService.updateUserInfo(email, username, phone, qq);
-    if(updateRe.affectedRows != 0){
+    let session = common.getSession(ctx);
+    if(session !== false){
+      let updateRe = await indexService.updateUserInfo(session.email, username, phone, qq);
+    }else{
       result.code = -1;
-      result.msg = 'modify userInfo fail'
     }
-
     ctx.body = result;
+  },
+  async userCenter(ctx){
+    const title = 'SecondHand';
+    let session = common.getSession(ctx);
+    let username = '';
+    if(session !== false){
+      username = session.username;
+    }
+    await ctx.render('index/userCenter.ejs', {
+      title,
+      username
+    })
   }
 
 };

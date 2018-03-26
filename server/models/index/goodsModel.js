@@ -50,14 +50,13 @@ const goodsModel = {
 
   async getUserGoodsList(FEmail, FStatus, page = '', eachPageNum = ''){
     let _limit = '',
-        _fields = '*';
-        _defaultRetrun = [];
+        _fields = `FGoodID,DATE_FORMAT(FCreateTime, '%Y-%m-%d') as FCreateTime ,DATE_FORMAT(FOutDate, '%Y-%m-%d') as FOutDate,FGoodName,FStatus`;
     if(page !== "" && eachPageNum !== ''){
       _limit = ` order by ${table}.FGoodID desc limit ${page}, ${eachPageNum} `;
-      _fields = 'count(FGoodID) as count';
-      _defaultRetrun = 0;
+    }else{
+      _fields = ` count(FGoodID) as count`;
     }
-    let _sql = `SELECT ${_fields} from ${table} where FEmail = ${FEmail} and FEnable = '1' and FStatus = '${FStatus}'`;
+    let _sql = `SELECT ${_fields} from ${table} where FEmail = '${FEmail}' and FEnable = '1' and FStatus = '${FStatus}'`;
 
     if(page !== "" && eachPageNum !== ""){
       _sql += _limit;
@@ -66,7 +65,7 @@ const goodsModel = {
     if ( Array.isArray(result) && result.length > 0 ) {
       return result;
     } else {
-      return _defaultRetrun;
+      return [];
     }
   },
   async deleteGood(FGoodID, FEmail){
@@ -77,8 +76,14 @@ const goodsModel = {
     let _sql = `select * from ${table} where FGoodID = '${FGoodID}' and FEmail = '${FEmail}' and FEnable = '1' limit 1`;
     return dbUtils.query(_sql);
   },
-  async updateGoodStatus(FGoodID, FEmail, FStatus){
-    let _sql = `update ${table} set FStatus = '${FStatus}' where FGoodID = '${FGoodID}' and FEmail = '${FEmail}' limit 1`;
+  async updateGoodStatus(FGoodID, FEmail, FStatus, now){
+    let _sql = ``;
+    if(FStatus == 'down'){
+      _sql = `update ${table} set FStatus = 0 where FGoodID = '${FGoodID}' and FEmail = '${FEmail}' and FEnable = '1' limit 1`;
+    }else{
+      _sql = `update ${table} set FStatus = 1,FSaleDate = '${now}',FOutDate = date_add('${now}',interval datediff(FOutDate, FSaleDate) day) where FGoodID = '${FGoodID}' and FEmail = '${FEmail}' and FEnable = '1' limit 1`;
+    }
+    console.log(_sql);
     return dbUtils.query(_sql);
   },
   async getHotGoods(){

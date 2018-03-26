@@ -30,7 +30,8 @@ const userModel = {
   },
 
   async getUserInfo(FEmail, FPassword = ''){
-    let _sql = `select * from ${table} where FEmail = '${FEmail}' `;
+    let _sql = `select FEmail,FUserName,FStudentID,FStudentName,FAcademy,FPhone,FQQ from ${table} where FEmail = '${FEmail}' and FIsBlack = 0`;
+    console.log(_sql);
     if(FPassword != ''){
       _sql += ` and FPassword = '${FPassword}'`
     }
@@ -43,7 +44,7 @@ const userModel = {
   },
 
   async updateUserInfo(FEmail, FUsername, FPhone, FQQ){
-    let _sql = `update ${table} set FUsername = '${FUsername}', FPhone = '${FPhone}', FQQ = '${FQQ}' where FEmail = '${FEmail}' limit 1`;
+    let _sql = `update ${table} set FUsername = '${FUsername}', FPhone = '${FPhone}', FQQ = '${FQQ}' where FEmail = '${FEmail}' and FIsBlack = 0 limit 1`;
     return await dbUtils.query(_sql);
   },
   async getUserInfoByGoodID(FGoodID){

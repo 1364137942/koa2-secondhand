@@ -1,6 +1,7 @@
 const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
 const {CustomError} = require('../../utils/Error');
+const common = require('../../controllers/index/common');
 module.exports = {
   async test(ctx){
     let result = {
@@ -33,21 +34,24 @@ module.exports = {
     result.count = promiseData[1];
     ctx.body = result;
   },
-  async getUserGoods(ctx){
+  async getUserGoodList(ctx){
     let result = {
       code: 0,
       data: [],
       count: 0
     };
-    let data = ctx.query,
+    let data = ctx.request.body,
         eachPageNum = data.eachPageNum !== '' ? data.eachPageNum : 20,
         page = data.page !== '' ? data.page : 1,
-        status = data.status ? data.status : 1;
+        status = parseInt(data.status) === 1 ?  1 : 0;
     page = (page - 1) * eachPageNum;
-    let email = ctx.session.email;
-
-    result.data = await indexService.getUserGoodsList(email, status, page, eachPageNum);
-    result.count = await indexService.getUserGoodsListCount(email, status);
+    let session = common.getSession(ctx);
+    if(session !== false){
+      result.data = await indexService.getUserGoodsList(session.email, status, page, eachPageNum);
+      result.count = await indexService.getUserGoodsListCount(session.email, status);
+    }else{
+      result.code = -1;
+    }
     ctx.body = result;
   },
 
@@ -70,21 +74,24 @@ module.exports = {
   async updateUserGoodStatus(ctx){
     let result = {
       code: 0,
-      msg: '商品下架成功'
+      msg: '商品状态修改成功'
     };
     try{
-      let data = ctx.query,
+      let data = ctx.request.body,
         goodID = data.goodID;
         status = data.status;
-      if(parseInt(status) === 1){
-        result.msg = '商品上架成功'
+
+      let session = common.getSession(ctx);
+      let userEmail = '';
+      if(session !== false){
+        userEmail = session.email;
       }
-      let email = ctx.session.email;
-      let re = await indexService.getGoodInfo(goodID, email);
+      let re = await indexService.getGoodInfo(goodID, userEmail);
       if(!(Array.isArray(re) && re.length > 0)){
         throw new CustomError('商品信息不存在');
       }
-      let updateRe = await indexService.updateGoodStatus(goodID, email, status);
+      let now = await commonFunction.getNowFormatDate();
+      let updateRe = await indexService.updateGoodStatus(goodID, userEmail, status, now);
       if(updateRe === false){
         throw new CustomError('商品信息状态更新失败');
       }
@@ -133,10 +140,16 @@ module.exports = {
     const title = '编辑商品';
     const goodID = ctx.query.goodID ? ctx.query.goodID : '';
     const goodType = JSON.stringify(await indexService.getGoodType());
+    let session = common.getSession(ctx);
+    let username = '';
+    if(session !== false){
+      username = session.username;
+    }
     await ctx.render('index/editGood.ejs', {
       title,
       goodType,
-      goodID
+      goodID,
+      username
     })
   },
   async addGood(ctx){
@@ -152,17 +165,22 @@ module.exports = {
         imageUrl = data.imageUrl,
         desc = data.desc,
         old = data.old;
-    //todo
-    // let email = ctx.session.email;
-    let email = '136123@qq.com';
-    let now = await commonFunction.getNowFormatDate();
-    //封面可选择不传，默认显示网站套图
-    //todo
-    if(imageUrl === ''){
-      imageUrl = '';
+    let session = common.getSession(ctx);
+    let email = '';
+    if(session !== false){
+      email = session.email;
+      let now = await commonFunction.getNowFormatDate();
+      //封面可选择不传，默认显示网站套图
+      //todo
+      if(imageUrl === ''){
+        imageUrl = '';
+      }
+      let addRe = await indexService.addGood(email, goodName, goodTpe, saleDate, price, imageUrl, desc, now, old);
+    }else{
+      result.code = -1;
+      result.msg = '请先登录！';
     }
 
-    let addRe = await indexService.addGood(email, goodName, goodTpe, saleDate, price, imageUrl, desc, now, old);
     ctx.body = result;
   },
   async modifyGood(ctx){
@@ -195,9 +213,15 @@ module.exports = {
   async goodDetail(ctx){
     const title = '商品详情';
     let goodID = ctx.query.goodID;
+    let session = common.getSession(ctx);
+    let userEmail = '';
+    if(session !== false){
+      userEmail = session.email;
+    }
     await ctx.render('index/goodDetail.ejs', {
       title,
-      goodID
+      goodID,
+      userEmail
     })
   },
   async getGoodDetail(ctx){

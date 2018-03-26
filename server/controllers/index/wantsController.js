@@ -1,19 +1,32 @@
 const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
 const {CustomError} = require('../../utils/Error');
+const common = require('../../controllers/index/common');
 module.exports = {
   async index(ctx){
     const title = '求购商品页';
+    let session = common.getSession(ctx);
+    let userEmail = '';
+    if(session !== false){
+      userEmail = session.email;
+    }
     await ctx.render('index/wantsList.ejs', {
       title,
+      userEmail
     });
   },
   async wantDetail(ctx){
     const title = 'SecondHand';
     let wantID = ctx.query.wantID;
+    let session = common.getSession(ctx);
+    let userEmail = '';
+    if(session !== false) {
+      userEmail = session.email;
+    }
     await ctx.render('index/wantDetail.ejs', {
       title,
-      wantID
+      wantID,
+      userEmail
     })
   },
   async getWantDetail(ctx){
@@ -22,7 +35,12 @@ module.exports = {
       data: {}
     };
     let wantID = ctx.request.body.wantID;
-    let detail = await indexService.getWantDetail(wantID);
+    let session = common.getSession(ctx);
+    let userEmail = '';
+    if(session !== false) {
+      userEmail = session.email;
+    }
+    let detail = await indexService.getWantDetail(wantID, userEmail);
     if(Array.isArray(detail) && detail.length > 0){
       result.data = detail[0];
     }else{
@@ -65,27 +83,29 @@ module.exports = {
     ctx.body = result;
   },
 
-  async updateUserGoodStatus(ctx){
+  async updateUserWantStatus(ctx){
     let result = {
       code: 0,
-      msg: '信息下架成功'
+      msg: '求购信息状态修改成功'
     };
     try{
-      let data = ctx.query,
+      let data = ctx.request.body,
         wantID = data.wantID;
         status = data.status;
 
-      if(parseInt(status) === 1){
-        result.msg = '信息上架成功'
+      let session = common.getSession(ctx);
+      let userEmail = '';
+      if(session !== false){
+        userEmail = session.email;
       }
-      let email = ctx.session.email;
-      let re = await indexService.getWantInfo(wantID, email);
+      let re = await indexService.getWantInfo(wantID, userEmail);
       if(!(Array.isArray(re) && re.length > 0)){
-        throw new CustomError('信息不存在');
+        throw new CustomError('求购信息不存在');
       }
-      let updateRe = await indexService.updateWantStatus(wantID, email, status);
+      let now = await commonFunction.getNowFormatDate();
+      let updateRe = await indexService.updateWantStatus(wantID, userEmail, status, now);
       if(updateRe === false){
-        throw new CustomError('信息状态更新失败');
+        throw new CustomError('求购信息状态更新失败');
       }
     }catch(e){
       result.code = -1;
@@ -121,10 +141,16 @@ module.exports = {
     const title = 'SecondHand';
     const wantID = ctx.query.wantID ? ctx.query.wantID : '';
     const goodType = JSON.stringify(await indexService.getGoodType());
+    let session = common.getSession(ctx);
+    let userEmail = '';
+    if(session !== false) {
+      userEmail = session.email;
+    }
     await ctx.render('index/editWant.ejs', {
       title,
       goodType,
-      wantID
+      wantID,
+      userEmail
     })
   },
   async addWant(ctx){
@@ -166,6 +192,26 @@ module.exports = {
     let addRe = await indexService.modifyWant(wantID, email, goodName, goodType, saleDate, desc, now, old);
     ctx.body = result;
   },
+  async getWantUserList(ctx){
 
+    let result = {
+      code: 0,
+      data: [],
+      count: 0
+    };
+    let data = ctx.request.body,
+      eachPageNum = data.eachPageNum !== '' ? data.eachPageNum : 20,
+      page = data.page !== '' ? data.page : 1,
+      status = parseInt(data.status) === 1 ?  1 : 0;
+    page = (page - 1) * eachPageNum;
+    let session = common.getSession(ctx);
+    if(session !== false){
+      result.data = await indexService.getUserWantsList(session.email, status, page, eachPageNum);
+      result.count = await indexService.getUserWantsListCount(session.email, status);
+    }else{
+      result.code = -1;
+    }
+    ctx.body = result;
+  }
 
 };

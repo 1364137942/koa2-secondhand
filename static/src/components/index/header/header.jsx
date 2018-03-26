@@ -13,7 +13,8 @@ class HeaderComponent extends React.Component {
   componentDidMount(){
     let pathname = window.location.pathname;
     this.setState({
-      activtiveTab: pathname
+      activtiveTab: pathname,
+      userName: document.getElementById('userName') ? document.getElementById('userName').getAttribute('data-value') : ''
     })
   }
   getMainList(){
@@ -56,10 +57,15 @@ class HeaderComponent extends React.Component {
               <li className={this.state.activtiveTab.indexOf('/goodsController/editGood') >= 0 ? styles.active: ''}><a href="/goodsController/editGood">发布商品</a></li>
               <li className={this.state.activtiveTab.indexOf('/wantsController/editWant') >= 0 ? styles.active: ''}><a href="/wantsController/editWant">发布求购</a></li>
             </ul>
-            <ul className={styles.loginBlock}>
-              <li><a href="javascript:void(0);">登录</a></li>
+            <ul className={styles.loginBlock} style={this.state.userName ? {display: 'none'} : {display: 'block'}}>
+              <li><a href="/userController/login">登录</a></li>
               <li>|</li>
-              <li><a href="javascript:void(0);">注册</a></li>
+              <li><a href="/userController/register">注册</a></li>
+            </ul>
+            <ul className={styles.loginBlock} style={this.state.userName ? {display: 'block'} : {display: 'none'}}>
+              <li><a href="/userController/userCenter">{this.state.userName}</a></li>
+              <li>|</li>
+              <li><a href="/userController/logOut">注销</a></li>
             </ul>
           </div>
         </div>

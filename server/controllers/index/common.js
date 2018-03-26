@@ -9,17 +9,43 @@ module.exports = {
   checkLogin(ctx, next) {
     let result = {
       code: -1,
-      msg: '登录失败',
+      msg: '请先登录',
     };
-    let session = ctx.session
-    if( session && session.isLogin === true  ) {
+    let session = ctx.session;
+    if( session && session.isLogin === true) {
       result.msg = ' login success';
       result.code = 0;
     }
+    if(result.code === -1){
+      ctx.redirect('/userController/login');
+    }
     return next();
-
-    // if(result.code === -1){
-    //     ctx.redirect('/user/loginPage');
-    // }
+  },
+  checkLoginApi(ctx, next){
+    let result = {
+      code: -1,
+      msg: '请先登录',
+    };
+    let session = ctx.session;
+    return next();
+    if( session && session.isLogin === true) {
+      result.msg = ' login success';
+      result.code = 0;
+    }
+    if(result.code === -1){
+      ctx.body = result;
+      return;
+    }
+    return next();
+  },
+  getSession(ctx){
+    let session = ctx.session;
+    session.email = '123';
+    return session;
+    if( session && session.isLogin === true) {
+      return session;
+    }else{
+      return false;
+    }
   }
 };

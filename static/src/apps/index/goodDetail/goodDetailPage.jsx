@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props, context){
     super(props, context);
     this.state = {
-      detail: {},
+      detail: '',
       activeTab: 'desc', //desc, security
       contactInfo: ''
     }
@@ -45,7 +45,7 @@ class App extends React.Component {
     });
     if(tab === 'contact'){
       let re = await Request.post({
-        url: '/usersController/getUserInfoByGoodID',
+        url: '/userController/getUserInfoByGoodID',
         data: {
           goodID: this.state.detail.FGoodID
         },
@@ -63,10 +63,11 @@ class App extends React.Component {
     return (
       <div>
         <HeaderComponent isShowSearch={false}/>
-        <section className={"wrap clearfix " + styles.topSec}>
+        <section className={"wrap clearfix " + styles.topSec} style={this.state.detail === '' ? {display: 'none'} : {} }>
           <div className={styles.floatLeft + " " + styles.bannerImg}>
             {/*<img src={this.state.detail.FGoodImg} alt="商品展示图片"/>*/}
             <div style={{width: '730px', height: '490px', backgroundImage: "url(/image/img/微信图片_20180306113005.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center'}}>
+            {/*<div style={{width: '730px', height: '490px', backgroundImage: "url("+this.state.detail.FGoodImg+")", backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center'}}>*/}
             </div>
           </div>
           <div className={styles.floatLeft + " " + styles.goodDetail}>
@@ -96,7 +97,7 @@ class App extends React.Component {
             </ul>
           </div>
         </section>
-        <section className={"wrap clearfix " + styles.goodDescBlock}>
+        <section className={"wrap clearfix " + styles.goodDescBlock} style={this.state.detail === '' ? {display: 'none'} : {} }>
           <div className={styles.tabTitle}>
             <ul className={styles.listTabs}>
               <li className={this.state.activeTab === 'desc' ? styles.active : styles.normal}>
@@ -111,13 +112,13 @@ class App extends React.Component {
             </ul>
           </div>
           <div className={styles.tabContent}>
-            <div className={styles.goodDesc} style={this.state.activeTab === 'desc' ? {display: 'block'} : {display: 'none'}} dangerouslySetInnerHTML={{__html: this.state.detail.FDesc}}/>
+            <div className={styles.goodDesc} style={this.state.activeTab === 'desc' ? {display: 'block'} : {display: 'none'}} dangerouslySetInnerHTML={{__html: this.state.detail.FDesc ? this.state.detail.FDesc : ''}}/>
             <div style={this.state.activeTab === 'security' ? {display: 'block'} : {display: 'none'}}>
               安全保障
             </div>
             <div style={this.state.activeTab === 'contact' ? {display: 'block'} : {display: 'none'}}>
               <div  style={this.state.contactInfo === '' ? {display: 'block'} : {display: 'none'}}>
-                请先 <a href="">登录</a> 后查看
+                请先 <a href="/userController/login" style={{color: 'red'}}>登录</a> 后查看
               </div>
               <div  style={this.state.contactInfo !== '' ? {display: 'block', paddingLeft: "16px"} : {display: 'none'}}>
                 <p style={{color: "red"}}>请勿恶意骚扰！！！</p>
@@ -127,7 +128,9 @@ class App extends React.Component {
               </div>
             </div>
           </div>
-
+        </section>
+        <section className={"wrap clearfix " + styles.topSec} style={this.state.detail === '' ? {} : {display: 'none'} }>
+          <h1>该商品不存在，请返回首页查看更多商品！！！</h1>
         </section>
       </div>
     )

@@ -98,7 +98,7 @@ class PageComponent extends React.Component {
     //     pageHtml.push(<a key={lastPage} href="javascript:void(0);" onClick={this.props.callback.bind(this, 1 + (lastPage-1) * 3)}>{lastPage}</a>);
     //   }
     //   pageHtml.push(<a key="next" href="javascript:void(0);" onClick={this.props.callback.bind(this, this.state.page + 1 <= (1 + (lastPage-1) * 3) ? this.state.page + 1 : (1 + (lastPage-1) * 3))}>下一页</a>);
-
+    let key = 0;
     let activeI = parseInt(this.state.page),
       pageIndex = activeI,
         allPage = Math.ceil(this.state.count/this.state.eachPageNum),
@@ -112,23 +112,23 @@ class PageComponent extends React.Component {
       pageHtml.push('');
       return pageHtml;
     }
-
+    pageHtml.push(<a key={key++} href="javascript:void(0);" onClick={this.props.callback.bind(this, activeI-1 > 0 ? activeI-1 : 1)}>上一页</a>);
     if(activeI > 3) {
-      pageHtml.push(<a key={1} href="javascript:void(0);" onClick={this.props.callback.bind(this, 1)}>1</a>);
-      pageHtml.push(<span key="..." className="shenglue-page">...</span>);
+      pageHtml.push(<a key={key++} href="javascript:void(0);" onClick={this.props.callback.bind(this, 1)}>1</a>);
+      pageHtml.push(<span key={key++} className="shenglue-page">...</span>);
     }
     for (let i = (activeI - 3) > 0 ? (activeI - 3) : 0, len = (activeI + 3) < lastPage ? (activeI + 3) : lastPage; i < len; i++) {
       if (i === parseInt((pageIndex -1))) {
-        pageHtml.push(<a key={(i + 1)} href="javascript:void(0);" className="active" onClick={this.props.callback.bind(this, i+1)}>{(i+1)}</a>);
+        pageHtml.push(<a key={key++} href="javascript:void(0);" className="active" onClick={this.props.callback.bind(this, i+1)}>{(i+1)}</a>);
       } else {
-        pageHtml.push(<a key={(i + 1)} href="javascript:void(0);" onClick={this.props.callback.bind(this, i+1)}>{(i+1 )}</a>);
+        pageHtml.push(<a key={key++} href="javascript:void(0);" onClick={this.props.callback.bind(this, i+1)}>{(i+1 )}</a>);
       }
     }
-    if(lastPage - activeI >= 3){
-      pageHtml.push(<span key=".." className="shenglue-page">...</span>);
-      pageHtml.push(<a key={lastPage} href="javascript:void(0);" onClick={this.props.callback.bind(this, lastPage)}>{lastPage}</a>);
+    if(lastPage - activeI > 3){
+      pageHtml.push(<span key="..." className="shenglue-page">...</span>);
+      pageHtml.push(<a key={key++} href="javascript:void(0);" onClick={this.props.callback.bind(this, lastPage)}>{lastPage}</a>);
     }
-    pageHtml.push(<a key="next" href="javascript:void(0);" onClick={this.props.callback.bind(this, this.state.page + 1 <= lastPage ? this.state.page + 1 : lastPage)}>下一页</a>);
+    pageHtml.push(<a key={key++} href="javascript:void(0);" onClick={this.props.callback.bind(this, this.state.page + 1 <= lastPage ? this.state.page + 1 : lastPage)}>下一页</a>);
 
 
 

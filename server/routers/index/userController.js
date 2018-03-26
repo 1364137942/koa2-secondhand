@@ -1,12 +1,17 @@
 const router = require('koa-router')()
-const user = require('../../controllers/index/userController');
+const userController = require('../../controllers/index/userController');
+const common = require('../../controllers/index/common');
 
 module.exports = router
-  .post( '/register', user.register )
-  .post( '/sendIdCode', user.sendIdCode)
-  .post( '/login', user.login)
-  .post( '/forgetPass', user.forgetPass)
-  .get( '/login', user.logOut)
-  .get( '/login', user.loginPage)
-  .post( '/getUserInfoByGoodID', user.getUserInfoByGoodID)
-  .post( '/getUserInfoByWantID', user.getUserInfoByWantID);
+  .post( '/register', userController.register )
+  .get( '/register', userController.registerPage )
+  .post( '/sendIdCode', userController.sendIdCode)
+  .post( '/login', userController.login)
+  .post( '/forgetPass', userController.forgetPass)
+  .get( '/logOut', userController.logOut)
+  .get( '/login', userController.loginPage)
+  .post( '/getUserInfoByGoodID', common.checkLoginApi, userController.getUserInfoByGoodID)
+  .post( '/getUserInfoByWantID', common.checkLoginApi, userController.getUserInfoByWantID)
+  .get( '/userCenter', userController.userCenter)
+  .post( '/getUserInfo', userController.getUserInfo)
+  .post( '/modifyUserInfo', userController.modifyUserInfo)
