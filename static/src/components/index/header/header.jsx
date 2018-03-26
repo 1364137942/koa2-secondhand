@@ -14,7 +14,7 @@ class HeaderComponent extends React.Component {
     let pathname = window.location.pathname;
     this.setState({
       activtiveTab: pathname,
-      userName: document.getElementById('userName') ? document.getElementById('userName').getAttribute('data-value') : ''
+      userName: document.getElementById('username') ? document.getElementById('username').getAttribute('data-value') : ''
     })
   }
   getMainList(){

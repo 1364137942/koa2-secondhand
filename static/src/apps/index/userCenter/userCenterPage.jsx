@@ -14,7 +14,7 @@ class App extends React.Component {
     this.editor = '';
     this.duration = false;
     this.state = {
-      active: 'wantsInfo',
+      active: 'userInfo',
       userInfo: '',
       activeGoodStatus: 'up',
       activeWantStatus: 'up',
@@ -37,8 +37,8 @@ class App extends React.Component {
 
   componentDidMount(){
     this.getUserInfo();
-    this.getGoodsList(1);
-    this.getWantsList(1);
+    // this.getGoodsList(1);
+    // this.getWantsList(1);
   }
   selectTab(tab){
     this.setState({
@@ -226,7 +226,7 @@ class App extends React.Component {
     let values = await this.getFormValues();
     if ( values ) {
       let postData = {};
-      postData.username = values.username;
+      postData.username = values.userName;
       postData.phone = values.phone;
       postData.qq = values.qq;
 
@@ -292,7 +292,7 @@ class App extends React.Component {
                     {...formItemLayout}
                     label="用户昵称："
                   >
-                    {getFieldDecorator('username', {
+                    {getFieldDecorator('userName', {
                       rules: [
                         { required: true, message: '请输入用户名称！', whitespace: true },
                         {max: 32, message: '最长32个字！'}

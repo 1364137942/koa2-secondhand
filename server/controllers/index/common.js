@@ -40,8 +40,8 @@ module.exports = {
   },
   getSession(ctx){
     let session = ctx.session;
-    session.email = '123';
-    return session;
+    // session.email = '123';
+    // return session;
     if( session && session.isLogin === true) {
       return session;
     }else{

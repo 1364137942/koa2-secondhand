@@ -30,7 +30,7 @@ const userModel = {
   },
 
   async getUserInfo(FEmail, FPassword = ''){
-    let _sql = `select FEmail,FUserName,FStudentID,FStudentName,FAcademy,FPhone,FQQ from ${table} where FEmail = '${FEmail}' and FIsBlack = 0`;
+    let _sql = `select FUserID,FEmail,FUserName,FStudentID,FStudentName,FAcademy,FPhone,FQQ from ${table} where FEmail = '${FEmail}' and FIsBlack = 0`;
     console.log(_sql);
     if(FPassword != ''){
       _sql += ` and FPassword = '${FPassword}'`

@@ -128,7 +128,7 @@ module.exports = {
       session.isLogin = true;
       session.email = email;
       session.userID = loginRe[0].FUserID;
-      session.userName = loginRe[0].FUserName;
+      session.username = loginRe[0].FUserName;
     }else{
       result.code = -1;
       result.msg = 'login fail'

@@ -199,29 +199,36 @@ module.exports = {
       old = data.old;
     //todo
     // let email = ctx.session.email;
-    let email = '136123@qq.com';
-    let now = await commonFunction.getNowFormatDate();
-    //封面可选择不传，默认显示网站套图
-    //todo
-    if(imageUrl === ''){
-      imageUrl = '';
+    let session = common.getSession(ctx);
+    let email = '';
+    if(session !== false) {
+      email = session.email;
+      let now = await commonFunction.getNowFormatDate();
+      //封面可选择不传，默认显示网站套图
+      //todo
+      if(imageUrl === ''){
+        imageUrl = '';
+      }
+      let addRe = await indexService.modifyGood(goodID, email, goodName, goodTpe, saleDate, price, imageUrl, desc, now, old);
+    }else{
+      result.code = -1;
+      result.msg = '请先登录！';
     }
 
-    let addRe = await indexService.modifyGood(goodID, email, goodName, goodTpe, saleDate, price, imageUrl, desc, now, old);
     ctx.body = result;
   },
   async goodDetail(ctx){
     const title = '商品详情';
     let goodID = ctx.query.goodID;
     let session = common.getSession(ctx);
-    let userEmail = '';
+    let username = '';
     if(session !== false){
-      userEmail = session.email;
+      username = session.username;
     }
     await ctx.render('index/goodDetail.ejs', {
       title,
       goodID,
-      userEmail
+      username
     })
   },
   async getGoodDetail(ctx){

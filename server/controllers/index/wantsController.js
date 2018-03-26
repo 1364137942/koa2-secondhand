@@ -6,27 +6,27 @@ module.exports = {
   async index(ctx){
     const title = '求购商品页';
     let session = common.getSession(ctx);
-    let userEmail = '';
+    let username = '';
     if(session !== false){
-      userEmail = session.email;
+      username = session.username;
     }
     await ctx.render('index/wantsList.ejs', {
       title,
-      userEmail
+      username
     });
   },
   async wantDetail(ctx){
     const title = 'SecondHand';
     let wantID = ctx.query.wantID;
     let session = common.getSession(ctx);
-    let userEmail = '';
+    let username = '';
     if(session !== false) {
-      userEmail = session.email;
+      username = session.username;
     }
     await ctx.render('index/wantDetail.ejs', {
       title,
       wantID,
-      userEmail
+      username
     })
   },
   async getWantDetail(ctx){
@@ -142,15 +142,15 @@ module.exports = {
     const wantID = ctx.query.wantID ? ctx.query.wantID : '';
     const goodType = JSON.stringify(await indexService.getGoodType());
     let session = common.getSession(ctx);
-    let userEmail = '';
+    let username = '';
     if(session !== false) {
-      userEmail = session.email;
+      username = session.username;
     }
     await ctx.render('index/editWant.ejs', {
       title,
       goodType,
       wantID,
-      userEmail
+      username
     })
   },
   async addWant(ctx){
@@ -166,10 +166,17 @@ module.exports = {
       old = data.old;
     //todo
     // let email = ctx.session.email;
-    let email = '136123@qq.com';
-    let now = await commonFunction.getNowFormatDate();
+    let session = common.getSession(ctx);
+    let userEmail = '';
+    if(session !== false) {
+      userEmail = session.email;
+      let now = await commonFunction.getNowFormatDate();
+      let addRe = await indexService.addWant(userEmail, goodName, goodTpe, saleDate, desc, now, old);
+    }else{
+      result.code = -1;
+      result.msg = '请先登录！';
+    }
 
-    let addRe = await indexService.addWant(email, goodName, goodTpe, saleDate, desc, now, old);
     ctx.body = result;
   },
   async modifyWant(ctx){
@@ -186,10 +193,17 @@ module.exports = {
       old = data.old;
     //todo
     // let email = ctx.session.email;
-    let email = '136123@qq.com';
-    let now = await commonFunction.getNowFormatDate();
+    let userEmail = '';
+    if(session !== false) {
+      userEmail = session.email;
+      let now = await commonFunction.getNowFormatDate();
+      let addRe = await indexService.modifyWant(wantID, userEmail, goodName, goodType, saleDate, desc, now, old);
+    }else{
+      result.code = -1;
+      result.msg = '请先登录！';
+    }
 
-    let addRe = await indexService.modifyWant(wantID, email, goodName, goodType, saleDate, desc, now, old);
+
     ctx.body = result;
   },
   async getWantUserList(ctx){

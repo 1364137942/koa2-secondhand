@@ -6,15 +6,13 @@ module.exports = {
   async index(ctx){
     const title = '主页';
     let session = common.getSession(ctx);
-    let userName = '';
+    let username = '';
     if(session !== false){
-      userName = session.userName;
+      username = session.username;
     }
-
-
     await ctx.render('index/index.ejs', {
       title,
-      userName
+      username
     });
   },
 };
