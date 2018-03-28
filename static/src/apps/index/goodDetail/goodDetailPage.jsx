@@ -66,8 +66,8 @@ class App extends React.Component {
         <section className={"wrap clearfix " + styles.topSec} style={this.state.detail === '' ? {display: 'none'} : {} }>
           <div className={styles.floatLeft + " " + styles.bannerImg}>
             {/*<img src={this.state.detail.FGoodImg} alt="商品展示图片"/>*/}
-            <div style={{width: '730px', height: '490px', backgroundImage: "url(/image/img/微信图片_20180306113005.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center'}}>
-            {/*<div style={{width: '730px', height: '490px', backgroundImage: "url("+this.state.detail.FGoodImg+")", backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center'}}>*/}
+            {/*<div style={{width: '730px', height: '490px', backgroundImage: "url(/image/img/微信图片_20180306113005.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center'}}>*/}
+            <div style={{width: '730px', height: '490px', backgroundImage: "url("+this.state.detail.FGoodImg+")", backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center'}}>
             </div>
           </div>
           <div className={styles.floatLeft + " " + styles.goodDetail}>

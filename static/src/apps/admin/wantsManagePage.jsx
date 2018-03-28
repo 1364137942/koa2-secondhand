@@ -131,7 +131,7 @@ class App extends React.Component {
             style={this.state.selectedGoods.indexOf(item.FWantID) > -1 ? {border: '1px solid #1890ff'} : {}}
           >
             <ul className={styles.detailBox}>
-              <li>用户：{item.FEmail}</li>
+              <li>用户：{item.FEmail.length > 12 ? item.FEmail.substring(0,11)+'...' : item.FEmail }</li>
               <li>类型：{item.FTypeName}</li>
               <li>状态：{item.status}</li>
             </ul>

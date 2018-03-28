@@ -126,13 +126,14 @@ class App extends React.Component {
         <Col span={4} key={key} style={{marginBottom: '24px'}}>
           <Card
             hoverable
-            cover={<img alt="example" style={{verticalAlign: 'middle', display: 'inline-block'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            // cover={<img alt="example" style={{verticalAlign: 'middle', display: 'inline-block'}} src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+            cover={<img alt="example" style={{verticalAlign: 'middle', display: 'inline-block'}} src={item.FGoodImg} />}
             actions={[<Icon onClick={this.selected.bind(this, item.FGoodID)} type={icon}/>]}
             style={this.state.selectedGoods.indexOf(item.FGoodID) > -1 ? {border: '1px solid #1890ff'} : {}}
           >
-            <h3>{item.FGoodName}</h3>
+            <h3>{item.FGoodName.length > 12 ? item.FGoodName.substring(0,11)+'...' : item.FGoodName}</h3>
             <ul className={styles.detailBox}>
-              <li>用户：{item.FEmail}</li>
+              <li>用户：{item.FEmail.length > 12 ? item.FEmail.substring(0,11)+'...' : item.FEmail }</li>
               <li>价格：{item.FPrice}</li>
               <li>类型：{item.FTypeName}</li>
               <li>状态：{item.status}</li>

@@ -65,7 +65,8 @@ class App extends React.Component {
         <li key={i}>
           <dl>
             <dt>
-              <a className="quan-img" rel="nofollow" target="_blank" href={goodDetailUrl} ><img src={"/image/img/微信图片_20180306113005.jpg"} alt=""/></a>
+              {/*<a className="quan-img" rel="nofollow" target="_blank" href={goodDetailUrl} ><img src={"/image/img/微信图片_20180306113005.jpg"} alt=""/></a>*/}
+              <a className="quan-img" rel="nofollow" target="_blank" href={goodDetailUrl} ><img src={item.FGoodImg} alt=""/></a>
               <span className="quan-price">{item.FOutDay}天后下架</span>
             </dt>
             <dd>
