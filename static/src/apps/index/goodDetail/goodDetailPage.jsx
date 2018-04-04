@@ -3,20 +3,34 @@ import 'antd/lib/layout/style/css'
 import HeaderComponent from '../../../components/index/header/header'
 import styles from './goodDetailPage.cssmodule.less'
 import Request from '../../../utils/request'
-import tools from '../../../utils/tools'
+import PageComponent from '../../../components/common/page'
+import { Input,Form, Button, message } from 'antd';
+
+const { TextArea } = Input;
+const FormItem = Form.Item;
 
 class App extends React.Component {
   constructor(props, context){
     super(props, context);
     this.state = {
       detail: '',
-      activeTab: 'desc', //desc, security
-      contactInfo: ''
+      activeTab: 'desc', //desc, security, remark
+      contactInfo: '',
+      page: 1,
+      eachPageNum: 5,
+      remarkList: [],
+      count: 0,
+      children: [],
     }
+    this.goodID = '';
+    message.config({
+      top: 200,
+      duration: 1.2,
+    });
   }
-  componentDidMount(){
-    const goodID = document.getElementById('goodID').getAttribute('data-value');
-    this.getGoodDetail(goodID);
+  async componentDidMount(){
+    this.goodID = document.getElementById('goodID').getAttribute('data-value');
+    this.getGoodDetail(this.goodID);
   }
   //得到商品详情
   async getGoodDetail(goodID){
@@ -47,7 +61,7 @@ class App extends React.Component {
       let re = await Request.post({
         url: '/userController/getUserInfoByGoodID',
         data: {
-          goodID: this.state.detail.FGoodID
+          goodID: this.goodID
         },
       });
       if (re.code === 0) {
@@ -55,18 +69,116 @@ class App extends React.Component {
           contactInfo: re.data
         })
       }
+    }else if(tab === 'remark'){
+      this.getRemarkList(1);
+    }
+  }
+  async getRemarkList(pageIndex){
+    let re = await Request.post({
+      url: '/remarkController/gerRemarkList',
+      data: {
+        page: pageIndex,
+        eachPageNum: this.state.eachPageNum,
+        itemType: 'good',
+        itemID: this.goodID
+      },
+    });
+    if (re.code === 0) {
+      this.setState({
+        page: pageIndex,
+        remarkList: re.data,
+        count: re.count
+      }, this.renderRemarkList)
     }
   }
 
-  render() {
+  renderRemarkList(){
+    let data = this.state.remarkList;
+    let children = [];
+    data.forEach((item, i) => {
+      children.push(
+        <li key={i}>
+          <div>
+            <span><img src={item.FAvatar} alt="头像"/></span>
+            <span>{item.FUserName}</span>
+          </div>
+          <div>
+            <p>出价：{item.FPrice ? item.FPrice + '元' : '未出价'}</p>
+            <p>评论：{item.FRemark}</p>
+            <p style={item.showContactInfo == 1 ? {} : {display: 'none'}}>-----------------------------------</p>
+            <p style={item.showContactInfo == 1 ? {} : {display: 'none'}}>手机：{item.FPhone}</p>
+            <p style={item.showContactInfo == 1 ? {} : {display: 'none'}}>QQ：{item.FQQ}</p>
+            <p style={item.showContactInfo == 1 ? {} : {display: 'none'}}>邮箱：{item.FEmail}</p>
+            <p>评论时间：{item.FCreateTime}</p>
+          </div>
+        </li>
+      )
+    });
+    if(children.length == 0){
+      children[0] = <p key="1">快来抢沙发！！！</p>
+    }
 
+    this.setState({
+      children: children,
+    });
+  }
+  async handleSubmit(e){
+    e.preventDefault();
+    let values = await this.getFormValues();
+    if ( values ) {
+      let postData = {};
+      postData.price = values.price;
+      postData.remark = values.remark;
+      postData.itemID = 'G'+this.goodID;
+      let result = await Request.post({
+        url: '/remarkController/addRemark',
+        data: postData,
+      });
+      if(result.code === 0){
+        message.success( '发布评论成功！' )
+        this.getRemarkList(1);
+      }else{
+        message.error( result.msg )
+      }
+    } else {
+      message.error( '系统繁忙，稍后再试！' )
+    }
+  }
+  getFormValues() {
+    let that = this;
+    return new Promise((resolve, reject) => {
+      that.props.form.validateFields((err, values) => {
+        if (!err) {
+          resolve( values )
+        } else {
+          reject( false )
+        }
+      })
+    })
+  }
+  checkNumber(rule, value, callback){
+    const pattern = /^(0{1}.{1}(([1-9]{1}\d{0,1})|(\d{1}[1-9]{1})))$|^([1-9]{1}\d*.{0,1}\d{0,2})$/;
+    if (pattern.test(value) === false) {
+      callback('请输入正确的价格，最多两位小数！')
+    }
+    callback()
+  }
+
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    const formItemLayout = {
+      labelCol: {
+        sm: { span: 3 },
+      },
+      wrapperCol: {
+        sm: { span: 12 },
+      },
+    };
     return (
       <div>
         <HeaderComponent isShowSearch={false}/>
         <section className={"wrap clearfix " + styles.topSec} style={this.state.detail === '' ? {display: 'none'} : {} }>
           <div className={styles.floatLeft + " " + styles.bannerImg}>
-            {/*<img src={this.state.detail.FGoodImg} alt="商品展示图片"/>*/}
-            {/*<div style={{width: '730px', height: '490px', backgroundImage: "url(/image/img/微信图片_20180306113005.jpg)", backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center'}}>*/}
             <div style={{width: '730px', height: '490px', backgroundImage: "url("+this.state.detail.FGoodImg+")", backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center'}}>
             </div>
           </div>
@@ -109,6 +221,9 @@ class App extends React.Component {
               <li className={this.state.activeTab === 'contact' ? styles.active : styles.normal}>
                 <a href="javascript:void(0)" onClick={this.selectTab.bind(this, 'contact')}>联系方式</a>
               </li>
+              <li className={this.state.activeTab === 'remark' ? styles.active : styles.normal}>
+                <a href="javascript:void(0)" onClick={this.selectTab.bind(this, 'remark')}>评论</a>
+              </li>
             </ul>
           </div>
           <div className={styles.tabContent}>
@@ -127,6 +242,52 @@ class App extends React.Component {
                 <p>QQ：{this.state.contactInfo.FQQ}</p>
               </div>
             </div>
+
+            <div style={this.state.activeTab === 'remark' ? {display: 'block'} : {display: 'none'}}>
+              <div className={styles.remarkList+' clearfix'}>
+                <ul>
+
+                  {this.state.children}
+                </ul>
+                <PageComponent page={this.state.page} eachPageNum={this.state.eachPageNum} count={this.state.count} callback={this.getRemarkList.bind(this)}/>
+              </div>
+              <div className={styles.remarkArea}>
+                <Form onSubmit={(e) => this.handleSubmit(e)} className={styles.extendUserInfo}>
+                  <FormItem
+                    {...formItemLayout}
+                    label="出价："
+                  >
+                    {getFieldDecorator('price', {
+                      rules: [
+                        {validator: this.checkNumber}
+                      ],
+                      validateFirst: true,
+                    })(
+                      <Input placeholder="请输入价格（可选）" />
+                    )}
+                  </FormItem>
+                  <FormItem
+                    {...formItemLayout}
+                    label="评论："
+                  >
+                    {getFieldDecorator('remark', {
+                      rules: [
+                        { required: true, message: '请输入评论内容！', whitespace: true },
+                        {max: 256, message: '最长256个字！'},
+                      ],
+                      validateFirst: true,
+                    })(
+                      <div className={styles.remarkText}>
+                        <TextArea rows={4} placeholder="请输入评论内容"/>
+                      </div>
+                    )}
+                  </FormItem>
+                  <Button type="primary" htmlType="submit" className={styles.submitBtn}>
+                    提交
+                  </Button>
+                </Form>
+              </div>
+            </div>
           </div>
         </section>
         <section className={"wrap clearfix " + styles.topSec} style={this.state.detail === '' ? {} : {display: 'none'} }>
@@ -137,5 +298,5 @@ class App extends React.Component {
   }
 
 }
-
+App = Form.create({})(App);
 export default App

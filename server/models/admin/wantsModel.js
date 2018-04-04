@@ -69,6 +69,10 @@ const wantsModel = {
     let _sql = `update ${table} set FStatus = 1 where FWantID in (${FWantID})`;
     return await dbUtils.query( _sql );
   },
+  async getShouldDownGoods(){
+    let _sql = `select　FGoodID, FEmail, FGoodName from ${table} where FOutDate <= now() and FStatus = 1 and FEnable = 1`;
+    return await dbUtils.query( _sql );
+  }
 };
 
 

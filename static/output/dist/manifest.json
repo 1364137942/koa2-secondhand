@@ -16,8 +16,6 @@
   "hot.js": "http://localhost:5000/output/js/hot.js",
   "hot.js.map": "http://localhost:5000/output/js/hot.js.map",
   "icommon.ttf": "http://localhost:5000/output/f7c8976482d0f65f655b36416c687c99.ttf",
-  "index.js": "http://localhost:5000/output/js/index.js",
-  "index.js.map": "http://localhost:5000/output/js/index.js.map",
   "indexPage.js": "http://localhost:5000/output/js/indexPage.js",
   "indexPage.js.map": "http://localhost:5000/output/js/indexPage.js.map",
   "loginPage.js": "http://localhost:5000/output/js/loginPage.js",
@@ -26,6 +24,8 @@
   "logo_big.png": "http://localhost:5000/output/fa9ef454bed646861685f6e8d195ef5d.png",
   "registerPage.js": "http://localhost:5000/output/js/registerPage.js",
   "registerPage.js.map": "http://localhost:5000/output/js/registerPage.js.map",
+  "remarkManagePage.js": "http://localhost:5000/output/js/remarkManagePage.js",
+  "remarkManagePage.js.map": "http://localhost:5000/output/js/remarkManagePage.js.map",
   "userCenterPage.js": "http://localhost:5000/output/js/userCenterPage.js",
   "userCenterPage.js.map": "http://localhost:5000/output/js/userCenterPage.js.map",
   "userManagePage.js": "http://localhost:5000/output/js/userManagePage.js",
@@ -37,7 +37,5 @@
   "wantsListPage.js": "http://localhost:5000/output/js/wantsListPage.js",
   "wantsListPage.js.map": "http://localhost:5000/output/js/wantsListPage.js.map",
   "wantsManagePage.js": "http://localhost:5000/output/js/wantsManagePage.js",
-  "wantsManagePage.js.map": "http://localhost:5000/output/js/wantsManagePage.js.map",
-  "work.js": "http://localhost:5000/output/js/work.js",
-  "work.js.map": "http://localhost:5000/output/js/work.js.map"
+  "wantsManagePage.js.map": "http://localhost:5000/output/js/wantsManagePage.js.map"
 }

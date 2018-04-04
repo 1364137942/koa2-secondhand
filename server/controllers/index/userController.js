@@ -36,7 +36,7 @@ module.exports = {
   async sendIdCode(ctx){
     let result = {
       code: 0,
-      msg: 'send IdCode success'
+      msg: '发送验证码成功'
     };
     let data = ctx.request.body,
         email = data.email;
@@ -47,13 +47,13 @@ module.exports = {
     let addIdCodeRe = await indexService.insertOrUpdateIdCode(email, idCode, expireDate);
     if(!(addIdCodeRe == true && await commonFunction.sendMail(email, '验证码', idCode))){
         result.code = -1;
-        result.msg = 'send IdCode fail'
+        result.msg = '发送验证码失败'
     }
 
     ctx.body = result;
   },
   async registerPage(ctx){
-    const title = 'SecondHand';
+    const title = '多赞二手商城';
     await ctx.render('index/registerPage.ejs', {
       title,
     })
@@ -115,13 +115,11 @@ module.exports = {
   async login (ctx){
     let result = {
       code: 0,
-      msg: 'login success'
+      msg: '登录成功'
     };
     let data = ctx.request.body,
         email = data.email,
         password = await commonFunction.md5(data.password);
-
-
     let loginRe = await indexService.login(email, password);
     if(Array.isArray(loginRe) && loginRe.length >0){
       let session = ctx.session;
@@ -131,7 +129,7 @@ module.exports = {
       session.username = loginRe[0].FUserName;
     }else{
       result.code = -1;
-      result.msg = 'login fail'
+      result.msg = '登录失败'
     }
     ctx.body = result;
   },
@@ -140,7 +138,7 @@ module.exports = {
     ctx.redirect('/userController/login');
   },
   async loginPage(ctx){
-    const title = 'SecondHand';
+    const title = '多赞二手商城';
     await ctx.render('index/loginPage.ejs', {
       title,
     })
@@ -148,7 +146,7 @@ module.exports = {
   async forgetPass(ctx){
     let result = {
       code: 0,
-      msg: 'reset password success'
+      msg: '重置密码成功'
     };
     try{
       let data = ctx.request.body,
@@ -159,6 +157,7 @@ module.exports = {
       if(checkIdCode == -2){
         throw new CustomError('请选择发送邮箱验证码');
       }
+
       if(checkIdCode == -1){
         throw new CustomError('验证码已过期');
       }
@@ -167,6 +166,8 @@ module.exports = {
       if(resetRe.affectedRows < 0){
         throw new CustomError('修改密码失败');
       }
+
+
     }catch(e){
       result.code = -1;
       if(e.name == 'CustomError'){
@@ -206,17 +207,18 @@ module.exports = {
     let data = ctx.request.body,
         username = data.username,
         phone = data.phone,
+        avatar = data.avatar,
         qq = data.qq;
     let session = common.getSession(ctx);
     if(session !== false){
-      let updateRe = await indexService.updateUserInfo(session.email, username, phone, qq);
+      let updateRe = await indexService.updateUserInfo(session.email, username, phone, qq, avatar);
     }else{
       result.code = -1;
     }
     ctx.body = result;
   },
   async userCenter(ctx){
-    const title = 'SecondHand';
+    const title = '多赞二手商城';
     let session = common.getSession(ctx);
     let username = '';
     if(session !== false){

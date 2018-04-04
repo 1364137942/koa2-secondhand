@@ -1,10 +1,8 @@
-const indexService = require('./../../services/indexService');
 const commonFunction = require('../../common/commonFunction');
-const {CustomError} = require('../../utils/Error');
 const common = require('../../controllers/index/common');
 module.exports = {
   async index(ctx){
-    const title = '主页';
+    const title = '多赞二手商城';
     let session = common.getSession(ctx);
     let username = '';
     if(session !== false){

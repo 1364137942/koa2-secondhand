@@ -2,7 +2,7 @@ const adminService = require('./../../services/adminService');
 
 module.exports = {
   async getWants(ctx){
-    const title = '求购管理';
+    const title = '多赞管理台';
     const user = ctx.session.username;
     const goodType = JSON.stringify([{
         'FKey': 'all',

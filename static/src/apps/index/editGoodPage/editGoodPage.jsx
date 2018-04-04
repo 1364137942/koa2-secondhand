@@ -166,7 +166,7 @@ class App extends React.Component {
   checkNumber(rule, value, callback){
     const pattern = /^(0{1}.{1}(([1-9]{1}\d{0,1})|(\d{1}[1-9]{1})))$|^([1-9]{1}\d*.{0,1}\d{0,2})$/;
     if (pattern.test(value) === false) {
-      callback('请输入正确数字！')
+      callback('请输入正确的价格，最多两位小数！')
     }
     callback()
   }

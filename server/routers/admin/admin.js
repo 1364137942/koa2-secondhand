@@ -7,10 +7,7 @@ const admin = require('../../controllers/admin/adminController');
 const common = require('../../controllers/admin/common');
 
 module.exports = router
-  .get( '/',common.checkLogin, admin.indexPage )
-  .get( '/indexPage',common.checkLogin, admin.indexPage )
   .get('/loginPage', admin.loginPage)
   .get('/logOut', admin.logOut)
-  .get('/test', admin.test)
   .post('/uploadFile', admin.uploadFile)
   .post('/login', admin.login);

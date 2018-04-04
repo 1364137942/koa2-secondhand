@@ -4,7 +4,7 @@ const {CustomError} = require('../../utils/Error');
 const common = require('../../controllers/index/common');
 module.exports = {
   async index(ctx){
-    const title = '求购商品页';
+    const title = '多赞二手商城';
     let session = common.getSession(ctx);
     let username = '';
     if(session !== false){
@@ -16,7 +16,7 @@ module.exports = {
     });
   },
   async wantDetail(ctx){
-    const title = 'SecondHand';
+    const title = '多赞二手商城';
     let wantID = ctx.query.wantID;
     let session = common.getSession(ctx);
     let username = '';
@@ -138,7 +138,7 @@ module.exports = {
     ctx.body = result;
   },
   async editWant(ctx){
-    const title = 'SecondHand';
+    const title = '多赞二手商城';
     const wantID = ctx.query.wantID ? ctx.query.wantID : '';
     const goodType = JSON.stringify(await indexService.getGoodType());
     let session = common.getSession(ctx);

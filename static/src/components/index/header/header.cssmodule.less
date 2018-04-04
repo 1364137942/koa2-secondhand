@@ -11,7 +11,7 @@
 .headerTop {
   position: relative;
   width: @mainWidth;
-  margin: 20px auto 0;
+  margin: 0 auto;
   height: 90px;
   & .logo {
     float: left;
@@ -19,6 +19,7 @@
 }
 .searchBox {
   position: relative;
+  left: 100px;
   width: 418px;
   height: 34px;
   border: 2px solid #f22f4a;
@@ -137,78 +138,15 @@
   }
 }
 
-
-
-/*
-header .top-nav {
-  display: inline-block;
-  vertical-align: bottom;
+.bottomLogo{
+  background: #f8f8f8;
+  height: 48px;
+  line-height: 48px;
+  & > div{
+    width: @mainWidth;
+    margin: 0 auto;
+  }
+  & .bottomLogoImg{
+    transform: scale(.7);
+  }
 }
-
-header .top-nav a {
-  position: relative;
-  float: left;
-  display: inline-block;
-  padding: 0 20px;
-  font-size: 14px;
-  -webkit-transition: all ease .3s;
-  transition: all ease .3s;
-}
-
-header .top-nav a.on {
-  background-color: #fff;
-  color: #f12f4a;
-  font-weight: bold;
-}
-
-header .top-nav a.hot::after {
-  position: absolute;
-  top: 7px;
-  right: 2px;
-  content: "";
-  width: 22px;
-  height: 12px;
-  !*background: url("../img/spritesheet.png");*!
-  background-position: -0px -18px;
-  background-size: 100% 100%;
-}
-
-header .top-nav a:hover {
-  color: #f12f4a;
-  background-color: #fff;
-}
-
-header nav {
-  display: inline-block;
-  vertical-align: bottom;
-}
-
-header nav a {
-  position: relative;
-  float: left;
-  display: inline-block;
-  padding: 9px 25px;
-  font-size: 14px;
-  transition: all ease .3s;
-}
-
-header nav a.on {
-  background-color: #24292f;
-  color: #fff;
-}
-
-header nav a.hot::after {
-  position: absolute;
-  top: 7px;
-  right: 2px;
-  content: "";
-  width: 22px;
-  height: 12px;
-  !*background: url("../img/spritesheet.png");*!
-  background-size: 100% 100%;
-}
-
-header nav a:hover {
-  color: #8b8f91;
-}*/
-

@@ -2,7 +2,7 @@ import React from 'react'
 import '../../../utils/css/base.css'
 import '../../../utils/css/icon.css'
 import styles from './header.cssmodule.less'
-
+import logo from '../../../utils/img/logo_big.png';
 class HeaderComponent extends React.Component {
   constructor(props){
     super(props);
@@ -26,8 +26,8 @@ class HeaderComponent extends React.Component {
         <div className={styles.headerTop + " clearfix"} style={this.props.isShowSearch ? {'display':'block'} : {'display':'none'}}>
           <div className={styles.logo}>
             <h1>
-              <a href=".">
-                <img src="/img/logo.jpg" alt="海纳百物•只有精选"/>
+              <a href="/indexController/index">
+                <img src={logo}  alt="多赞二手商城"/>
               </a>
             </h1>
           </div>
@@ -67,6 +67,13 @@ class HeaderComponent extends React.Component {
               <li>|</li>
               <li><a href="/userController/logOut">注销</a></li>
             </ul>
+          </div>
+        </div>
+        <div className={styles.bottomLogo} style={this.props.isShowSearch ? {'display':'none'} : {'display':'block'}}>
+          <div>
+            <a href="/indexController/index">
+              <img src={logo} className={styles.bottomLogoImg} alt="多赞二手商城"/>
+            </a>
           </div>
         </div>
       </header>

@@ -71,3 +71,11 @@ p {
     text-align: center;
     color: #666;
 }
+.disabledBtn{
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+}
+.disabledBtn:hover{
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+}

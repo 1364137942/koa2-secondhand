@@ -11,7 +11,7 @@ const wantsModel = {
        where 1 = 1`;
     _sql += await this.getWantsCon(FGoodName, FType);
     if(page !== "" && eachPageNum !== ""){
-      _sql += ` order by ${table}.FWantID desc limit ${page}, ${eachPageNum} `;
+      _sql += ` order by ${table}.FSaleDate desc limit ${page}, ${eachPageNum} `;
     }
     let result = await dbUtils.query( _sql );
     if ( Array.isArray(result) && result.length > 0 ) {

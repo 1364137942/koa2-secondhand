@@ -2,7 +2,6 @@ import React from 'react'
 import HeaderComponent from '../../../components/index/header/header'
 import 'antd/lib/layout/style/css'
 import '../../../utils/css/login.css';
-import logo from '../../../utils/img/logo_big.png';
 import styles from './register.cssmodule.less'
 import { message } from 'antd'
 
@@ -77,6 +76,13 @@ class App extends React.Component {
               message: 'QQ号必须是数字'
             }
           }
+        },
+        idCode: {
+          validators: {
+            notEmpty: {
+              message: '验证码不能为空'
+            }
+          }
         }
       }
     })
@@ -101,12 +107,8 @@ class App extends React.Component {
     return (
       <div>
         <HeaderComponent isShowSearch={false}/>
-        <section className="clearfix" style={{position: 'relative', top: '36px'}}>
+        <section className="clearfix" style={{position: 'relative', top: '84px'}}>
           <section className={styles.myContainer}>
-            <div className="my-heading">
-              <h1 className="title">多赞</h1>
-              <img src={logo} alt="多赞"/>
-            </div>
             <div className="my-body">
               <form action="javascript:void(0)" method="post" id="registerForm" role="form" noValidate="novalidate">
                 <div className="form-group has-feedback">
@@ -156,7 +158,7 @@ class App extends React.Component {
             </div>
           </section>
           <footer>
-            <p className="copyright">&copy; SecondHand All Rights Reserved.</p>
+            <p className="copyright">&copy; 多赞 All Rights Reserved.</p>
           </footer>
         </section>
 

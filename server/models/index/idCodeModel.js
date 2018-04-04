@@ -1,7 +1,7 @@
 const dbUtils = require('../../utils/db-util');
 
 
-const table = 't_idCode';
+const table = 't_idcode';
 
 const idCodeModel = {
   /**

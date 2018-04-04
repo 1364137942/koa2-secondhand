@@ -3,7 +3,7 @@ const adminService = require('./../../services/adminService');
 module.exports = {
 
   async getUser(ctx){
-    const title = '用户管理';
+    const title = '多赞管理台';
     const user = ctx.session.username;
     await ctx.render('admin/userManage.ejs', {
       title,

@@ -131,9 +131,10 @@ class App extends React.Component {
             actions={[<Icon onClick={this.selected.bind(this, item.FGoodID)} type={icon}/>]}
             style={this.state.selectedGoods.indexOf(item.FGoodID) > -1 ? {border: '1px solid #1890ff'} : {}}
           >
-            <h3>{item.FGoodName.length > 12 ? item.FGoodName.substring(0,11)+'...' : item.FGoodName}</h3>
+            {/*<h3 title={item.FGoodName}>{item.FGoodName.length > 8 ? item.FGoodName.substring(0,7)+'...' : item.FGoodName}</h3>*/}
+            <h3 title={item.FGoodName} className={styles.ellipsis}>{item.FGoodName}</h3>
             <ul className={styles.detailBox}>
-              <li>用户：{item.FEmail.length > 12 ? item.FEmail.substring(0,11)+'...' : item.FEmail }</li>
+              <li title={item.FEmail}>用户：{item.FEmail.length > 12 ? item.FEmail.substring(0,11)+'...' : item.FEmail }</li>
               <li>价格：{item.FPrice}</li>
               <li>类型：{item.FTypeName}</li>
               <li>状态：{item.status}</li>

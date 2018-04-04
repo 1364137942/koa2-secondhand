@@ -7,7 +7,6 @@ module.exports = router
   .post( '/addGood',common.checkLoginApi, goodController.addGood )
   .get( '/goodDetail', goodController.goodDetail )
   .post( '/getGoodDetail', goodController.getGoodDetail )
-  .get( '/test', goodController.test )
   .get( '/getHotGoods', goodController.getHotGoods )
   .post( '/getGoodsList', goodController.getGoodsList )
   .post( '/modifyGood',common.checkLoginApi, goodController.modifyGood )

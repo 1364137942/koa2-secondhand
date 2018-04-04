@@ -39,6 +39,7 @@ class HeaderComponent extends React.Component {
           <Menu.Item key="userManage"><a href="/userManage/getUser">用户管理</a></Menu.Item>
           <Menu.Item key="goodsManage"><a href="/goodsManage/getGoods">商品管理</a></Menu.Item>
           <Menu.Item key="wantsManage"><a href="/wantsManage/getWants">求购管理</a></Menu.Item>
+          <Menu.Item key="remarkManage"><a href="/remarkManage/getRemark">评论管理</a></Menu.Item>
         </Menu>
 
         <div className={ this.state.isShowUser === true ? styles.admin : styles.hidden}>

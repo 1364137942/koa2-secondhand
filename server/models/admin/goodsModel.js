@@ -70,6 +70,10 @@ const goodsModel = {
     let _sql = `update ${table} set FEnable = 1 where FGoodID in(${FGoodsID})`;
     return await dbUtils.query( _sql );
   },
+  async getShouldDownGoods(){
+    let _sql = `select　FGoodID, FEmail, FGoodName from ${table} where FOutDate <= now() and FStatus = 1 and FEnable = 1`;
+    return await dbUtils.query( _sql );
+  }
 };
 
 

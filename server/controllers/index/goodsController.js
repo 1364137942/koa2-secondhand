@@ -3,15 +3,6 @@ const commonFunction = require('../../common/commonFunction');
 const {CustomError} = require('../../utils/Error');
 const common = require('../../controllers/index/common');
 module.exports = {
-  async test(ctx){
-    let result = {
-      code: 0,
-      data: [],
-      count: 0
-    };
-    await indexService.test();
-    ctx.body = result;
-  },
   async getGoodsList(ctx){
     let result = {
       code: 0,
@@ -34,6 +25,7 @@ module.exports = {
     result.count = promiseData[1];
     ctx.body = result;
   },
+
   async getUserGoodList(ctx){
     let result = {
       code: 0,
@@ -137,7 +129,7 @@ module.exports = {
     ctx.body = result;
   },
   async editGood(ctx){
-    const title = '编辑商品';
+    const title = '多赞二手商城';
     const goodID = ctx.query.goodID ? ctx.query.goodID : '';
     const goodType = JSON.stringify(await indexService.getGoodType());
     let session = common.getSession(ctx);
@@ -173,7 +165,7 @@ module.exports = {
       //封面可选择不传，默认显示网站套图
       //todo
       if(imageUrl === ''){
-        imageUrl = '';
+        imageUrl = '/image/defaultImg.png';
       }
       let addRe = await indexService.addGood(email, goodName, goodTpe, saleDate, price, imageUrl, desc, now, old);
     }else{
@@ -218,7 +210,7 @@ module.exports = {
     ctx.body = result;
   },
   async goodDetail(ctx){
-    const title = '商品详情';
+    const title = '多赞二手商城';
     let goodID = ctx.query.goodID;
     let session = common.getSession(ctx);
     let username = '';

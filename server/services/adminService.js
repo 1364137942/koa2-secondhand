@@ -6,8 +6,8 @@ const adminModel = require('../models/admin/adminModel');
 const userModel = require('../models/admin/userModel');
 const wantsModel = require('../models/admin/wantsModel');
 const goodsModel = require('../models/admin/goodsModel');
-const noticeModel = require('../models/admin/noticeModel');
 const goodTypeModel = require('../models/admin/goodTypeModel');
+const remarkModel = require('../models/admin/remarkModel');
 const adminCode = require('./../codes/admin');
 const {getNowFormatDate} = require('../common/commonFunction');
 
@@ -98,12 +98,24 @@ const adminService = {
     let re = await wantsModel.onWants(wantID);
     return true;
   },
-  async sendNotice(email, title, content){
-    let now = await getNowFormatDate();
-    return await noticeModel.addNotice(email, title, content, now);
+  async getShouldDownGoods(){
+    return await goodsModel.getShouldDownGoods();
   },
-  async getAllNotice(){
-    return await noticeModel.getAllNotice();
+  async getShouldDownWants(){
+    return await wantsModel.getShouldDownWants();
+  },
+
+  async getRemarkList(username, type, status, page, eachPageNum){
+    return await remarkModel.getRemarkList(username, type, status, page, eachPageNum)
+  },
+  async getRemarkListCount(username, type, status){
+    return await remarkModel.getRemarkListCount(username, type, status)
+  },
+  async enabledRemark(remarkID){
+    return remarkModel.enabledRemark(remarkID);
+  },
+  async disabledRemark(remarkID){
+    return remarkModel.disabledRemark(remarkID);
   }
 
 

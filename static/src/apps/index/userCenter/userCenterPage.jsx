@@ -6,8 +6,20 @@ import styles from './userCenterPage.cssmodule.less'
 import PageComponent from '../../../components/common/page'
 import HeaderComponent from '../../../components/index/header/header'
 import AsideComponent from '../../../components/index/aside/aside'
-import { Layout, Menu, Breadcrumb, Tabs, Form, Icon, Input, Button, message, Upload } from 'antd'
+import { Form, Icon, Input, Button, message, Upload } from 'antd'
 const FormItem = Form.Item;
+function beforeUpload(file) {
+  const allowType = ['image/png', 'image/jpeg'];
+  let isAllowType = (allowType.indexOf(file.type) > -1)
+  if (!isAllowType) {
+    message.error('只能上传jpeg和png格式文件');
+  }
+  const isLt3M = file.size / 1024 / 1024 < 3;
+  if (!isLt3M) {
+    message.error('图片大小需要小于3m');
+  }
+  return isAllowType && isLt3M;
+}
 class App extends React.Component {
   constructor(props, context){
     super(props, context);
@@ -229,6 +241,7 @@ class App extends React.Component {
       postData.username = values.userName;
       postData.phone = values.phone;
       postData.qq = values.qq;
+      postData.avatar = this.state.userInfo.FAvatar;
 
       let result = await Request.post({
         url: '/userController/modifyUserInfo',
@@ -237,7 +250,7 @@ class App extends React.Component {
       if(result.code === 0){
         message.success( '修改信息成功！' )
       }else{
-        message.error( '用户名或密码错误！' )
+        message.error( result.msg )
       }
     } else {
       message.error( '系统繁忙，稍后再试！' )
@@ -255,6 +268,21 @@ class App extends React.Component {
       })
     })
   }
+  async handleChange(info){
+    if (info.file.status === 'uploading') {
+      this.setState({loading: true});
+      return;
+    }
+    if (info.file.status === 'done') {
+      this.setState({
+        userInfo: {
+          ...this.state.userInfo,
+          FAvatar: info.file.response.data[0]
+        },
+        loading: false,
+      });
+    }
+  }
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -268,10 +296,16 @@ class App extends React.Component {
     }
     let phoneReg = new RegExp('^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$');
     let numberReg = new RegExp('^\\d{1,}$');
+    const uploadButton = (
+      <div>
+        <Icon type={this.state.loading ? 'loading' : 'plus'} />
+        <div className="ant-upload-text">Upload</div>
+      </div>
+    );
     return (
       <div>
         <HeaderComponent isShowSearch={false}/>
-        <section className="wrap clearfix" style={{position: 'relative', top: '48px'}}>
+        <section className="wrap clearfix" style={{position: 'relative', top: '96px'}}>
           <div className={styles.mainList}>
             <div className={styles.sideBar}>
                 <ul>
@@ -288,6 +322,22 @@ class App extends React.Component {
                   <li>学院：{this.state.userInfo.FAcademy}</li>
                 </ul>
                 <Form onSubmit={(e) => this.handleSubmit(e)} className={styles.extendUserInfo}>
+                  <FormItem
+                    {...formItemLayout}
+                    label="用户头像："
+                  >
+                    <Upload
+                      name="avatar"
+                      listType="picture-card"
+                      className="avatar-uploader"
+                      showUploadList={false}
+                      action="/admin/uploadFile"
+                      beforeUpload={beforeUpload}
+                      onChange={this.handleChange.bind(this)}
+                    >
+                      {this.state.userInfo.FAvatar ? <img src={this.state.userInfo.FAvatar} alt="" style={{width: '200px', height: '200px'}}/> : uploadButton}
+                    </Upload>
+                  </FormItem>
                   <FormItem
                     {...formItemLayout}
                     label="用户昵称："

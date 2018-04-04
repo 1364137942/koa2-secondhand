@@ -13,14 +13,30 @@ module.exports = {
       msg: adminCode.FAIL_USER_NO_LOGIN,
     };
     let session = ctx.session
-    if( session && session.isLogin === true  ) {
+    if( session && session.isLogin === true && session.username === 'admin' && !session.email) {
       result.msg = 'admin login success';
       result.code = 0;
     }
-    return next();
 
-    // if(result.code === -1){
-    //     ctx.redirect('/admin/loginPage');
-    // }
+    if(result.code === -1){
+        ctx.redirect('/admin/loginPage');
+    }
+    return next();
+  },
+  checkLoginApi(ctx, next) {
+    let result = {
+      code: -1,
+      msg: adminCode.FAIL_USER_NO_LOGIN,
+    };
+    let session = ctx.session
+    if( session && session.isLogin === true && session.username === 'admin' && !session.email) {
+      result.msg = 'admin login success';
+      result.code = 0;
+    }
+
+    if(result.code === -1){
+      ctx.body = result;
+    }
+    return next();
   }
 };

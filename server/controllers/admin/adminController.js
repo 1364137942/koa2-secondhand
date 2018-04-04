@@ -11,12 +11,6 @@ const os = require('os');
 const fs = require('fs');
 const Busboy = require('busboy');
 module.exports = {
-  async test ( ctx ) {
-    const title = 'admin page';
-    await ctx.render('admin/test.ejs', {
-      title,
-    });
-  },
   async uploadFile(ctx){
     let serverFilePath = path.join(process.cwd(), 'static/image' )
     result = await uploadFile( ctx, {
@@ -26,17 +20,10 @@ module.exports = {
     console.log(result);
     ctx.body = result
   },
-  async indexPage ( ctx ) {
-    let user = await login('20141002496', '230639');
-    console.log(user);
-    const title = 'admin page';
-    await ctx.render('admin.ejs', {
-      title,
-    });
-  },
+
   //后台管理员登录界面
   async loginPage ( ctx ) {
-    const title = '管理员登录';
+    const title = '多赞管理台';
     await ctx.render('admin/adminLogin.ejs', {
       title,
     })

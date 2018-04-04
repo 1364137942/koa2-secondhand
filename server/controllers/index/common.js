@@ -27,7 +27,6 @@ module.exports = {
       msg: '请先登录',
     };
     let session = ctx.session;
-    return next();
     if( session && session.isLogin === true) {
       result.msg = ' login success';
       result.code = 0;
@@ -40,8 +39,6 @@ module.exports = {
   },
   getSession(ctx){
     let session = ctx.session;
-    // session.email = '123';
-    // return session;
     if( session && session.isLogin === true) {
       return session;
     }else{

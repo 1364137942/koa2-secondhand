@@ -12,7 +12,7 @@ const goodsModel = {
     _sql += await this.getGoodsCon(FGoodName, FType);
 
     if(page !== "" && eachPageNum !== ""){
-      _sql += ` order by ${table}.FGoodID desc limit ${page}, ${eachPageNum} `;
+      _sql += ` order by ${table}.FSaleDate desc limit ${page}, ${eachPageNum} `;
     }
     let result = await dbUtils.query( _sql );
     if ( Array.isArray(result) && result.length > 0 ) {
@@ -110,9 +110,6 @@ const goodsModel = {
     let FOutDate = await dbUtils.query(`select DATE_FORMAT(date_add(curdate(),interval ${saleDate} day), '%Y-%m-%d') as date`);
     let _sql = `update ${table} set FEmail='${email}', FGoodName='${goodName}', FGoodImg='${imageUrl}',FType='${goodType}', FPrice='${price}',FDesc='${desc}',FSaleDate='${now}',FOutDate='${FOutDate[0].date}',FOld='${old}' where FGoodID = '${goodID}' limit 1`;
     return await dbUtils.query(_sql);
-  },
-  async test(){
-    let FOutDate = await dbUtils.query(`select date_add(curdate(),interval 2 day) as date`);
   },
   async getGoodDetail(FGoodID){
     let _sql = `select FGoodID,FGoodName,FGoodImg,FPrice,FType,FDesc,datediff(FOutDate, FSaleDate)  as FSaleDay ,DATE_FORMAT(FOutDate,'%Y-%m-%d') as FOutDate,FClick,FOld from ${table} where FGoodID = ${FGoodID} and FEnable = 1 and FStatus = 1 limit 1`;

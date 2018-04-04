@@ -7,7 +7,8 @@ const userModel = require('../models/index/userModel');
 const goodsModel = require('../models/index/goodsModel');
 const goodTypeModel = require('../models/index/goodTypeModel');
 const wantsModel = require('../models/index/wantsModel');
-const readNoticeModel = require('../models/index/readNoticeModel');
+// const readNoticeModel = require('../models/index/readNoticeModel');
+const remarkModel = require('../models/index/remarkModel');
 
 
 const indexService = {
@@ -71,8 +72,8 @@ const indexService = {
     return await userModel.getUserInfo(FEmail);
   },
 
-  async updateUserInfo(FEmail, FUsername, FPhone, FQQ){
-    return await userModel.updateUserInfo(FEmail, FUsername, FPhone, FQQ)
+  async updateUserInfo(FEmail, FUsername, FPhone, FQQ, FAvatar){
+    return await userModel.updateUserInfo(FEmail, FUsername, FPhone, FQQ, FAvatar)
   },
 
   //用户商品管理
@@ -192,6 +193,15 @@ const indexService = {
   async modifyWant(wantID, email, goodName, goodType, saleDate, desc, now, old){
     return await wantsModel.modifyWant(wantID, email, goodName, goodType, saleDate, desc, now, old);
   },
+  async getRemarkList(page, eachPageNum, isShowContactInfo, itemID){
+    return await remarkModel.getRemarkList(page, eachPageNum, isShowContactInfo, itemID);
+  },
+  async getRemarkListCount(itemID){
+    return await remarkModel.getRemarkListCount(itemID);
+  },
+  async addRemark(email, price, itemID, remark, now){
+    return await remarkModel.addRemark(email, price, itemID, remark, now);
+  }
 
 };
 

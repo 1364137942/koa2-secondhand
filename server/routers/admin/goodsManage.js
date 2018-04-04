@@ -8,8 +8,8 @@ const common = require('../../controllers/admin/common');
 
 module.exports = router
   .get( '/getGoods',common.checkLogin, goodsManage.getGoods )
-  .post( '/getGoodsList',common.checkLogin, goodsManage.getGoodsList )
-  .post( '/disabledGoods',common.checkLogin, goodsManage.disabledGoods )
-  .post( '/enabledGoods',common.checkLogin, goodsManage.enabledGoods )
-  .post( '/offGoods',common.checkLogin, goodsManage.offGoods )
-  .post( '/onGoods',common.checkLogin, goodsManage.onGoods );
+  .post( '/getGoodsList',common.checkLoginApi, goodsManage.getGoodsList )
+  .post( '/disabledGoods',common.checkLoginApi, goodsManage.disabledGoods )
+  .post( '/enabledGoods',common.checkLoginApi, goodsManage.enabledGoods )
+  .post( '/offGoods',common.checkLoginApi, goodsManage.offGoods )
+  .post( '/onGoods',common.checkLoginApi, goodsManage.onGoods );

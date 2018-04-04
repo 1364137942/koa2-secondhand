@@ -3,7 +3,7 @@ const adminService = require('./../../services/adminService');
 module.exports = {
   //商品管理
   async getGoods(ctx){
-    const title = '商品管理';
+    const title = '多赞管理台';
     const user = ctx.session.username;
     const goodType = JSON.stringify([{
       'FKey': 'all',
