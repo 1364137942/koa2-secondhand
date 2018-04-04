@@ -7,3 +7,4 @@ server/logs/*/
 npm-debug.log
 npm-debug.log.*
 config.js
+static/image/img/

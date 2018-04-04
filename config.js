@@ -6,7 +6,7 @@ const config = {
     DATABASE: 'secondhand',
     // DATABASE: 'workflow',
     USERNAME: 'root',
-    PASSWORD: '',
+    PASSWORD: 'ali',
     PORT: '3306',
     HOST: 'localhost'
   }

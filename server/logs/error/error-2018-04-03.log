@@ -1,0 +1,155 @@
+[2018-04-03T13:54:28.100] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /userController/modifyUserInfo
+request client ip:  ::1
+request body: 
+{"username":"alizjli","phone":"18826101762","qq":"18826101762"}
+response time: 1
+err name: ReferenceError
+err message: FAvatar is not defined
+err stack: ReferenceError: FAvatar is not defined
+    at Object.updateUserInfo (/var/www/html/koa2/koa2-secondhand.git/trunk/server/models/index/userModel.js:48:116)
+    at Object.updateUserInfo (/var/www/html/koa2/koa2-secondhand.git/trunk/server/services/indexService.js:75:28)
+    at modifyUserInfo (/var/www/html/koa2/koa2-secondhand.git/trunk/server/controllers/index/userController.js:213:41)
+    at dispatch (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at checkLoginApi (/var/www/html/koa2/koa2-secondhand.git/trunk/server/controllers/index/common.js:31:12)
+    at dispatch (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at next (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-router/node_modules/koa-compose/index.js:45:18)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-router/lib/router.js:345:16
+    at dispatch (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-router/node_modules/koa-compose/index.js:44:32)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-router/node_modules/koa-compose/index.js:36:12
+    at dispatch (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-router/lib/router.js:350:31)
+    at dispatch (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-compose/index.js:42:32)
+    at next (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-compose/index.js:43:18)
+    at views (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-views/lib/index.js:25:28)
+    at dispatch (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-compose/index.js:42:32)
+    at next (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-compose/index.js:43:18)
+    at serve (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-static/index.js:47:14)
+    at dispatch (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-compose/index.js:42:32)
+    at next (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-compose/index.js:43:18)
+    at parseBody.then.body (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/koa-bodyparser/index.js:74:14)
+    at <anonymous>
+*************** error log end ***************
+
+[2018-04-03T16:11:11.056] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /remarkController/gerRemarkList
+request client ip:  ::1
+request body: 
+{"page":1,"eachPageNum":20,"itemType":"good","itemID":1}
+response time: 38
+err name: Error
+err message: Error: ER_BAD_FIELD_ERROR: Unknown column 'G1' in 'where clause'
+err stack: Error: Error: ER_BAD_FIELD_ERROR: Unknown column 'G1' in 'where clause'
+    at gerRemarkList (/var/www/html/koa2/koa2-secondhand.git/trunk/server/controllers/index/remarkController.js:56:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:160:7)
+*************** error log end ***************
+
+[2018-04-03T17:02:21.439] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /remarkController/gerRemarkList
+request client ip:  ::1
+request body: 
+{"page":1,"eachPageNum":20,"itemType":"good","itemID":1}
+response time: 32
+err name: Error
+err message: Error: ER_BAD_FIELD_ERROR: Unknown column 't_remark.FGoodID' in 'order clause'
+err stack: Error: Error: ER_BAD_FIELD_ERROR: Unknown column 't_remark.FGoodID' in 'order clause'
+    at gerRemarkList (/var/www/html/koa2/koa2-secondhand.git/trunk/server/controllers/index/remarkController.js:56:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:160:7)
+*************** error log end ***************
+
+[2018-04-03T17:21:50.620] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /remarkController/gerRemarkList
+request client ip:  ::1
+request body: 
+{"page":1,"eachPageNum":20,"itemType":"good","itemID":"1"}
+response time: 2
+err name: Error
+err message: TypeError: Cannot read property 'FEmail' of undefined
+err stack: Error: TypeError: Cannot read property 'FEmail' of undefined
+    at gerRemarkList (/var/www/html/koa2/koa2-secondhand.git/trunk/server/controllers/index/remarkController.js:54:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:160:7)
+*************** error log end ***************
+
+[2018-04-03T19:54:27.393] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /remarkController/gerRemarkList
+request client ip:  ::1
+request body: 
+{"page":0,"eachPageNum":5,"itemType":"good","itemID":"95"}
+response time: 3
+err name: Error
+err message: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-5, 5' at line 2
+err stack: Error: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-5, 5' at line 2
+    at gerRemarkList (/var/www/html/koa2/koa2-secondhand.git/trunk/server/controllers/index/remarkController.js:53:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:160:7)
+*************** error log end ***************
+
+[2018-04-03T19:56:06.086] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /goodsController/getGoodsList
+request client ip:  ::1
+request body: 
+{"page":1,"eachPageNum":20,"searchGoodName":"","searchType":"all"}
+response time: 51
+err name: Error
+err message: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc limit 0, 20' at line 3
+err stack: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc limit 0, 20' at line 3
+    at Query.Sequence._packetToError (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+    --------------------
+    at Protocol._enqueue (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:145:48)
+    at PoolConnection.query (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:208:25)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/server/utils/db-util.js:19:20
+    at Handshake.onConnect [as _callback] (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.Sequence.end (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:88:24)
+    at Handshake.Sequence.OkPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:97:8)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+*************** error log end ***************
+
+[2018-04-03T19:59:55.852] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /remarkController/gerRemarkList
+request client ip:  ::1
+request body: 
+{"page":0,"eachPageNum":5,"itemType":"good","itemID":"95"}
+response time: 6
+err name: Error
+err message: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-5, 5' at line 2
+err stack: Error: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-5, 5' at line 2
+    at gerRemarkList (/var/www/html/koa2/koa2-secondhand.git/trunk/server/controllers/index/remarkController.js:53:15)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:160:7)
+*************** error log end ***************
+

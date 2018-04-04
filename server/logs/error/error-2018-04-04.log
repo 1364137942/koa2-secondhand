@@ -1,0 +1,280 @@
+[2018-04-04T15:11:43.195] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /remarkManage/getRemark
+request client ip:  ::1
+request query:  {}
+response time: 37
+err name: ReferenceError
+err message: /var/www/html/koa2/koa2-secondhand.git/trunk/server/views/admin/remarkManage.ejs:44
+    42| <body>
+    43| <div id="app"></div>
+ >> 44| <input id="sessionUser" type="text" value="<%= user %>" style="display: none;">
+    45| <input id="goodType" type="text" value="<%= goodType %>" style="display: none;">
+    46| <script src="<%= static['vendor.js'] %>"></script>
+    47| <script src="<%= static['remarkManagePage.js'] %>"></script>
+
+user is not defined
+err stack: ReferenceError: /var/www/html/koa2/koa2-secondhand.git/trunk/server/views/admin/remarkManage.ejs:44
+    42| <body>
+    43| <div id="app"></div>
+ >> 44| <input id="sessionUser" type="text" value="<%= user %>" style="display: none;">
+    45| <input id="goodType" type="text" value="<%= goodType %>" style="display: none;">
+    46| <script src="<%= static['vendor.js'] %>"></script>
+    47| <script src="<%= static['remarkManagePage.js'] %>"></script>
+
+user is not defined
+    at eval (eval at compile (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/ejs/lib/ejs.js:549:12), <anonymous>:17:26)
+    at returnedFn (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/ejs/lib/ejs.js:580:17)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:503:16
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/bluebird/js/release/debuggability.js:303:9)
+    at Promise._resolveFromExecutor (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:137:10)
+    at Function.exports.ejs.render (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:499:10)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:165:27
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:99:5
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:528:3)
+*************** error log end ***************
+
+[2018-04-04T15:12:29.570] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /remarkManage/getRemark
+request client ip:  ::1
+request query:  {}
+response time: 15
+err name: ReferenceError
+err message: /var/www/html/koa2/koa2-secondhand.git/trunk/server/views/admin/remarkManage.ejs:45
+    43| <div id="app"></div>
+    44| <input id="sessionUser" type="text" value="<%= user %>" style="display: none;">
+ >> 45| <input id="goodType" type="text" value="<%= goodType %>" style="display: none;">
+    46| <script src="<%= static['vendor.js'] %>"></script>
+    47| <script src="<%= static['remarkManagePage.js'] %>"></script>
+    48| </body>
+
+goodType is not defined
+err stack: ReferenceError: /var/www/html/koa2/koa2-secondhand.git/trunk/server/views/admin/remarkManage.ejs:45
+    43| <div id="app"></div>
+    44| <input id="sessionUser" type="text" value="<%= user %>" style="display: none;">
+ >> 45| <input id="goodType" type="text" value="<%= goodType %>" style="display: none;">
+    46| <script src="<%= static['vendor.js'] %>"></script>
+    47| <script src="<%= static['remarkManagePage.js'] %>"></script>
+    48| </body>
+
+goodType is not defined
+    at eval (eval at compile (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/ejs/lib/ejs.js:549:12), <anonymous>:20:26)
+    at returnedFn (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/ejs/lib/ejs.js:580:17)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:503:16
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/bluebird/js/release/debuggability.js:303:9)
+    at Promise._resolveFromExecutor (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:137:10)
+    at Function.exports.ejs.render (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:499:10)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:165:27
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:99:5
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:528:3)
+*************** error log end ***************
+
+[2018-04-04T15:12:31.758] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: GET
+request originalUrl:  /remarkManage/getRemark
+request client ip:  ::1
+request query:  {}
+response time: 2
+err name: ReferenceError
+err message: /var/www/html/koa2/koa2-secondhand.git/trunk/server/views/admin/remarkManage.ejs:45
+    43| <div id="app"></div>
+    44| <input id="sessionUser" type="text" value="<%= user %>" style="display: none;">
+ >> 45| <input id="goodType" type="text" value="<%= goodType %>" style="display: none;">
+    46| <script src="<%= static['vendor.js'] %>"></script>
+    47| <script src="<%= static['remarkManagePage.js'] %>"></script>
+    48| </body>
+
+goodType is not defined
+err stack: ReferenceError: /var/www/html/koa2/koa2-secondhand.git/trunk/server/views/admin/remarkManage.ejs:45
+    43| <div id="app"></div>
+    44| <input id="sessionUser" type="text" value="<%= user %>" style="display: none;">
+ >> 45| <input id="goodType" type="text" value="<%= goodType %>" style="display: none;">
+    46| <script src="<%= static['vendor.js'] %>"></script>
+    47| <script src="<%= static['remarkManagePage.js'] %>"></script>
+    48| </body>
+
+goodType is not defined
+    at eval (eval at compile (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/ejs/lib/ejs.js:549:12), <anonymous>:20:26)
+    at returnedFn (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/ejs/lib/ejs.js:580:17)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:503:16
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:144:5
+    at Promise._execute (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/bluebird/js/release/debuggability.js:303:9)
+    at Promise._resolveFromExecutor (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/bluebird/js/release/promise.js:483:18)
+    at new Promise (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/bluebird/js/release/promise.js:79:10)
+    at promisify (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:137:10)
+    at Function.exports.ejs.render (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:499:10)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:165:27
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/consolidate/lib/consolidate.js:99:5
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:528:3)
+*************** error log end ***************
+
+[2018-04-04T16:42:14.029] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /remarkManage/getRemarkList
+request client ip:  ::1
+request body: 
+{"page":1,"eachPageNum":12,"status":"all","type":"all","username":""}
+response time: 39
+err name: Error
+err message: ER_BAD_FIELD_ERROR: Unknown column 't_remark.FGoodID' in 'order clause'
+err stack: Error: ER_BAD_FIELD_ERROR: Unknown column 't_remark.FGoodID' in 'order clause'
+    at Query.Sequence._packetToError (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+    --------------------
+    at Protocol._enqueue (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:145:48)
+    at PoolConnection.query (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:208:25)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/server/utils/db-util.js:19:20
+    at Handshake.onConnect [as _callback] (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.Sequence.end (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:88:24)
+    at Handshake.Sequence.OkPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:97:8)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+*************** error log end ***************
+
+[2018-04-04T16:44:32.840] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /remarkManage/getRemarkList
+request client ip:  ::1
+request body: 
+{"page":1,"eachPageNum":12,"status":"all","type":"good","username":""}
+response time: 32
+err name: Error
+err message: ER_NON_UNIQ_ERROR: Column 'FCreateTime' in field list is ambiguous
+err stack: Error: ER_NON_UNIQ_ERROR: Column 'FCreateTime' in field list is ambiguous
+    at Query.Sequence._packetToError (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+    --------------------
+    at Protocol._enqueue (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:145:48)
+    at PoolConnection.query (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:208:25)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/server/utils/db-util.js:19:20
+    at Handshake.onConnect [as _callback] (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.Sequence.end (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:88:24)
+    at Handshake.Sequence.OkPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:97:8)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+*************** error log end ***************
+
+[2018-04-04T16:45:44.874] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /remarkManage/getRemarkList
+request client ip:  ::1
+request body: 
+{"page":1,"eachPageNum":12,"status":"all","type":"good","username":""}
+response time: 30
+err name: Error
+err message: ER_NON_UNIQ_ERROR: Column 'FCreateTime' in field list is ambiguous
+err stack: Error: ER_NON_UNIQ_ERROR: Column 'FCreateTime' in field list is ambiguous
+    at Query.Sequence._packetToError (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+    --------------------
+    at Protocol._enqueue (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:145:48)
+    at PoolConnection.query (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:208:25)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/server/utils/db-util.js:19:20
+    at Handshake.onConnect [as _callback] (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.Sequence.end (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:88:24)
+    at Handshake.Sequence.OkPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:97:8)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+*************** error log end ***************
+
+[2018-04-04T20:07:55.963] [ERROR] errorLogger - 
+*************** error log start ***************
+request method: POST
+request originalUrl:  /userController/sendIDCode
+request client ip:  ::1
+request body: 
+{"email":"1364137942@qq.com"}
+response time: 21
+err name: Error
+err message: ER_NO_SUCH_TABLE: Table 'secondhand.t_idCode' doesn't exist
+err stack: Error: ER_NO_SUCH_TABLE: Table 'secondhand.t_idCode' doesn't exist
+    at Query.Sequence._packetToError (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:52:14)
+    at Query.ErrorPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Query.js:77:18)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+    --------------------
+    at Protocol._enqueue (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:145:48)
+    at PoolConnection.query (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:208:25)
+    at /var/www/html/koa2/koa2-secondhand.git/trunk/server/utils/db-util.js:19:20
+    at Handshake.onConnect [as _callback] (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Pool.js:64:7)
+    at Handshake.Sequence.end (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:88:24)
+    at Handshake.Sequence.OkPacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/sequences/Sequence.js:97:8)
+    at Protocol._parsePacket (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:279:23)
+    at Parser.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Parser.js:76:12)
+    at Protocol.write (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/protocol/Protocol.js:39:16)
+    at Socket.<anonymous> (/var/www/html/koa2/koa2-secondhand.git/trunk/node_modules/mysql/lib/Connection.js:103:28)
+    at Socket.emit (events.js:160:13)
+    at addChunk (_stream_readable.js:269:12)
+    at readableAddChunk (_stream_readable.js:256:11)
+    at Socket.Readable.push (_stream_readable.js:213:10)
+    at TCP.onread (net.js:599:20)
+*************** error log end ***************
+
